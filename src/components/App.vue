@@ -233,7 +233,7 @@ export default {
 <style lang="stylus" scoped>
 @import "../style/imports"
 
-/*v This is the same as the class span-2*/
+/*v Unnecessary, cause this is the same as the class span-2*/
 /*.wide*/
 /*  grid-column: span 2*/
 

@@ -11,21 +11,21 @@
         Issue Helper
       </a>
 
-      <ul class="nav">
-        <li
-          v-for="(locale, key) in $root.$locales"
-          :key="key"
-          class="nav-item"
-        >
-          <a
-            class="nav-link"
-            :class="{ active: lang === key }"
-            @click="$emit('change-lang', key)"
-          >
-            {{ locale._label }}
-          </a>
-        </li>
-      </ul>
+<!--      <ul class="nav">-->
+<!--        <li-->
+<!--          v-for="(locale, key) in $root.$locales"-->
+<!--          :key="key"-->
+<!--          class="nav-item"-->
+<!--        >-->
+<!--          <a-->
+<!--            class="nav-link"-->
+<!--            :class="{ active: lang === key }"-->
+<!--            @click="$emit('change-lang', key)"-->
+<!--          >-->
+<!--            {{ locale._label }}-->
+<!--          </a>-->
+<!--        </li>-->
+<!--      </ul>-->
     </div>
   </nav>
 </template>
@@ -51,16 +51,24 @@ export default {
     box-center()
 
   .container
+
+    display: flex
+    flex-direction: row
+
     max-width $page-width
     flex 100% 1 1
-    justify-content space-between
+    justify-content center
     padding 24px
     box-sizing border-box
 
   .brand
+    /*border-style: solid*/
     color $vue-ui-color-dark
+    font-size: 20px
+    font-weight bolder
     .logo
-      margin-right 8px
+      margin-right 12px
+      height 48px
 
   .nav
     margin 0
