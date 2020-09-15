@@ -7,7 +7,7 @@
       <FormIntro/>
 
       <div class="common-fields vue-ui-grid col-2 default-gap">
-        <VueFormField
+        <!-- <VueFormField
           :title="i18n('repo-title')"
           :subtitle="i18n('repo-subtitle')"
           class="first-row"
@@ -22,11 +22,11 @@
               :label="option.name"
             />
           </VueSelect>
-        </VueFormField>
+        </VueFormField> -->
 
         <VueFormField
           :title="i18n('type-title')"
-          class="first-row"
+          class="first-row span-2"
         >
           <VueGroup
             v-model="type"
@@ -232,6 +232,10 @@ export default {
 
 <style lang="stylus" scoped>
 @import "../style/imports"
+
+/*v This is the same as the class span-2*/
+/*.wide*/
+/*  grid-column: span 2*/
 
 .container
   max-width $page-width
