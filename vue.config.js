@@ -5,18 +5,18 @@ module.exports = {
 
     // Original
 
-  configureWebpack: {
-    resolve: {
-      symlinks: false
-    }
+  // configureWebpack: {
+  //     resolve: {
+  //       symlinks: false
+  //     }
+  //   },
 
     // From logrocket tutorial / vue deployment tutorial
 
-      publicPath: process.env.NODE_ENV = 'production'
-          ? '/mac-mouse-fix-issue-helper/'
-          : '/'
+  publicPath: process.env.NODE_ENV = 'production'
+      ? '/mac-mouse-fix-issue-helper/'
+      : '/',
 
-  },
 
   chainWebpack: config => {
     config.module
