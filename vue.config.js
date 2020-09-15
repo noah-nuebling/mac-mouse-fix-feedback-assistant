@@ -10,9 +10,11 @@ module.exports = {
       symlinks: false
     }
 
-    // From logrocket tutorial
+    // From logrocket tutorial / vue deployment tutorial
 
-  // publicPath: '/project name/'
+      publicPath: process.env.NODE_ENV = 'production'
+          ? '/mac-mouse-fix-issue-helper/'
+          : '/'
 
   },
 
