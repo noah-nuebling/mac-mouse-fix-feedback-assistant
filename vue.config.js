@@ -2,10 +2,18 @@ const path = require('path')
 const merge = require('deepmerge')
 
 module.exports = {
+
+    // Original
+
   configureWebpack: {
     resolve: {
       symlinks: false
     }
+
+    // From logrocket tutorial
+
+  // publicPath: '/project name/'
+
   },
 
   chainWebpack: config => {
