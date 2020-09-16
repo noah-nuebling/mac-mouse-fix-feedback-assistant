@@ -50,13 +50,13 @@
             v-model="type"
             class="extend mmf-bg"
           >
-            <VueGroupButton
+            <MFGroupButton
               v-for="option of types"
               :key="option.id"
               :value="option.id"
             >
               {{ option.name }}
-            </VueGroupButton>
+            </MFGroupButton>
           </VueGroup>
         </VueFormField>
 
@@ -191,6 +191,7 @@ import FeatureRequest from './FeatureRequest.vue'
 import search from '../mixins/github-search'
 
 import MFButton from './VueUI/MFButton.vue'
+import MFGroupButton from './VueUI/MFGroupButton.vue'
 
 export default {
   name: 'App',
@@ -202,7 +203,8 @@ export default {
     AppHeader,
     BugReport,
     FeatureRequest,
-    MFButton
+    MFButton,
+    MFGroupButton
   },
 
   data () {
