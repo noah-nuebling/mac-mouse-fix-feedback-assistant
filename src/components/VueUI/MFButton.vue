@@ -57,7 +57,7 @@
 </template>
 
 <script>
-    import DisabledChild from '../../node_modules/@vue/ui/src/mixins/DisabledChild'
+    import DisabledChild from '@vue/ui/src/mixins/DisabledChild'
 
     export default {
         name: 'MFButton',
@@ -136,10 +136,10 @@
 
 <style lang="stylus">
     // Base
-    @import "../../node_modules/@vue/ui/src/style/base"
-    @import "../../node_modules/@vue/ui/src/style/imports"
+    @import "../../../node_modules/@vue/ui/src/style/base"
+    @import "../../../node_modules/@vue/ui/src/style/imports"
 
-    @import "../style/vars.styl"
+    @import "../../style/vars.styl"
 
     $focus-color = $vue-ui-color-dark
 

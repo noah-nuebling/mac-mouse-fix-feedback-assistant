@@ -190,7 +190,7 @@ import BugReport from './BugReport.vue'
 import FeatureRequest from './FeatureRequest.vue'
 import search from '../mixins/github-search'
 
-import MFButton from './MFButton.vue'
+import MFButton from './VueUI/MFButton.vue'
 
 export default {
   name: 'App',
@@ -231,9 +231,9 @@ export default {
   },
 
   watch: {
-    repo (value) {
-      if (value) updateQuery({ repo: value.id })
-    },
+//    repo (value) {
+//      if (value) updateQuery({ repo: value.id })
+//    },
 
     type (value) {
       updateQuery({ type: value })

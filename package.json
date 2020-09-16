@@ -12,6 +12,7 @@
     "@vue/ui": "^0.5.2",
     "axios": "^0.18.1",
     "copy-to-clipboard": "^3.0.8",
+    "eslint-plugin-vue": "^6.2.2",
     "marked": "^0.4.0",
     "qs": "^6.5.2",
     "semver": "^5.6.0",
@@ -22,11 +23,12 @@
     "@vue/cli-plugin-eslint": "^3.0.0",
     "@vue/cli-service": "^3.0.0",
     "deepmerge": "^2.1.1",
+    "eslint": "^7.9.0",
+    "execa": "latest",
     "raw-loader": "^0.5.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
-    "vue-template-compiler": "^2.5.16",
-    "execa": "latest"
+    "vue-template-compiler": "^2.5.16"
   },
   "eslintConfig": {
     "root": true,
