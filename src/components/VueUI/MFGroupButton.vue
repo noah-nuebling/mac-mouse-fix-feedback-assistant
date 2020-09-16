@@ -1,6 +1,6 @@
 <template>
   <VueButton
-    class="vue-ui-group-button"
+    class="mf-ui-group-button"
     :class="{
       selected,
       flat: flat && !selected,
@@ -58,7 +58,7 @@ export default {
 <style lang="stylus">
 @import "../../../node_modules/@vue/ui/src/style/imports"
 
-.vue-ui-group-button.vue-ui-button
+.mf-ui-group-button.vue-ui-button
   button-transitions()
   &:not(.selected):not(.flat)
     button-colors($vue-ui-color-dark, $vue-ui-color-light-neutral)
