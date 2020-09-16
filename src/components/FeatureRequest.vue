@@ -1,81 +1,86 @@
 <template>
-  <div class="feature-request">
-    <div class="vue-ui-grid col-1 default-gap">
+    <div class="feature-request">
+        <div class="vue-ui-grid col-1 default-gap">
 
-      <MFFormField
-        :title="i18n('feature-description-title')"
-        >
-        <VueInput
-          class="test"
-          :placeholder="i18n('feature-description-placeholder')"
-          type="textarea"
-          rows="3"
-          v-model="attrs.description"
-          required/>
-<!--        <i18n slot="subtitle" id="feature-description-subtitle"/>-->
-      </MFFormField>
+            <MFFormField
+                    :title="i18n('feature-description-title')"
+            >
+                <VueInput
+                        class="test"
+                        :placeholder="i18n('feature-description-placeholder')"
+                        type="textarea"
+                        rows="3"
+                        v-model="attrs.description"
+                        required/>
+                <!--        <i18n slot="subtitle" id="feature-description-subtitle"/>-->
+            </MFFormField>
 
-      <MFFormField
-        :title="i18n('rationale-title')"
-      >
-        <VueInput
-          :placeholder="i18n('rationale-placeholder')"
-          type="textarea"
-          rows="6"
-          v-model="attrs.rationale"
-          required
-        />
-<!--        <i18n slot="subtitle" id="rationale-subtitle"/>-->
-      </MFFormField>
+            <MFFormField
+                    :title="i18n('rationale-title')"
+            >
+                <VueInput
+                        :placeholder="i18n('rationale-placeholder')"
+                        type="textarea"
+                        rows="6"
+                        v-model="attrs.rationale"
+                        required
+                />
+                <!--        <i18n slot="subtitle" id="rationale-subtitle"/>-->
+            </MFFormField>
 
-<!--      <MFFormField-->
-<!--        :title="i18n('proposal-title')"-->
-<!--      >-->
-<!--        <VueInput-->
-<!--          placeholder="Describe how you propose to solve the problem and provide code samples of how the API would work once implemented. Note that you can use Markdown to format your code blocks."-->
-<!--          type="textarea"-->
-<!--          rows="4"-->
-<!--          v-model="attrs.proposal"-->
-<!--          required-->
-<!--        />-->
-<!--        <i18n slot="subtitle" id="proposal-subtitle"/>-->
-<!--      </MFFormField>-->
+            <!--      <MFFormField-->
+            <!--        :title="i18n('proposal-title')"-->
+            <!--      >-->
+            <!--        <VueInput-->
+            <!--          placeholder="Describe how you propose to solve the problem and provide code samples of how the API would work once implemented. Note that you can use Markdown to format your code blocks."-->
+            <!--          type="textarea"-->
+            <!--          rows="4"-->
+            <!--          v-model="attrs.proposal"-->
+            <!--          required-->
+            <!--        />-->
+            <!--        <i18n slot="subtitle" id="proposal-subtitle"/>-->
+            <!--      </MFFormField>-->
 
-      <MFFormField
-              :title="i18n('additional-info-title')"
-      >
-        <VueInput
-                :placeholder="i18n('additional-info-placeholder-feature')"
-                type="textarea"
-                rows="4"
-                v-model="attrs.additional"
-        />
+            <MFFormField
+                    :title="i18n('additional-info-title')"
+            >
+                <VueInput
+                        :placeholder="i18n('additional-info-placeholder-feature')"
+                        type="textarea"
+                        rows="4"
+                        v-model="attrs.additional"
+                />
 
-      </MFFormField>
+            </MFFormField>
 
+        </div>
     </div>
-  </div>
 </template>
 
 <script>
-import { generate } from '../helpers'
+    import { generate } from '../helpers'
 
-export default {
-  data () {
-    return {
-      attrs: {
-        description: '',
-        rationale: '',
-        additional: ''
-      },
-    }
-  },
+    import MFFormField from "./VueUI/MFFormField";
 
-  methods: {
-    generate () {
-      const { description, rationale, additional } = this.attrs
+    export default {
+        components: {
+            MFFormField,
+        },
+        data () {
+            return {
+                attrs: {
+                    description: '',
+                    rationale: '',
+                    additional: ''
+                },
+            }
+        },
 
-      return generate(`
+        methods: {
+            generate () {
+                const { description, rationale, additional } = this.attrs
+
+                return generate(`
 ### Description
 ${description}
 
@@ -85,14 +90,14 @@ ${rationale}
 ### Additional info
 ${additional}
   `.trim())
+            }
+        }
     }
-  }
-}
 </script>
 
 <style lang="stylus" scoped>
-.test
-  background-color aqua
-  font-weight bolder
-  font-size small
+    .test
+        background-color aqua
+        font-weight bolder
+        font-size small
 </style>

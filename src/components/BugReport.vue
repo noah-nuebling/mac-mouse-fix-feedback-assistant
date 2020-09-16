@@ -150,7 +150,12 @@ import { gt, lt } from 'semver'
 import { generate } from '../helpers'
 import modal from '../mixins/check-modal'
 
+import MFFormField from "./VueUI/MFFormField";
+
 export default {
+  components: {
+    MFFormField
+  },
   props: {
     repo: {
       type: Object,
