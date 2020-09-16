@@ -30,7 +30,7 @@
         >
           <VueGroup
             v-model="type"
-            class="extend"
+            class="extend mmf-bg"
           >
             <VueGroupButton
               v-for="option of types"
@@ -47,6 +47,7 @@
           :title="i18n('title-title')"
         >
           <VueInput
+            placeholder="Enter a brief and clear title that expresses the problem."
             v-model="title"
             required
             autofocus
@@ -233,6 +234,8 @@ export default {
   a
     color $link-color
 
+VueFormField
+  background-color aqua
 </style>
 
 <style lang="stylus" scoped>
@@ -242,11 +245,13 @@ export default {
 /*.wide*/
 /*  grid-column: span 2*/
 
+
 .container
   max-width $page-width
   margin 0 auto
   box-sizing border-box
   padding 0 24px
+  /*background-color aqua*/
 
 .first-row
   margin-bottom 24px
@@ -255,6 +260,7 @@ export default {
   margin-bottom 12px
 
 .form-actions
+  background-color aqua
   h-box()
   box-center()
   margin 24px 0
@@ -262,4 +268,7 @@ export default {
 .app-footer
   text-align center
   margin 24px 0
+
+.mmf-bg
+  background-color aqua
 </style>

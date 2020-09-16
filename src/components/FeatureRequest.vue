@@ -17,6 +17,7 @@
         :title="i18n('proposal-title')"
       >
         <VueInput
+          placeholder="Describe how you propose to solve the problem and provide code samples of how the API would work once implemented. Note that you can use Markdown to format your code blocks."
           type="textarea"
           rows="4"
           v-model="attrs.proposal"
@@ -56,3 +57,7 @@ ${proposal}
   }
 }
 </script>
+
+<style lang="stylus" scoped>
+
+</style>
