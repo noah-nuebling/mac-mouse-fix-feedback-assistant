@@ -64,7 +64,7 @@
           class="span-2"
           :title="i18n('title-title')"
         >
-          <VueInput
+          <MFInput
             v-show="this.type == 'bug-report'"
             :placeholder="i18n('title-placeholder-bug')"
             v-model="title"
@@ -72,7 +72,7 @@
             autofocus
             @blur="findIssues"
           />
-          <VueInput
+          <MFInput
                   v-show="this.type == 'feature-request'"
                   :placeholder="i18n('title-placeholder-feature')"
                   v-model="title"
@@ -128,12 +128,12 @@
 <!--      <MFFormField-->
 <!--              :title="i18n('attachments-title')"-->
 <!--      >-->
-<!--&lt;!&ndash;        <VueInput&ndash;&gt;-->
+<!--&lt;!&ndash;        <MFInput&ndash;&gt;-->
 <!--&lt;!&ndash;        type="file"&ndash;&gt;-->
 <!--&lt;!&ndash;        multiple&ndash;&gt;-->
 <!--&lt;!&ndash;        >&ndash;&gt;-->
 <!--&lt;!&ndash;          WHAT DOES THIS DOOOO&ndash;&gt;-->
-<!--&lt;!&ndash;        </VueInput>&ndash;&gt;-->
+<!--&lt;!&ndash;        </MFInput>&ndash;&gt;-->
 
 <!--        <input type="file" multiple>-->
 
@@ -193,6 +193,7 @@ import search from '../mixins/github-search'
 import MFButton from './VueUI/MFButton.vue'
 import MFGroupButton from './VueUI/MFGroupButton.vue'
 import MFFormField from './VueUI/MFFormField.vue'
+import MFInput from './VueUI/MFInput.vue'
 
 
 export default {
@@ -207,7 +208,8 @@ export default {
     FeatureRequest,
     MFButton,
     MFGroupButton,
-    MFFormField
+    MFFormField,
+    MFInput
   },
 
   data () {

@@ -20,7 +20,7 @@
         v-if="repo.id === 'vuejs/vue-devtools'"
         :title="i18n('browser-and-os-title')"
       >
-        <VueInput
+        <MFInput
           v-model="attrs.browserAndOS"
           required
         />
@@ -36,7 +36,7 @@
           v-if="isCLI && doesNotSupportVueInfo"
           :title="i18n('node-and-os-title')"
         >
-          <VueInput
+          <MFInput
             v-model="attrs.nodeAndOS"
             required
           />
@@ -52,7 +52,7 @@
           :title="i18n('cli-envinfo-title')"
           class="span-2"
         >
-          <VueInput
+          <MFInput
             v-model="attrs.cliEnvInfo"
             type="textarea"
             required
@@ -65,7 +65,7 @@
         </MFFormField>
 
         <MFFormField :title="i18n('repro-title')">
-          <VueInput
+          <MFInput
             type="url"
             v-model="attrs.reproduction"
             :disabled="isCLI && reproNotAvailable"
@@ -88,7 +88,7 @@
         class="span-2"
         :title="i18n('steps-title')"
       >
-        <VueInput
+        <MFInput
           type="textarea"
           rows="4"
           v-model="attrs.steps"
@@ -100,7 +100,7 @@
       <MFFormField
         :title="i18n('expected-title')"
       >
-        <VueInput
+        <MFInput
           type="textarea"
           rows="4"
           v-model="attrs.expected"
@@ -111,7 +111,7 @@
       <MFFormField
         :title="i18n('actual-title')"
       >
-        <VueInput
+        <MFInput
           type="textarea"
           rows="4"
           v-model="attrs.actual"
@@ -124,7 +124,7 @@
         :title="i18n('extra-title')"
         :subtitle="i18n('extra-subtitle')"
       >
-        <VueInput
+        <MFInput
           type="textarea"
           rows="4"
           v-model="attrs.extra"
@@ -151,10 +151,12 @@ import { generate } from '../helpers'
 import modal from '../mixins/check-modal'
 
 import MFFormField from "./VueUI/MFFormField";
+import MFInput from "./VueUI/MFInput";
 
 export default {
   components: {
-    MFFormField
+    MFFormField,
+    MFInput
   },
   props: {
     repo: {
