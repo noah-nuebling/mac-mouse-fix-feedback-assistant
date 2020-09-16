@@ -1,7 +1,7 @@
 <template>
   <div class="bug-report" style="margin:0">
     <div class="vue-ui-grid col-2 default-gap">
-      <VueFormField
+      <MFFormField
         :title="i18n('version-title')"
         :subtitle="i18n('version-subtitle')"
       >
@@ -14,9 +14,9 @@
           restrict-choice
           required
         />
-      </VueFormField>
+      </MFFormField>
 
-      <VueFormField
+      <MFFormField
         v-if="repo.id === 'vuejs/vue-devtools'"
         :title="i18n('browser-and-os-title')"
       >
@@ -29,10 +29,10 @@
           slot="subtitle"
           id="browser-and-os-subtitle"
         />
-      </VueFormField>
+      </MFFormField>
 
       <template v-else>
-        <VueFormField
+        <MFFormField
           v-if="isCLI && doesNotSupportVueInfo"
           :title="i18n('node-and-os-title')"
         >
@@ -45,9 +45,9 @@
             slot="subtitle"
             id="node-and-os-subtitle"
           />
-        </VueFormField>
+        </MFFormField>
 
-        <VueFormField
+        <MFFormField
           v-else-if="isCLI"
           :title="i18n('cli-envinfo-title')"
           class="span-2"
@@ -62,9 +62,9 @@
             slot="subtitle"
             id="cli-envinfo-subtitle"
           />
-        </VueFormField>
+        </MFFormField>
 
-        <VueFormField :title="i18n('repro-title')">
+        <MFFormField :title="i18n('repro-title')">
           <VueInput
             type="url"
             v-model="attrs.reproduction"
@@ -81,10 +81,10 @@
               <i18n id="cli-no-repro"/>
             </VueSwitch>
           </template>
-        </VueFormField>
+        </MFFormField>
       </template>
 
-      <VueFormField
+      <MFFormField
         class="span-2"
         :title="i18n('steps-title')"
       >
@@ -95,9 +95,9 @@
           required
         />
         <i18n slot="subtitle" id="steps-subtitle"/>
-      </VueFormField>
+      </MFFormField>
 
-      <VueFormField
+      <MFFormField
         :title="i18n('expected-title')"
       >
         <VueInput
@@ -106,9 +106,9 @@
           v-model="attrs.expected"
           required
         />
-      </VueFormField>
+      </MFFormField>
 
-      <VueFormField
+      <MFFormField
         :title="i18n('actual-title')"
       >
         <VueInput
@@ -117,9 +117,9 @@
           v-model="attrs.actual"
           required
         />
-      </VueFormField>
+      </MFFormField>
 
-      <VueFormField
+      <MFFormField
         class="span-2"
         :title="i18n('extra-title')"
         :subtitle="i18n('extra-subtitle')"
@@ -129,7 +129,7 @@
           rows="4"
           v-model="attrs.extra"
         />
-      </VueFormField>
+      </MFFormField>
     </div>
 
     <VueModal

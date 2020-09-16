@@ -59,6 +59,9 @@ export default {
 @import "../../../node_modules/@vue/ui/src/style/imports"
 
 .mf-ui-group-button.vue-ui-button
+
+  background aqua
+
   button-transitions()
   &:not(.selected):not(.flat)
     button-colors($vue-ui-color-dark, $vue-ui-color-light-neutral)

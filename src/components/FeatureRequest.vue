@@ -2,7 +2,7 @@
   <div class="feature-request">
     <div class="vue-ui-grid col-1 default-gap">
 
-      <VueFormField
+      <MFFormField
         :title="i18n('feature-description-title')"
         >
         <VueInput
@@ -13,9 +13,9 @@
           v-model="attrs.description"
           required/>
 <!--        <i18n slot="subtitle" id="feature-description-subtitle"/>-->
-      </VueFormField>
+      </MFFormField>
 
-      <VueFormField
+      <MFFormField
         :title="i18n('rationale-title')"
       >
         <VueInput
@@ -26,9 +26,9 @@
           required
         />
 <!--        <i18n slot="subtitle" id="rationale-subtitle"/>-->
-      </VueFormField>
+      </MFFormField>
 
-<!--      <VueFormField-->
+<!--      <MFFormField-->
 <!--        :title="i18n('proposal-title')"-->
 <!--      >-->
 <!--        <VueInput-->
@@ -39,9 +39,9 @@
 <!--          required-->
 <!--        />-->
 <!--        <i18n slot="subtitle" id="proposal-subtitle"/>-->
-<!--      </VueFormField>-->
+<!--      </MFFormField>-->
 
-      <VueFormField
+      <MFFormField
               :title="i18n('additional-info-title')"
       >
         <VueInput
@@ -51,7 +51,7 @@
                 v-model="attrs.additional"
         />
 
-      </VueFormField>
+      </MFFormField>
 
     </div>
   </div>

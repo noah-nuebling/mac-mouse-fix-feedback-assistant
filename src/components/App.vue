@@ -26,7 +26,7 @@
 <!--      <FormIntro/>-->
 
       <div class="common-fields vue-ui-grid col-2 default-gap">
-        <!-- <VueFormField
+        <!-- <MFFormField
           :title="i18n('repo-title')"
           :subtitle="i18n('repo-subtitle')"
           class="first-row"
@@ -41,9 +41,9 @@
               :label="option.name"
             />
           </VueSelect>
-        </VueFormField> -->
+        </MFFormField> -->
 
-        <VueFormField
+        <MFFormField
           class="first-row span-2 test"
         >
           <VueGroup
@@ -58,9 +58,9 @@
               {{ option.name }}
             </MFGroupButton>
           </VueGroup>
-        </VueFormField>
+        </MFFormField>
 
-        <VueFormField
+        <MFFormField
           class="span-2"
           :title="i18n('title-title')"
         >
@@ -116,7 +116,7 @@
               </p>
             </div>
           </template>
-        </VueFormField>
+        </MFFormField>
       </div>
 
       <!-- content component -->
@@ -125,7 +125,7 @@
       </keep-alive>
 
       <!-- attachments -->
-<!--      <VueFormField-->
+<!--      <MFFormField-->
 <!--              :title="i18n('attachments-title')"-->
 <!--      >-->
 <!--&lt;!&ndash;        <VueInput&ndash;&gt;-->
@@ -139,7 +139,7 @@
 
 <!--        <i18n v-show="this.type == 'feature-request'" slot="subtitle" id="attachments-subtitle-feature"></i18n>-->
 <!--        <i18n v-show="this.type == 'bug-report'" slot="subtitle" id="attachments-subtitle-bug"></i18n>-->
-<!--      </VueFormField>-->
+<!--      </MFFormField>-->
 
       <!-- main Button -->
       <div class="form-actions">
@@ -192,6 +192,8 @@ import search from '../mixins/github-search'
 
 import MFButton from './VueUI/MFButton.vue'
 import MFGroupButton from './VueUI/MFGroupButton.vue'
+import MFFormField from './VueUI/MFFormField.vue'
+
 
 export default {
   name: 'App',
@@ -204,7 +206,8 @@ export default {
     BugReport,
     FeatureRequest,
     MFButton,
-    MFGroupButton
+    MFGroupButton,
+    MFFormField
   },
 
   data () {
