@@ -57,6 +57,7 @@ export default {
 
 <style lang="stylus">
 @import "../../../node_modules/@vue/ui/src/style/imports"
+@import "../../style/vars.styl"
 
 .mf-ui-group-button.vue-ui-button
 
@@ -64,30 +65,30 @@ export default {
 
   button-transitions()
   &:not(.selected):not(.flat)
-    button-colors($vue-ui-color-dark, $vue-ui-color-light-neutral)
+    button-colors($mf-ui-color-dark, $mf-ui-color-light-neutral)
     .vue-ui-dark-mode &
-      button-colors($vue-ui-color-light, $vue-ui-color-dark)
+      button-colors($mf-ui-color-light, $mf-ui-color-dark)
       &.vue-ui-select-button
-        button-colors($vue-ui-color-light, $vue-ui-color-dark-neutral)
+        button-colors($mf-ui-color-light, $mf-ui-color-dark-neutral)
 
   &.selected
     .vue-ui-group.has-indicator.primary &
-      button-colors($vue-ui-color-primary, $vue-ui-color-light-neutral)
+      button-colors($mf-ui-color-primary, $mf-ui-color-light-neutral)
       .vue-ui-dark-mode &
-        button-colors($vue-ui-color-primary, $vue-ui-color-dark)
+        button-colors($mf-ui-color-primary, $mf-ui-color-dark)
     .vue-ui-group.has-indicator.accent &
-      button-colors($vue-ui-color-accent, $vue-ui-color-light-neutral)
+      button-colors($mf-ui-color-accent, $mf-ui-color-light-neutral)
       .vue-ui-dark-mode &
-        button-colors(lighten($vue-ui-color-accent, 60%), $vue-ui-color-dark)
+        button-colors(lighten($mf-ui-color-accent, 60%), $mf-ui-color-dark)
 
   .vue-ui-group:not(.has-indicator) &
     &.selected
       &:not(.primary):not(.accent):not(.danger):not(.warning):not(.info):not(.success):not(.flat)
-        button-colors($vue-ui-color-light, $vue-ui-color-dark)
+        button-colors($mf-ui-color-light, $mf-ui-color-dark)
         .vue-ui-dark-mode &
-          button-colors($vue-ui-color-light, $vue-ui-color-dark-neutral)
+          button-colors($mf-ui-color-light, $mf-ui-color-dark-neutral)
           &.vue-ui-select-button
-            background lighten($vue-ui-color-dark-neutral, 30%)
+            background lighten($mf-ui-color-dark-neutral, 30%)
 
   &,
   &.selected
@@ -127,9 +128,9 @@ export default {
         border-bottom-left-radius 0
         border-bottom-right-radius 0
       &.round.selected
-        background $vue-ui-color-light-neutral !important
+        background $mf-ui-color-light-neutral !important
         .vue-ui-dark-mode &
-          background $vue-ui-color-dark !important
+          background $mf-ui-color-dark !important
         &::before
           content ''
           display block
