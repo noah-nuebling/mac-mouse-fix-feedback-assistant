@@ -230,7 +230,7 @@ colors($color)
           fill darken($color, 20%)
 
 .mf-ui-input
-  $lightened = lighten($mf-ui-color-dark, 50%)
+  $lightened = lighten($mf-ui-color-dark-neutral, 50%)
   display inline-block
   vertical-align middle
   box-sizing border-box

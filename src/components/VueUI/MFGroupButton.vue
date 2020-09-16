@@ -65,7 +65,7 @@ export default {
 
   button-transitions()
   &:not(.selected):not(.flat)
-    button-colors($mf-ui-color-dark, $mf-ui-color-light-neutral)
+    button-colors($mf-ui-color-dark-neutral, $mf-ui-color-light-neutral) // This is the color scheme of an unselected button
     .vue-ui-dark-mode &
       button-colors($mf-ui-color-light, $mf-ui-color-dark)
       &.vue-ui-select-button
