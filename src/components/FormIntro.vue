@@ -44,9 +44,15 @@ export default {
 
 .form-intro
   padding 24px
-  margin 24px 0
+  margin-bottom: 48px
   border-radius $br
-  background lighten($mouse-fix-accent, 85%)
+  //border-style solid
+  border-color $border-color
+  border-width 0.5px
+  // background lighten($mouse-fix-accent, 85%)
+  background $card-color-dark
+  // box-shadow $shadow-high
+
 
 
 

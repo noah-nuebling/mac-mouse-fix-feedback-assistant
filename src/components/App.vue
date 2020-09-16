@@ -1,10 +1,29 @@
 <template>
 <div id="app" class="app">
-  <AppHeader :lang="$lang" @change-lang="setLang"/>
+
+  <!-- Header (unused) -->
+
+  <AppHeader v-if="false" :lang="$lang" @change-lang="setLang"/>
+
+  <!-- Container -->
 
   <div class="container">
+
+    <!-- Title section-->
+    <div class="title-sec">
+      <div class="title-sec__brand">
+        <img class="title-sec__brand--img" src="../assets/images/logo.png" alt="Mac Mouse Fix's logo">
+        <h2 class="title-sec__brand--text">Mac Mouse Fix</h2>
+      </div>
+      <h1 class="title-sec__title"> Feedback Assistant</h1>
+    </div>
+
+    <!-- Form -->
+
     <form class="main-form" @submit.prevent="generate">
-      <FormIntro/>
+
+      <!-- Form Intro -->
+<!--      <FormIntro/>-->
 
       <div class="common-fields vue-ui-grid col-2 default-gap">
         <!-- <VueFormField
@@ -25,7 +44,6 @@
         </VueFormField> -->
 
         <VueFormField
-          :title="i18n('type-title')"
           class="first-row span-2"
         >
           <VueGroup
@@ -47,7 +65,7 @@
           :title="i18n('title-title')"
         >
           <VueInput
-            placeholder="Enter a brief and clear title that expresses the problem."
+            :placeholder="i18n('title-placeholder')"
             v-model="title"
             required
             autofocus
@@ -97,11 +115,29 @@
         <component :is="type" ref="content" :repo="repo"/>
       </keep-alive>
 
+      <!-- attachments -->
+<!--      <VueFormField-->
+<!--              :title="i18n('attachments-title')"-->
+<!--      >-->
+<!--&lt;!&ndash;        <VueInput&ndash;&gt;-->
+<!--&lt;!&ndash;        type="file"&ndash;&gt;-->
+<!--&lt;!&ndash;        multiple&ndash;&gt;-->
+<!--&lt;!&ndash;        >&ndash;&gt;-->
+<!--&lt;!&ndash;          WHAT DOES THIS DOOOO&ndash;&gt;-->
+<!--&lt;!&ndash;        </VueInput>&ndash;&gt;-->
+
+<!--        <input type="file" multiple>-->
+
+<!--        <i18n v-show="this.type == 'feature-request'" slot="subtitle" id="attachments-subtitle-feature"></i18n>-->
+<!--        <i18n v-show="this.type == 'bug-report'" slot="subtitle" id="attachments-subtitle-bug"></i18n>-->
+<!--      </VueFormField>-->
+
+      <!-- main Button -->
       <div class="form-actions">
         <VueButton
           type="submit"
           class="primary big"
-          :label="i18n('preview')"
+          :label="i18n('submit-btn')"
         />
       </div>
     </form>
@@ -127,10 +163,9 @@
   <footer class="app-footer">
     <p>&hellip;</p>
     <small>
-      Built with
-      <a href="https://github.com/vuejs/vue-cli">vue-cli</a>
+      Based on <a href="https://github.com/vuejs/vue-issue">Vue Issue Helper</a>
       &centerdot;
-      Check out source on <a href="https://github.com/vuejs/vue-issue">GitHub</a>
+      Check out source on <a href="https://github.com/noah-nuebling/mac-mouse-fix-issue-helper">GitHub</a>
     </small>
   </footer>
 </div>
@@ -221,7 +256,7 @@ export default {
       const title = encodeURIComponent(this.title).replace(/%2B/gi, '+')
       const body = encodeURIComponent(this.generated.markdown).replace(/%2B/gi, '+')
       const label = this.type === 'feature-request' ? '&labels=feature%20request' : ''
-      window.open(`https://github.com/${this.repo.id}/issues/new?title=${title}&body=${body}${label}`)
+      window.open(`https://github.com/noah-nuebling/mac-mouse-fix/issues/new?title=${title}&body=${body}${label}`)
     },
   },
 }
@@ -234,8 +269,6 @@ export default {
   a
     color $link-color
 
-VueFormField
-  background-color aqua
 </style>
 
 <style lang="stylus" scoped>
@@ -254,13 +287,12 @@ VueFormField
   /*background-color aqua*/
 
 .first-row
-  margin-bottom 24px
+  margin-bottom 36px
 
 .common-fields
-  margin-bottom 12px
+  margin-bottom 24px
 
 .form-actions
-  background-color aqua
   h-box()
   box-center()
   margin 24px 0
@@ -271,4 +303,34 @@ VueFormField
 
 .mmf-bg
   background-color aqua
+
+.app
+  // background $global-background-color
+
+.title-sec
+
+  //border solid
+
+  display flex
+  flex-direction column
+  justify-content flex-start
+  // align-items center
+  margin 36px 0 42px 0
+.title-sec__brand
+  display flex
+  flex-direction row
+  align-items center
+.title-sec__brand--img
+  align-self center
+  width 36px
+  height auto
+.title-sec__brand--text
+  margin 0 0 0 10px
+  font-size medium
+  font-weight medium
+.title-sec__title
+  align-self flex-start // For some reason, choosing start or end makes it center aligned, and choosing center makes it not aligned at all... But only when border is set to solid.....
+  font-weight bolder
+  margin 12px 0 0 0
+
 </style>

@@ -2,15 +2,30 @@ export default {
   _label: 'EN',
 
   // intro
+
   'intro': require('./intro.md'),
   'intro-modal-title': 'The reason behind our strict issue policy',
   'intro-modal': require('./intro-modal.md'),
 
+  // all report types
+
+  // 'type-title': 'This is a',
+
+  'title-title': 'Title',
+  'title-placeholder': 'Enter a brief and clear title that expresses the problem.',
+
+  'additional-info-title': 'Additional Comments (optional)',
+  'additional-info-placeholder-feature': require('./additional-info-placeholder.txt'),
+  'additional-info-placeholder-bug': require('./additional-info-placeholder.txt'),
+
+  'attachments-title': 'Attachments (optional)',
+  'attachments-subtitle-feature': require('./attachments-subtitle-feature.md'),
+  'attachments-subtitle-bug': require('./attachments-subtitle-bug.md'),
+
   // bug report
+
   'repo-title': 'I am opening an issue for',
   'repo-subtitle': 'Please make sure to file the issue at appropriate repo.',
-  'type-title': 'This is a',
-  'title-title': 'Issue title',
 
   'version-title': 'Version',
   'version-subtitle': 'Check if the issue is reproducible with the latest stable version of Vue.',
@@ -41,14 +56,20 @@ export default {
   'extra-subtitle': 'e.g. some background/context of how you ran into this bug.',
 
   // feature request
-  'rationale-title': 'What problem does this feature solve?',
-  'rationale-subtitle': require('./rationale-subtitle.md'),
+
+  'feature-description-title': 'Description',
+  'feature-description-placeholder': 'Provide a descriptive summary of the enhancement you would like to see.',
+  // 'feature-description-subtitle': 'Subtitle goes here',
+
+  'rationale-title': 'Rationale',
+  'rationale-placeholder': require('./rationale-placeholder.txt'),
+  // 'rationale-subtitle': require('./rationale-subtitle.md'),
 
   'proposal-title': 'What does the proposed API look like?',
   'proposal-subtitle': require('./proposal-subtitle.md'),
 
   // preview
-  'preview': 'Preview',
+  'submit-btn': 'Create new Issue on GitHub',
   'preview-title': 'Issue Preview',
   'create': 'Create',
 

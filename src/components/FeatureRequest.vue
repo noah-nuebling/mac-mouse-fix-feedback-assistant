@@ -1,30 +1,57 @@
 <template>
   <div class="feature-request">
     <div class="vue-ui-grid col-1 default-gap">
+
+      <VueFormField
+        :title="i18n('feature-description-title')"
+        >
+        <VueInput
+          :placeholder="i18n('feature-description-placeholder')"
+          type="textarea"
+          rows="3"
+          v-model="attrs.description"
+          required/>
+<!--        <i18n slot="subtitle" id="feature-description-subtitle"/>-->
+      </VueFormField>
+
       <VueFormField
         :title="i18n('rationale-title')"
       >
         <VueInput
+          :placeholder="i18n('rationale-placeholder')"
           type="textarea"
-          rows="4"
+          rows="6"
           v-model="attrs.rationale"
           required
         />
-        <i18n slot="subtitle" id="rationale-subtitle"/>
+<!--        <i18n slot="subtitle" id="rationale-subtitle"/>-->
       </VueFormField>
 
+<!--      <VueFormField-->
+<!--        :title="i18n('proposal-title')"-->
+<!--      >-->
+<!--        <VueInput-->
+<!--          placeholder="Describe how you propose to solve the problem and provide code samples of how the API would work once implemented. Note that you can use Markdown to format your code blocks."-->
+<!--          type="textarea"-->
+<!--          rows="4"-->
+<!--          v-model="attrs.proposal"-->
+<!--          required-->
+<!--        />-->
+<!--        <i18n slot="subtitle" id="proposal-subtitle"/>-->
+<!--      </VueFormField>-->
+
       <VueFormField
-        :title="i18n('proposal-title')"
+              :title="i18n('additional-info-title')"
       >
         <VueInput
-          placeholder="Describe how you propose to solve the problem and provide code samples of how the API would work once implemented. Note that you can use Markdown to format your code blocks."
-          type="textarea"
-          rows="4"
-          v-model="attrs.proposal"
-          required
+                :placeholder="i18n('additional-info-placeholder-feature')"
+                type="textarea"
+                rows="4"
+                v-model="attrs.additional"
         />
-        <i18n slot="subtitle" id="proposal-subtitle"/>
+
       </VueFormField>
+
     </div>
   </div>
 </template>
@@ -36,22 +63,26 @@ export default {
   data () {
     return {
       attrs: {
+        description: '',
         rationale: '',
-        proposal: ''
+        additional: ''
       },
     }
   },
 
   methods: {
     generate () {
-      const { rationale, proposal } = this.attrs
+      const { description, rationale, additional } = this.attrs
 
       return generate(`
-### What problem does this feature solve?
+### Description
+${description}
+
+### Rationale
 ${rationale}
 
-### What does the proposed API look like?
-${proposal}
+### Additional info
+${additional}
   `.trim())
     }
   }

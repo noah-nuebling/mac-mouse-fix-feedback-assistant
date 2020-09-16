@@ -1,32 +1,39 @@
 <template>
-  <nav class="app-header">
-    <div class="container">
-      <a class="brand" href="#">
-        <img
-          class="logo"
-          src="../assets/images/logo.png"
-          alt="The Mac Mouse Fix logo"
-        >
-        Issue Helper
-      </a>
+  <div class="root">
 
-<!--      <ul class="nav">-->
-<!--        <li-->
-<!--          v-for="(locale, key) in $root.$locales"-->
-<!--          :key="key"-->
-<!--          class="nav-item"-->
-<!--        >-->
-<!--          <a-->
-<!--            class="nav-link"-->
-<!--            :class="{ active: lang === key }"-->
-<!--            @click="$emit('change-lang', key)"-->
-<!--          >-->
-<!--            {{ locale._label }}-->
-<!--          </a>-->
-<!--        </li>-->
-<!--      </ul>-->
-    </div>
-  </nav>
+    <nav class="app-header">
+      <div class="container">
+
+        <a class="brand" href="#">
+          <img
+                  class="logo"
+                  src="../assets/images/logo.png"
+                  alt="The Mac Mouse Fix logo"
+          >
+          Mac Mouse Fix
+        </a>
+        <p class="title">
+          Feedback Assistant
+        </p>
+
+        <!--      <ul class="nav">-->
+        <!--        <li-->
+        <!--          v-for="(locale, key) in $root.$locales"-->
+        <!--          :key="key"-->
+        <!--          class="nav-item"-->
+        <!--        >-->
+        <!--          <a-->
+        <!--            class="nav-link"-->
+        <!--            :class="{ active: lang === key }"-->
+        <!--            @click="$emit('change-lang', key)"-->
+        <!--          >-->
+        <!--            {{ locale._label }}-->
+        <!--          </a>-->
+        <!--        </li>-->
+        <!--      </ul>-->
+      </div>
+    </nav>
+  </div>
 </template>
 
 <script>
@@ -39,8 +46,9 @@ export default {
 @import "../style/imports"
 
 .app-header
-  background lighten($mouse-fix-accent, 85%)
-  // border-bottom solid 0.5px $border-color
+  // background lighten($mouse-fix-accent, 85%)
+  background white
+  border-bottom solid 0.5px $border-color
 
   &,
   .container,
@@ -51,17 +59,23 @@ export default {
 
   .container
 
+    position relative
+
     display: flex
     flex-direction: row
 
+    width 100%
     max-width $page-width
-    flex 100% 1 1
+    align-items center
+    align-content center
+    // flex 100% 1 1
     justify-content center
-    padding 24px
+    padding 20px
     box-sizing border-box
 
   .brand
-    /*border-style: solid*/
+    // border-style solid
+    // margin-left 20px
     color $vue-ui-color-dark
     font-size: 20px
     font-weight bolder
@@ -82,5 +96,13 @@ export default {
     &:not(.active)
       cursor pointer
       color $vue-ui-color-dark
+
+  .title
+    visibility hidden
+    font-size 16px
+    position absolute
+    right 0
+    margin-right 20px
+
 
 </style>
