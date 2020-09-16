@@ -40,9 +40,25 @@ export default {
 <style lang="stylus" scoped>
 @import "../style/imports"
 
+
+
 .form-intro
   padding 24px
   margin 24px 0
   border-radius $br
-  background lighten($vue-ui-color-light-neutral, 60%)
+  background lighten($mouse-fix-accent, 85%)
+
+
+
+p
+  color aqua
+
+a
+  $mouse-fix-accent
+  color aqua
+
+li
+  font-weight bolder
+  color aqua
+
 </style>

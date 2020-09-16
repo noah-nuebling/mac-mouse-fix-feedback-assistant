@@ -228,6 +228,11 @@ export default {
 
 <style lang="stylus">
 @import '~@vue/ui/dist/vue-ui.css'
+@import "../style/vars.styl"
+
+  a
+    color $link-color
+
 </style>
 
 <style lang="stylus" scoped>

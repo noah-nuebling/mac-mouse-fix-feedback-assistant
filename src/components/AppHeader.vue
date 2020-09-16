@@ -5,8 +5,7 @@
         <img
           class="logo"
           src="../assets/images/logo.png"
-          alt="Vue's logo"
-          height="24"
+          alt="The Mac Mouse Fix logo"
         >
         Issue Helper
       </a>
@@ -40,8 +39,8 @@ export default {
 @import "../style/imports"
 
 .app-header
-  background lighten($vue-ui-color-light-neutral, 60%)
-  border-bottom solid 1px $vue-ui-color-light-neutral
+  background lighten($mouse-fix-accent, 85%)
+  // border-bottom solid 0.5px $border-color
 
   &,
   .container,
