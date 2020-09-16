@@ -230,6 +230,7 @@ colors($color)
           fill darken($color, 20%)
 
 .mf-ui-input
+
   $lightened = lighten($mf-ui-color-dark-neutral, 50%)
   display inline-block
   vertical-align middle
@@ -238,11 +239,12 @@ colors($color)
   min-width 200px
 
   > .content
+    box-shadow $shadow-inner
     h-box()
     box-center()
     padding 0 10px
     border solid 1px $mf-ui-color-light-neutral
-    color $mf-ui-color-dark
+    color $mf-ui-color-dark-neutral
     border-radius $br
     transition background .3s
     position relative
@@ -332,7 +334,7 @@ colors($color)
 
   &:not(.flat)
     > .content
-      background lighten($mf-ui-color-light-neutral, 70%)
+      background $mf-ui-color-light // Background color when unfocused
       .vue-ui-dark-mode &
         background $mf-ui-color-darker
 
@@ -369,7 +371,7 @@ colors($color)
         > .border
           left 0
           right @left
-          opacity 1
+          opacity 0 // Setting this to 1 enabled Material design-y bottom border when field is focused.
       &.round
         > .content > .border
           display none
