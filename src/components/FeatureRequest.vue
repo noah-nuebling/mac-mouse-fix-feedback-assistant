@@ -6,6 +6,7 @@
         :title="i18n('feature-description-title')"
         >
         <VueInput
+          class="test"
           :placeholder="i18n('feature-description-placeholder')"
           type="textarea"
           rows="3"
@@ -90,5 +91,8 @@ ${additional}
 </script>
 
 <style lang="stylus" scoped>
-
+.test
+  background-color aqua
+  font-weight bolder
+  font-size small
 </style>

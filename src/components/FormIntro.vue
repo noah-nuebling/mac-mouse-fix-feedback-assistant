@@ -53,18 +53,4 @@ export default {
   background $card-color-dark
   // box-shadow $shadow-high
 
-
-
-
-p
-  color aqua
-
-a
-  $mouse-fix-accent
-  color aqua
-
-li
-  font-weight bolder
-  color aqua
-
 </style>

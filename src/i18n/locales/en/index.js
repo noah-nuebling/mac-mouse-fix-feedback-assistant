@@ -12,7 +12,8 @@ export default {
   // 'type-title': 'This is a',
 
   'title-title': 'Title',
-  'title-placeholder': 'Enter a brief and clear title that expresses the problem.',
+  'title-placeholder-bug': 'Enter a brief and clear title that expresses the problem.',
+  'title-placeholder-feature': 'Enter a brief and clear title that expresses the enhancement you\'d like to see.',
 
   'additional-info-title': 'Additional Comments (optional)',
   'additional-info-placeholder-feature': require('./additional-info-placeholder.txt'),
@@ -58,7 +59,7 @@ export default {
   // feature request
 
   'feature-description-title': 'Description',
-  'feature-description-placeholder': 'Provide a descriptive summary of the enhancement you would like to see.',
+  'feature-description-placeholder': 'Provide a descriptive summary of the enhancement.',
   // 'feature-description-subtitle': 'Subtitle goes here',
 
   'rationale-title': 'Rationale',

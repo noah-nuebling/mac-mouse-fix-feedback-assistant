@@ -44,7 +44,7 @@
         </VueFormField> -->
 
         <VueFormField
-          class="first-row span-2"
+          class="first-row span-2 test"
         >
           <VueGroup
             v-model="type"
@@ -65,11 +65,20 @@
           :title="i18n('title-title')"
         >
           <VueInput
-            :placeholder="i18n('title-placeholder')"
+            v-show="this.type == 'bug-report'"
+            :placeholder="i18n('title-placeholder-bug')"
             v-model="title"
             required
             autofocus
             @blur="findIssues"
+          />
+          <VueInput
+                  v-show="this.type == 'feature-request'"
+                  :placeholder="i18n('title-placeholder-feature')"
+                  v-model="title"
+                  required
+                  autofocus
+                  @blur="findIssues"
           />
           <template slot="subtitle">
             <div class="similar-issues" v-if="issues.length">
@@ -134,7 +143,7 @@
 
       <!-- main Button -->
       <div class="form-actions">
-        <VueButton
+        <MFButton
           type="submit"
           class="primary big"
           :label="i18n('submit-btn')"
@@ -181,6 +190,8 @@ import BugReport from './BugReport.vue'
 import FeatureRequest from './FeatureRequest.vue'
 import search from '../mixins/github-search'
 
+import MFButton from './MFButton.vue'
+
 export default {
   name: 'App',
 
@@ -190,7 +201,8 @@ export default {
     FormIntro,
     AppHeader,
     BugReport,
-    FeatureRequest
+    FeatureRequest,
+    MFButton
   },
 
   data () {
@@ -301,9 +313,6 @@ export default {
   text-align center
   margin 24px 0
 
-.mmf-bg
-  background-color aqua
-
 .app
   // background $global-background-color
 
@@ -332,5 +341,6 @@ export default {
   align-self flex-start // For some reason, choosing start or end makes it center aligned, and choosing center makes it not aligned at all... But only when border is set to solid.....
   font-weight bolder
   margin 12px 0 0 0
+
 
 </style>
