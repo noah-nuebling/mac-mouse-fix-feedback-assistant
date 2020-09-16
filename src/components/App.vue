@@ -43,6 +43,8 @@
           </VueSelect>
         </MFFormField> -->
 
+        <!-- Form type picker (Bug Report, Feature Request, ...) -->
+
         <MFFormField
           class="first-row span-2 test"
         >
@@ -60,94 +62,99 @@
           </VueGroup>
         </MFFormField>
 
-        <MFFormField
-          class="span-2"
-          :title="i18n('title-title')"
-        >
-          <MFInput
-            v-show="this.type == 'bug-report'"
-            :placeholder="i18n('title-placeholder-bug')"
-            v-model="title"
-            required
-            autofocus
-            @blur="findIssues"
-          />
-          <MFInput
-                  v-show="this.type == 'feature-request'"
-                  :placeholder="i18n('title-placeholder-feature')"
-                  v-model="title"
-                  required
-                  autofocus
-                  @blur="findIssues"
-          />
-          <template slot="subtitle">
-            <div class="similar-issues" v-if="issues.length">
-              {{ i18n('similar-issues') }}:
+        <!-- Main input fields -->
 
-              <ul>
-                <li v-for="issue in issues" :key="issue.id">
-                  <a
-                    class="issue"
-                    :href="issue.html_url"
-                    target="_blank"
-                    rel="noreferrer"
-                    tabindex="-1"
+        <div class="card span-2">
+
+          <MFFormField
+            class="span-2"
+            :title="i18n('title-title')"
+          >
+            <MFInput
+              v-show="this.type == 'bug-report'"
+              :placeholder="i18n('title-placeholder-bug')"
+              v-model="title"
+              required
+              autofocus
+              @blur="findIssues"
+            />
+            <MFInput
+                    v-show="this.type == 'feature-request'"
+                    :placeholder="i18n('title-placeholder-feature')"
+                    v-model="title"
+                    required
+                    autofocus
+                    @blur="findIssues"
+            />
+            <template slot="subtitle">
+              <div class="similar-issues" v-if="issues.length">
+                {{ i18n('similar-issues') }}:
+
+                <ul>
+                  <li v-for="issue in issues" :key="issue.id">
+                    <a
+                      class="issue"
+                      :href="issue.html_url"
+                      target="_blank"
+                      rel="noreferrer"
+                      tabindex="-1"
+                    >
+                      {{ issue.title }}
+                    </a>
+                  </li>
+                </ul>
+
+                <p v-if="showIssueToggleControl">
+                  <span
+                    v-if="!showingAllIssues"
+                    role="button"
+                    @click="showingAllIssues = true"
                   >
-                    {{ issue.title }}
-                  </a>
-                </li>
-              </ul>
+                    {{ i18n('show-more') }}
+                  </span>
+                  <span
+                    v-else
+                    role="button"
+                    @click="showingAllIssues = false"
+                  >
+                    {{ i18n('show-less') }}
+                  </span>
+                </p>
+              </div>
+            </template>
+          </MFFormField>
 
-              <p v-if="showIssueToggleControl">
-                <span
-                  v-if="!showingAllIssues"
-                  role="button"
-                  @click="showingAllIssues = true"
-                >
-                  {{ i18n('show-more') }}
-                </span>
-                <span
-                  v-else
-                  role="button"
-                  @click="showingAllIssues = false"
-                >
-                  {{ i18n('show-less') }}
-                </span>
-              </p>
-            </div>
-          </template>
-        </MFFormField>
-      </div>
+        <!-- content component -->
+        <keep-alive>
+          <component :is="type" ref="content" :repo="repo"/>
+        </keep-alive>
 
-      <!-- content component -->
-      <keep-alive>
-        <component :is="type" ref="content" :repo="repo"/>
-      </keep-alive>
+        <!-- attachments -->
+  <!--      <MFFormField-->
+  <!--              :title="i18n('attachments-title')"-->
+  <!--      >-->
+  <!--&lt;!&ndash;        <MFInput&ndash;&gt;-->
+  <!--&lt;!&ndash;        type="file"&ndash;&gt;-->
+  <!--&lt;!&ndash;        multiple&ndash;&gt;-->
+  <!--&lt;!&ndash;        >&ndash;&gt;-->
+  <!--&lt;!&ndash;          WHAT DOES THIS DOOOO&ndash;&gt;-->
+  <!--&lt;!&ndash;        </MFInput>&ndash;&gt;-->
 
-      <!-- attachments -->
-<!--      <MFFormField-->
-<!--              :title="i18n('attachments-title')"-->
-<!--      >-->
-<!--&lt;!&ndash;        <MFInput&ndash;&gt;-->
-<!--&lt;!&ndash;        type="file"&ndash;&gt;-->
-<!--&lt;!&ndash;        multiple&ndash;&gt;-->
-<!--&lt;!&ndash;        >&ndash;&gt;-->
-<!--&lt;!&ndash;          WHAT DOES THIS DOOOO&ndash;&gt;-->
-<!--&lt;!&ndash;        </MFInput>&ndash;&gt;-->
+  <!--        <input type="file" multiple>-->
 
-<!--        <input type="file" multiple>-->
+  <!--        <i18n v-show="this.type == 'feature-request'" slot="subtitle" id="attachments-subtitle-feature"></i18n>-->
+  <!--        <i18n v-show="this.type == 'bug-report'" slot="subtitle" id="attachments-subtitle-bug"></i18n>-->
+  <!--      </MFFormField>-->
 
-<!--        <i18n v-show="this.type == 'feature-request'" slot="subtitle" id="attachments-subtitle-feature"></i18n>-->
-<!--        <i18n v-show="this.type == 'bug-report'" slot="subtitle" id="attachments-subtitle-bug"></i18n>-->
-<!--      </MFFormField>-->
-
-      <!-- main Button -->
-      <div class="form-actions">
-        <MFButton
-          type="submit"
-          class="primary big"
-          :label="i18n('submit-btn')"
-        />
+        <!-- main Button -->
+        <div class="form-actions">
+          <MFButton
+            type="submit"
+            class="primary big"
+            :label="i18n('submit-btn')"
+          />
+        </div>
+        </div>
       </div>
     </form>
 
@@ -314,7 +321,7 @@ export default {
 .form-actions
   h-box()
   box-center()
-  margin 24px 0
+  margin 32px 0 20px 0
 
 .app-footer
   text-align center
@@ -349,5 +356,15 @@ export default {
   font-weight bolder
   margin 12px 0 0 0
 
+.card
+  padding 24px
+  margin-bottom: 48px
+  border-radius $br
+  //border-style solid
+  border-color $border-color
+  border-width 0.5px
+  // background lighten($mouse-fix-accent, 85%)
+  background $card-color-medium
+  box-shadow $shadow-high
 
 </style>
