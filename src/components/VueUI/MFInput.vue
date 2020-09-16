@@ -213,6 +213,7 @@ export default {
 
 <style lang="stylus">
 @import "../../../node_modules/@vue/ui/src/style/imports.styl"
+@import "../../style/vars.styl"
 
 colors($color)
   > .content
@@ -229,7 +230,7 @@ colors($color)
           fill darken($color, 20%)
 
 .mf-ui-input
-  $lightened = lighten($vue-ui-color-dark, 50%)
+  $lightened = lighten($mf-ui-color-dark, 50%)
   display inline-block
   vertical-align middle
   box-sizing border-box
@@ -240,14 +241,14 @@ colors($color)
     h-box()
     box-center()
     padding 0 10px
-    border solid 1px $vue-ui-color-light-neutral
-    color $vue-ui-color-dark
+    border solid 1px $mf-ui-color-light-neutral
+    color $mf-ui-color-dark
     border-radius $br
     transition background .3s
     position relative
     .vue-ui-dark-mode &
-      border-color $vue-ui-color-dark
-      color $vue-ui-color-light
+      border-color $mf-ui-color-dark
+      color $mf-ui-color-light
 
     > .input-wrapper
       position relative
@@ -267,7 +268,7 @@ colors($color)
         border none
         background transparent
         .vue-ui-dark-mode &
-          color $vue-ui-color-light
+          color $mf-ui-color-light
         &:not(textarea)
           height 30px
         &::placeholder
@@ -331,9 +332,9 @@ colors($color)
 
   &:not(.flat)
     > .content
-      background lighten($vue-ui-color-light-neutral, 70%)
+      background lighten($mf-ui-color-light-neutral, 70%)
       .vue-ui-dark-mode &
-        background $vue-ui-color-darker
+        background $mf-ui-color-darker
 
   &.show-suggestion
     > .content > .input-wrapper > .input
@@ -341,30 +342,30 @@ colors($color)
         color transparent
 
   // Colors
-  colors($vue-ui-color-primary)
+  colors($mf-ui-color-primary)
   &.accent
-    colors($vue-ui-color-accent)
+    colors($mf-ui-color-accent)
     .vue-ui-dark-mode &
-      colors(lighten($vue-ui-color-accent, 40%))
+      colors(lighten($mf-ui-color-accent, 40%))
   &.danger,
   &.status-danger
-    colors($vue-ui-color-danger)
+    colors($mf-ui-color-danger)
   &.warning,
   &.status-warning
-    colors($vue-ui-color-warning)
+    colors($mf-ui-color-warning)
   &.info,
   &.status-info
-    colors($vue-ui-color-info)
+    colors($mf-ui-color-info)
   &.success,
   &.status-success
-    colors($vue-ui-color-success)
+    colors($mf-ui-color-success)
 
   &.focused
     &:not(.flat)
       > .content
-        background $vue-ui-color-light
+        background $mf-ui-color-light
         .vue-ui-dark-mode &
-          background $vue-ui-color-dark
+          background $mf-ui-color-dark
         > .border
           left 0
           right @left
