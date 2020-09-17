@@ -141,7 +141,7 @@
 
     @import "../../style/vars.styl"
 
-    $focus-color = $vue-ui-color-dark
+    $focus-color = $mf-ui-color-dark
 
     colors($dark, $light, $invert = false)
         if $invert
@@ -263,27 +263,27 @@
             left 0
             right 0
         // Colors
-        colors($vue-ui-color-dark, $vue-ui-color-light-neutral)
+        colors($mf-ui-color-dark-neutral, $mf-ui-color-light-neutral)
         .vue-ui-dark-mode &
-            colors($vue-ui-color-light, $vue-ui-color-dark)
+            colors($mf-ui-color-light, $mf-ui-color-dark)
         &.primary
-            colors($mf-accent, $vue-ui-color-light, true)
+            colors($mf-accent, $mf-ui-color-light, true)
         &.accent
-            colors($vue-ui-color-accent, $vue-ui-color-light, true)
+            colors($mf-ui-color-accent, $mf-ui-color-light, true)
             .vue-ui-dark-mode &
-                colors(lighten($vue-ui-color-accent, 60%), $vue-ui-color-dark, true)
+                colors(lighten($mf-ui-color-accent, 60%), $mf-ui-color-dark, true)
         &.danger
-            colors($vue-ui-color-danger, $vue-ui-color-light, true)
+            colors($mf-ui-color-danger, $mf-ui-color-light, true)
         &.warning
-            colors($vue-ui-color-warning, $vue-ui-color-light, true)
+            colors($mf-ui-color-warning, $mf-ui-color-light, true)
         &.info
-            colors($vue-ui-color-info, $vue-ui-color-light-neutral)
+            colors($mf-ui-color-info, $mf-ui-color-light-neutral)
             .vue-ui-dark-mode &
-                colors($vue-ui-color-info, $vue-ui-color-dark)
+                colors($mf-ui-color-info, $mf-ui-color-dark)
         &.success
-            colors($vue-ui-color-success, $vue-ui-color-light-neutral)
+            colors($mf-ui-color-success, $mf-ui-color-light-neutral)
             .vue-ui-dark-mode &
-                colors($vue-ui-color-success, $vue-ui-color-dark)
+                colors($mf-ui-color-success, $mf-ui-color-dark)
         disable-focus-styles()
         // Keyboard focus style
         &:focus:focus-visible
