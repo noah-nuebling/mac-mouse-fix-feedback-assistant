@@ -14,6 +14,7 @@ module.exports = {
     // From logrocket tutorial / vue deployment tutorial
 
   publicPath: process.env.NODE_ENV === 'production' ? '/mac-mouse-fix-issue-helper/' : '/',
+  // publicPath: '/mac-mouse-fix-issue-helper/',
 
 
   chainWebpack: config => {
