@@ -14,17 +14,17 @@
                 />
             </MFFormField>
 
-            <MFFormField
-                    :title="i18n('feature-description-title')"
-            >
-                <MFInput
-                        :placeholder="i18n('feature-description-placeholder')"
-                        type="textarea"
-                        rows="3"
-                        v-model="attrs.description"
-                        required/>
-                <!--        <i18n slot="subtitle" id="feature-description-subtitle"/>-->
-            </MFFormField>
+                <MFFormField
+                        :title="i18n('feature-description-title')"
+                >
+                    <MFInput
+                            :placeholder="i18n('feature-description-placeholder')"
+                            type="textarea"
+                            rows="3"
+                            v-model="attrs.description"
+                            required/>
+                    <!--        <i18n slot="subtitle" id="feature-description-subtitle"/>-->
+                </MFFormField>
 
             <MFFormField
                     :title="i18n('rationale-title')"

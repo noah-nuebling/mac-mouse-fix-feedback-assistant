@@ -25,11 +25,24 @@ export default {
 
   // bug report
 
+  'bug-description-title': 'Description',
+  'bug-description-placeholder': 'Provide a descriptive summary of the problem.',
+
   'repo-title': 'I am opening an issue for',
   'repo-subtitle': 'Please make sure to file the issue at appropriate repo.',
 
   'version-title': 'Version',
   'version-subtitle': 'Check if the issue is reproducible with the latest stable version of Vue.',
+
+  'context-title': 'Context',
+  'context-placeholder':
+      'Specify which circumstances the bug occurs under here.\n' +
+      'For example:\n' +
+      '    - Which Mac Mouse Fix version were you using?\n' +
+      '    - Which macOS version were you using?\n' +
+      '    - Which model of mouse were you using?\n' +
+      '    - Which other apps that affect mouse behaviour were installed?\n' +
+      '        (Having several such apps installed is a common source of issues)',
 
   'repro-title': 'Link to minimal reproduction',
   'repro-subtitle': require('./repro-subtitle.md'),
@@ -37,7 +50,6 @@ export default {
   'repro-modal': require('./repro-modal.md'),
   'cli-repro-subtitle': require('./cli-repro-subtitle.md'),
   'cli-no-repro': 'If your issue cannot be reproduced with code, check here.',
-  'router-next-repro-subtitle': require('./router-next-repro-subtitle.md'),
   'router-next-repro-subtitle': require('./router-next-repro-subtitle.md'),
 
   'node-and-os-title': 'Node, npm/yarn and OS info',
@@ -50,6 +62,10 @@ export default {
   'browser-and-os-subtitle': 'Please specify browser name & version, OS name & version. Example: Chrome 62 / Windows 10',
 
   'steps-title': 'Steps to reproduce',
+  'steps-placeholder':
+      '1. Detail the exact steps taken to reproduce the problem\n' +
+      '2. Number each step\n' +
+      '3. Pat yourself on the back! This is very helpful :D',
   'steps-subtitle': require('./steps-subtitle.md'),
 
   'expected-title': 'What is expected?',

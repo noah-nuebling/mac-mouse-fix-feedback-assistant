@@ -16,167 +16,121 @@
         />
       </MFFormField>
 
-      <!-- Version -->
 
       <MFFormField
-        :title="i18n('version-title')"
-        :subtitle="i18n('version-subtitle')"
-      >
-        <VueTypeAhead
-          v-model="attrs.version"
-          :suggestions="suggestions"
-          :loading="loadingVersion"
-          show-all
-          show-max="30"
-          restrict-choice
-          required
-        />
-      </MFFormField>
-
-      <!-- Browser and OS-->
-
-      <MFFormField
-        v-if="false"
-        :title="i18n('browser-and-os-title')"
+              :title="i18n('bug-description-title')"
+              class="span-2"
       >
         <MFInput
-          v-model="attrs.browserAndOS"
-          required
-        />
-
-        <i18n
-          slot="subtitle"
-          id="browser-and-os-subtitle"
-        />
+                :placeholder="i18n('bug-description-placeholder')"
+                type="textarea"
+                rows="3"
+                v-model="attrs.description"
+                required/>
+        <!--        <i18n slot="subtitle" id="feature-description-subtitle"/>-->
       </MFFormField>
-
-      <!-- Weird conditional stuff -->
-
-      <template v-else>
-
-        <!-- Node and OS-->
-        <MFFormField
-          v-if="isCLI && doesNotSupportVueInfo"
-          :title="i18n('node-and-os-title')"
-        >
-          <MFInput
-            v-model="attrs.nodeAndOS"
-            required
-          />
-
-          <i18n
-            slot="subtitle"
-            id="node-and-os-subtitle"
-          />
-        </MFFormField>
-
-        <!-- Cli env -->
-        <MFFormField
-          v-else-if="isCLI"
-          :title="i18n('cli-envinfo-title')"
-          class="span-2"
-        >
-          <MFInput
-            v-model="attrs.cliEnvInfo"
-            type="textarea"
-            required
-          />
-
-          <i18n
-            slot="subtitle"
-            id="cli-envinfo-subtitle"
-          />
-        </MFFormField>
-
-        <!-- Minimal reproduction -->
-        <MFFormField :title="i18n('repro-title')">
-          <MFInput
-            type="url"
-            v-model="attrs.reproduction"
-            :disabled="isCLI && reproNotAvailable"
-            required
-          />
-
-          <template slot="subtitle">
-            <i18n
-              :id="repo.reproSubtitleId || 'repro-subtitle'"
-              @click-modal="show = true"
-            />
-            <VueSwitch v-if="isCLI" v-model="reproNotAvailable">
-              <i18n id="cli-no-repro"/>
-            </VueSwitch>
-          </template>
-        </MFFormField>
-      </template>
 
       <!-- Steps to reproduce -->
 
       <MFFormField
-        class="span-2"
-        :title="i18n('steps-title')"
+              class="span-2"
+              :title="i18n('steps-title')"
       >
         <MFInput
-          type="textarea"
-          rows="4"
-          v-model="attrs.steps"
-          required
-        />
-        <i18n slot="subtitle" id="steps-subtitle"/>
-      </MFFormField>
-
-      <!-- Expected outcome -->
-
-      <MFFormField
-        :title="i18n('expected-title')"
-      >
-        <MFInput
-          type="textarea"
-          rows="4"
-          v-model="attrs.expected"
-          required
+                :placeholder="i18n('steps-placeholder')"
+                type="textarea"
+                rows="5"
+                v-model="attrs.steps"
+                required
         />
       </MFFormField>
 
-      <!-- Actual outcome -->
+<!--      &lt;!&ndash; Expected outcome &ndash;&gt;-->
+
+<!--      <MFFormField-->
+<!--              :title="i18n('expected-title')"-->
+<!--      >-->
+<!--        <MFInput-->
+<!--                type="textarea"-->
+<!--                rows="4"-->
+<!--                v-model="attrs.expected"-->
+<!--                required-->
+<!--        />-->
+<!--      </MFFormField>-->
+
+<!--      &lt;!&ndash; Actual outcome &ndash;&gt;-->
+
+<!--      <MFFormField-->
+<!--              :title="i18n('actual-title')"-->
+<!--      >-->
+<!--        <MFInput-->
+<!--                type="textarea"-->
+<!--                rows="4"-->
+<!--                v-model="attrs.actual"-->
+<!--                required-->
+<!--        />-->
+<!--      </MFFormField>-->
+
+<!--      &lt;!&ndash; Version &ndash;&gt;-->
+
+<!--      <MFFormField-->
+<!--              :title="i18n('version-title')"-->
+<!--              :subtitle="i18n('version-subtitle')"-->
+<!--              class="span-2"-->
+<!--      >-->
+<!--        <VueTypeAhead-->
+<!--                v-model="attrs.version"-->
+<!--                :suggestions="suggestions"-->
+<!--                :loading="loadingVersion"-->
+<!--                show-all-->
+<!--                show-max="30"-->
+<!--                restrict-choice-->
+<!--                required-->
+<!--        />-->
+<!--      </MFFormField>-->
+
+      <!-- Context -->
 
       <MFFormField
-        :title="i18n('actual-title')"
+              :title="i18n('context-title')"
+              class="span-2"
       >
         <MFInput
-          type="textarea"
-          rows="4"
-          v-model="attrs.actual"
-          required
+                :placeholder="i18n('context-placeholder')"
+                type="textarea"
+                rows="8"
+                v-model="attrs.context"
         />
       </MFFormField>
 
       <!-- Additional comments -->
 
       <MFFormField
-        class="span-2"
-        :title="i18n('extra-title')"
-        :subtitle="i18n('extra-subtitle')"
+              :title="i18n('additional-info-title')"
+              class="span-2"
       >
         <MFInput
-          type="textarea"
-          rows="4"
-          v-model="attrs.extra"
+                :placeholder="i18n('additional-info-placeholder-bug')"
+                type="textarea"
+                rows="3"
+                v-model="attrs.additional"
         />
+
       </MFFormField>
+
+      <!-- ModalSheet -->
+
+      <VueModal
+              v-if="show"
+              :title="i18n('repro-modal-title')"
+              class="medium"
+              @close="show = false"
+      >
+        <div class="default-body">
+          <i18n id="repro-modal"/>
+        </div>
+      </VueModal>
     </div>
-
-    <!-- ModalSheet -->
-
-    <VueModal
-      v-if="show"
-      :title="i18n('repro-modal-title')"
-      class="medium"
-      @close="show = false"
-    >
-      <div class="default-body">
-        <i18n id="repro-modal"/>
-      </div>
-    </VueModal>
   </div>
 </template>
 
@@ -207,15 +161,13 @@ export default {
       show: false,
       attrs: {
         title: '',
+        description: '',
         version: '',
-        reproduction: '',
+        context: '',
         steps: '',
         expected: '',
         actual: '',
-        extra: '',
-        browserAndOS: '',
-        nodeAndOS: '',
-        cliEnvInfo: '',
+        additional: '',
       },
       versions: [],
       loadingVersion: false,
@@ -284,34 +236,16 @@ export default {
     generate () {
       const {
         version,
-        reproduction,
+        description,
         steps,
         expected,
         actual,
         extra,
-        browserAndOS,
-        nodeAndOS,
-        cliEnvInfo
       } = this.attrs
 
       return generate(`
 ### Version
 ${version}
-
-${reproduction ? `### Reproduction link
-[${reproduction}](${reproduction})` : ``}
-
-${browserAndOS ? `### Browser and OS info
-${browserAndOS}` : ``}
-
-${nodeAndOS ? `### Node and OS info
-${nodeAndOS}` : ``}
-
-${cliEnvInfo ? `### Environment info
-\`\`\`
-${cliEnvInfo}
-\`\`\`
-` : ``}
 
 ### Steps to reproduce
 ${steps}
