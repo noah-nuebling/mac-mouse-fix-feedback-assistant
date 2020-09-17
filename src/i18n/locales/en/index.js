@@ -38,6 +38,7 @@ export default {
   'cli-repro-subtitle': require('./cli-repro-subtitle.md'),
   'cli-no-repro': 'If your issue cannot be reproduced with code, check here.',
   'router-next-repro-subtitle': require('./router-next-repro-subtitle.md'),
+  'router-next-repro-subtitle': require('./router-next-repro-subtitle.md'),
 
   'node-and-os-title': 'Node, npm/yarn and OS info',
   'node-and-os-subtitle': 'Please specify node.js version, npm or yarn version, OS name & version. Example: Node 10.7.0 / yarn 1.7.0 / Windows 10',
@@ -70,7 +71,8 @@ export default {
   'proposal-subtitle': require('./proposal-subtitle.md'),
 
   // preview
-  'submit-btn': 'Create new Issue on GitHub',
+  'submit-btn-gh': 'Create new Issue on GitHub',
+  'submit-btn-email': 'Send via email',
   'preview-title': 'Issue Preview',
   'create': 'Create',
 

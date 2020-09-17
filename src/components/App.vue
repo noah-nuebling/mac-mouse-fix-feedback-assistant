@@ -22,26 +22,9 @@
 
     <form class="main-form" @submit.prevent="generate">
 
-      <!-- Form Intro -->
 <!--      <FormIntro/>-->
 
       <div class="common-fields vue-ui-grid col-2 default-gap">
-        <!-- <MFFormField
-          :title="i18n('repo-title')"
-          :subtitle="i18n('repo-subtitle')"
-          class="first-row"
-        >
-          <VueSelect
-            v-model="repo"
-          >
-            <VueSelectButton
-              v-for="option of repos"
-              :key="option.id"
-              :value="option"
-              :label="option.name"
-            />
-          </VueSelect>
-        </MFFormField> -->
 
         <!-- Form type picker (Bug Report, Feature Request, ...) -->
 
@@ -65,65 +48,6 @@
         <!-- Main input fields -->
 
         <div class="card span-2">
-
-          <MFFormField
-            class="span-2"
-            :title="i18n('title-title')"
-          >
-            <MFInput
-              v-show="this.type == 'bug-report'"
-              :placeholder="i18n('title-placeholder-bug')"
-              v-model="title"
-              required
-              autofocus
-              @blur="findIssues"
-            />
-            <MFInput
-                    v-show="this.type == 'feature-request'"
-                    :placeholder="i18n('title-placeholder-feature')"
-                    v-model="title"
-                    required
-                    autofocus
-                    @blur="findIssues"
-            />
-            <template slot="subtitle">
-              <div class="similar-issues" v-if="issues.length">
-                {{ i18n('similar-issues') }}:
-
-                <ul>
-                  <li v-for="issue in issues" :key="issue.id">
-                    <a
-                      class="issue"
-                      :href="issue.html_url"
-                      target="_blank"
-                      rel="noreferrer"
-                      tabindex="-1"
-                    >
-                      {{ issue.title }}
-                    </a>
-                  </li>
-                </ul>
-
-                <p v-if="showIssueToggleControl">
-                  <span
-                    v-if="!showingAllIssues"
-                    role="button"
-                    @click="showingAllIssues = true"
-                  >
-                    {{ i18n('show-more') }}
-                  </span>
-                  <span
-                    v-else
-                    role="button"
-                    @click="showingAllIssues = false"
-                  >
-                    {{ i18n('show-less') }}
-                  </span>
-                </p>
-              </div>
-            </template>
-          </MFFormField>
-
         <!-- content component -->
         <keep-alive>
           <component :is="type" ref="content" :repo="repo"/>
@@ -146,12 +70,18 @@
   <!--        <i18n v-show="this.type == 'bug-report'" slot="subtitle" id="attachments-subtitle-bug"></i18n>-->
   <!--      </MFFormField>-->
 
-        <!-- main Button -->
+        <!-- Form actions -->
         <div class="form-actions">
+          <MFButton
+            v-on:click=""
+            class="secondary big"
+            :label="i18n('submit-btn-email')"
+          />
+          <div class="vue-ui-spacer"></div>
           <MFButton
             type="submit"
             class="primary big"
-            :label="i18n('submit-btn')"
+            :label="i18n('submit-btn-gh')"
           />
         </div>
         </div>
@@ -221,7 +151,6 @@ export default {
 
   data () {
     return {
-      title: '',
       generated: {
         markdown: '',
         html: ''
@@ -256,7 +185,8 @@ export default {
 
   created () {
     const { repo, type } = getQuery()
-    this.repo = this.repos.find(r => r.id === repo) || this.repos[0]
+    // this.repo = this.repos.find(r => r.id === repo) || this.repos[0]
+    this.repo = "noah-nuebling/mac-mouse-fix"
     this.type = type || 'bug-report'
   },
 
@@ -274,6 +204,7 @@ export default {
     },
 
     generate () {
+      this.title = this.$refs.content.attrs.title
       this.generated = this.$refs.content.generate()
       this.show = true
     },
@@ -282,7 +213,7 @@ export default {
       const title = encodeURIComponent(this.title).replace(/%2B/gi, '+')
       const body = encodeURIComponent(this.generated.markdown).replace(/%2B/gi, '+')
       const label = this.type === 'feature-request' ? '&labels=feature%20request' : ''
-      window.open(`https://github.com/noah-nuebling/mac-mouse-fix/issues/new?title=${title}&body=${body}${label}`)
+      window.open(`https://github.com/${this.repo}/issues/new?title=${title}&body=${body}${label}`)
     },
   },
 }
@@ -320,8 +251,11 @@ export default {
 
 .form-actions
   h-box()
-  box-center()
-  margin 32px 0 20px 0
+  //box-center()
+  display flex
+  flex-wrap wrap
+  justify-content flex-end
+  margin (12+24)px 0 0px 0
 
 .app-footer
   text-align center
@@ -363,8 +297,7 @@ export default {
   //border-style solid
   border-color $border-color
   border-width 0.5px
-  // background lighten($mouse-fix-accent, 85%)
   background $card-color-medium
-  box-shadow $shadow-high
+  box-shadow $shadow-low
 
 </style>

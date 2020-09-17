@@ -1,6 +1,23 @@
 <template>
   <div class="bug-report" style="margin:0">
     <div class="vue-ui-grid col-2 default-gap">
+
+      <!-- Title -->
+      <MFFormField
+              :title="i18n('title-title')"
+              class="span-2"
+      >
+        <MFInput
+                :placeholder="i18n('title-placeholder-bug')"
+                v-model="attrs.title"
+                required
+                autofocus
+                @blur="findIssues"
+        />
+      </MFFormField>
+
+      <!-- Version -->
+
       <MFFormField
         :title="i18n('version-title')"
         :subtitle="i18n('version-subtitle')"
@@ -16,8 +33,10 @@
         />
       </MFFormField>
 
+      <!-- Browser and OS-->
+
       <MFFormField
-        v-if="repo.id === 'vuejs/vue-devtools'"
+        v-if="false"
         :title="i18n('browser-and-os-title')"
       >
         <MFInput
@@ -31,7 +50,11 @@
         />
       </MFFormField>
 
+      <!-- Weird conditional stuff -->
+
       <template v-else>
+
+        <!-- Node and OS-->
         <MFFormField
           v-if="isCLI && doesNotSupportVueInfo"
           :title="i18n('node-and-os-title')"
@@ -47,6 +70,7 @@
           />
         </MFFormField>
 
+        <!-- Cli env -->
         <MFFormField
           v-else-if="isCLI"
           :title="i18n('cli-envinfo-title')"
@@ -64,6 +88,7 @@
           />
         </MFFormField>
 
+        <!-- Minimal reproduction -->
         <MFFormField :title="i18n('repro-title')">
           <MFInput
             type="url"
@@ -84,6 +109,8 @@
         </MFFormField>
       </template>
 
+      <!-- Steps to reproduce -->
+
       <MFFormField
         class="span-2"
         :title="i18n('steps-title')"
@@ -97,6 +124,8 @@
         <i18n slot="subtitle" id="steps-subtitle"/>
       </MFFormField>
 
+      <!-- Expected outcome -->
+
       <MFFormField
         :title="i18n('expected-title')"
       >
@@ -108,6 +137,8 @@
         />
       </MFFormField>
 
+      <!-- Actual outcome -->
+
       <MFFormField
         :title="i18n('actual-title')"
       >
@@ -118,6 +149,8 @@
           required
         />
       </MFFormField>
+
+      <!-- Additional comments -->
 
       <MFFormField
         class="span-2"
@@ -131,6 +164,8 @@
         />
       </MFFormField>
     </div>
+
+    <!-- ModalSheet -->
 
     <VueModal
       v-if="show"
@@ -171,6 +206,7 @@ export default {
     return {
       show: false,
       attrs: {
+        title: '',
         version: '',
         reproduction: '',
         steps: '',

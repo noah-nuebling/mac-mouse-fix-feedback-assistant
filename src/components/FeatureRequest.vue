@@ -3,6 +3,18 @@
         <div class="vue-ui-grid col-1 default-gap">
 
             <MFFormField
+                    :title="i18n('title-title')"
+            >
+                <MFInput
+                        :placeholder="i18n('title-placeholder-feature')"
+                        v-model="attrs.title"
+                        required
+                        autofocus
+                        @blur="findIssues"
+                />
+            </MFFormField>
+
+            <MFFormField
                     :title="i18n('feature-description-title')"
             >
                 <MFInput
@@ -70,6 +82,7 @@
         data () {
             return {
                 attrs: {
+                    title: '',
                     description: '',
                     rationale: '',
                     additional: ''
