@@ -117,8 +117,13 @@
 </div>
 </template>
 
-<script lang="babel">
-<!--<script type="text/babel">-->
+
+
+<!-- Need to use `<script>` for syntax highlighting and stuff, but `<script lang="babel">` is what is was originally. Both seem to work fine -->
+
+<!--<script lang="babel">-->
+<script>
+
 import { repos } from '../config'
 import { getQuery, updateQuery } from '../helpers'
 
