@@ -118,6 +118,7 @@
 </template>
 
 <script lang="babel">
+<!--<script type="text/babel">-->
 import { repos } from '../config'
 import { getQuery, updateQuery } from '../helpers'
 
