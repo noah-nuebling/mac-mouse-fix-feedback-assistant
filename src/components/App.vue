@@ -20,7 +20,7 @@
 
     <!-- Form -->
 
-    <form class="main-form" @submit.prevent="generate">
+    <form class="main-form" @submit.prevent="submit()">
 
 <!--      <FormIntro/>-->
 
@@ -28,22 +28,18 @@
 
         <!-- Form type picker (Bug Report, Feature Request, ...) -->
 
-        <MFFormField
-          class="first-row span-2 test"
+        <VueGroup
+          v-model="type"
+          class="first-row span-2 extend"
         >
-          <VueGroup
-            v-model="type"
-            class="extend mmf-bg"
+          <MFGroupButton
+            v-for="option of types"
+            :key="option.id"
+            :value="option.id"
           >
-            <MFGroupButton
-              v-for="option of types"
-              :key="option.id"
-              :value="option.id"
-            >
-              {{ option.name }}
-            </MFGroupButton>
-          </VueGroup>
-        </MFFormField>
+            {{ option.name }}
+          </MFGroupButton>
+        </VueGroup>
 
         <!-- Main input fields -->
 
@@ -73,12 +69,14 @@
         <!-- Form actions -->
         <div class="form-actions">
           <MFButton
-            v-on:click=""
+            @click="submitAction = 'email'"
+            type="submit"
             class="secondary big"
             :label="i18n('submit-btn-email')"
           />
           <div class="vue-ui-spacer"></div>
           <MFButton
+            @click="submitAction = 'issue'"
             type="submit"
             class="primary big"
             :label="i18n('submit-btn-gh')"
@@ -164,9 +162,9 @@ export default {
       show: false,
       preview: false,
       repo: null,
-      repos,
       type: 'bug-report',
       versions: {},
+      submitAction: '',
     }
   },
 
@@ -209,18 +207,44 @@ export default {
       }
     },
 
+    submit() {
+
+      this.generate()
+
+      if (this.submitAction == 'issue') {
+        this.createIssue()
+      } else if (this.submitAction == 'email') {
+        this.createEmail()
+      }
+    },
+
     generate () {
       this.title = this.$refs.content.attrs.title
       this.generated = this.$refs.content.generate()
-      this.show = true
     },
 
-    create () {
+    createIssue() {
+      const {title, body, label} = this.creationHelper()
+      const url = `https://github.com/noah-nuebling/mac-mouse-fix/issues/new?title=${title}&body=${body}&labels=${label}`
+      window.open(url)
+
+    },
+    createEmail() {
+      const {title, body, label} = this.creationHelper()
+      const url = `mailto:noah.n.public@gmail.com?subject=${title}%20-%20Mac%20Mouse%20Fix%20Feedback%20%5b${label}%5d&body=${body}`
+      window.open(url)
+    },
+    creationHelper () {
       const title = encodeURIComponent(this.title).replace(/%2B/gi, '+')
       const body = encodeURIComponent(this.generated.markdown).replace(/%2B/gi, '+')
-      const label = this.type === 'feature-request' ? '&labels=feature%20request' : ''
-      // window.open(`https://github.com/${this.repo}/issues/new?title=${title}&body=${body}${label}`)
-      window.open(`https://github.com/noah-nuebling/mac-mouse-fix/issues/new?title=${title}&body=${body}${label}`)
+      var label = ''
+      if (this.type === 'feature-request') {
+        label = 'enhancement'
+      } else if (this.type === 'bug-report') {
+        label = 'bug'
+      }
+
+      return {title, body, label}
     },
   },
 }
