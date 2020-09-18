@@ -15,7 +15,7 @@ export default {
   'title-placeholder-bug': 'Enter a brief and clear title that expresses the problem.',
   'title-placeholder-feature': 'Enter a brief and clear title that expresses the enhancement you\'d like to see.',
 
-  'additional-info-title': 'Additional Comments (optional)',
+  'additional-info-title': 'Additional comments (optional)',
   'additional-info-placeholder-feature': require('./additional-info-placeholder.txt'),
   'additional-info-placeholder-bug': require('./additional-info-placeholder.txt'),
 
@@ -36,13 +36,8 @@ export default {
 
   'context-title': 'Context',
   'context-placeholder':
-      'Specify which circumstances the bug occurs under here.\n' +
-      'For example:\n' +
-      '    - Which Mac Mouse Fix version were you using?\n' +
-      '    - Which macOS version were you using?\n' +
-      '    - Which model of mouse were you using?\n' +
-      '    - Which other apps that affect mouse behaviour were installed?\n' +
-      '        (Having several such apps installed is a common source of issues)',
+      'Specify under which circumstances the bug occurs here.\n',
+  'context-subtitle': require('./context-subtitle.md'),
 
   'repro-title': 'Link to minimal reproduction',
   'repro-subtitle': require('./repro-subtitle.md'),
@@ -70,8 +65,6 @@ export default {
 
   'expected-title': 'What is expected?',
   'actual-title': 'What is actually happening?',
-  'extra-title': 'Any additional comments? (optional)',
-  'extra-subtitle': 'e.g. some background/context of how you ran into this bug.',
 
   // feature request
 

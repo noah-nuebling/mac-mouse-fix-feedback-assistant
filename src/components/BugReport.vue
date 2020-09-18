@@ -5,7 +5,7 @@
       <!-- Title -->
       <MFFormField
               :title="i18n('title-title')"
-              class="span-2"
+              class="span-3"
       >
         <MFInput
                 :placeholder="i18n('title-placeholder-bug')"
@@ -16,10 +16,11 @@
         />
       </MFFormField>
 
+      <!-- Description -->
 
       <MFFormField
               :title="i18n('bug-description-title')"
-              class="span-2"
+              class="span-3"
       >
         <MFInput
                 :placeholder="i18n('bug-description-placeholder')"
@@ -33,13 +34,13 @@
       <!-- Steps to reproduce -->
 
       <MFFormField
-              class="span-2"
+              class="span-3"
               :title="i18n('steps-title')"
       >
         <MFInput
                 :placeholder="i18n('steps-placeholder')"
                 type="textarea"
-                rows="5"
+                rows="6"
                 v-model="attrs.steps"
                 required
         />
@@ -76,7 +77,7 @@
 <!--      <MFFormField-->
 <!--              :title="i18n('version-title')"-->
 <!--              :subtitle="i18n('version-subtitle')"-->
-<!--              class="span-2"-->
+<!--              class="span-3"-->
 <!--      >-->
 <!--        <VueTypeAhead-->
 <!--                v-model="attrs.version"-->
@@ -93,21 +94,23 @@
 
       <MFFormField
               :title="i18n('context-title')"
-              class="span-2"
+              class="span-3"
       >
         <MFInput
                 :placeholder="i18n('context-placeholder')"
                 type="textarea"
-                rows="8"
+                rows="4"
                 v-model="attrs.context"
+                required
         />
+        <i18n slot="subtitle" id="context-subtitle"></i18n>
       </MFFormField>
 
       <!-- Additional comments -->
 
       <MFFormField
               :title="i18n('additional-info-title')"
-              class="span-2"
+              class="span-3"
       >
         <MFInput
                 :placeholder="i18n('additional-info-placeholder-bug')"
@@ -165,8 +168,6 @@ export default {
         version: '',
         context: '',
         steps: '',
-        expected: '',
-        actual: '',
         additional: '',
       },
       versions: [],
@@ -235,28 +236,25 @@ export default {
 
     generate () {
       const {
-        version,
+        //version,
         description,
         steps,
-        expected,
-        actual,
-        extra,
+        context,
+        additional
       } = this.attrs
 
       return generate(`
-### Version
-${version}
+### Description
+${description}
 
 ### Steps to reproduce
 ${steps}
 
-### What is expected?
-${expected}
+### Context
+${context}
 
-### What is actually happening?
-${actual}
-
-${extra ? `---\n${extra}` : ''}
+### Additional Comments
+${additional}
   `.trim())
     }
   },
