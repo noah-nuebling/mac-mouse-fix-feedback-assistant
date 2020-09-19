@@ -36,7 +36,7 @@ export default {
 
   'context-title': 'Context',
   'context-placeholder':
-      'Specify under which circumstances the bug occurs here.\n',
+      'Specify under which circumstances the bug occurs.',
   'context-subtitle': require('./context-subtitle.md'),
 
   'repro-title': 'Link to minimal reproduction',
@@ -70,7 +70,6 @@ export default {
 
   'feature-description-title': 'Description',
   'feature-description-placeholder': 'Provide a descriptive summary of the enhancement.',
-  // 'feature-description-subtitle': 'Subtitle goes here',
 
   'rationale-title': 'Rationale',
   'rationale-placeholder': require('./rationale-placeholder.txt'),

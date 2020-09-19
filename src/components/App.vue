@@ -44,10 +44,13 @@
         <!-- Main input fields -->
 
         <div class="card span-2">
+
         <!-- content component -->
-        <keep-alive>
-          <component :is="type" ref="content" :repo="repo"/>
-        </keep-alive>
+
+
+            <keep-alive>
+              <component :is="type" ref="content" :repo="repo"/>
+            </keep-alive>
 
         <!-- attachments -->
   <!--      <MFFormField-->
@@ -208,7 +211,6 @@ export default {
     },
 
     submit() {
-
       this.generate()
 
       if (this.submitAction == 'issue') {
@@ -303,7 +305,7 @@ export default {
   flex-direction column
   justify-content flex-start
   // align-items center
-  margin 36px 0 42px 0
+  margin 36px 0 64px 0
 .title-sec__brand
   display flex
   flex-direction row
@@ -317,18 +319,22 @@ export default {
   font-size medium
   font-weight medium
 .title-sec__title
-  align-self flex-start // For some reason, choosing start or end makes it center aligned, and choosing center makes it not aligned at all... But only when border is set to solid.....
+  align-self flex-start
   font-weight bolder
   margin 12px 0 0 0
 
 .card
+
   padding 24px
   margin-bottom: 48px
-  border-radius $br
-  //border-style solid
+  background $card-color-light
+
+  box-shadow $shadow-card
+
+  border-radius $corner-radius-card
+  border-style solid
   border-color $border-color
   border-width 0.5px
-  background $card-color-medium
-  box-shadow $shadow-low
+
 
 </style>

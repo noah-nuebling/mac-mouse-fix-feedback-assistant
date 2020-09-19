@@ -237,13 +237,15 @@ colors($color)
   box-sizing border-box
   width auto
   min-width 200px
+  border-radius $br
+  transition box-shadow 0.05s linear 0s // For animating glow shadow on focus
 
   > .content
     box-shadow $shadow-inner
     h-box()
     box-center()
     padding 0 10px
-    border solid 1px $mf-ui-color-light-neutral
+    //border solid 1px $mf-ui-color-light-neutral
     color $mf-ui-color-dark-neutral
     border-radius $br
     transition background .3s
@@ -363,6 +365,7 @@ colors($color)
     colors($mf-ui-color-success)
 
   &.focused
+    box-shadow $mf-border-glow-shadow
     &:not(.flat)
       > .content
         background $mf-ui-color-light

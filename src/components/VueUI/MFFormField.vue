@@ -102,6 +102,7 @@ export default {
 
 <style lang="stylus">
 @import "../../../node_modules/@vue/ui/src/style/imports"
+@import "../../style/vars.styl"
 
 .mf-ui-form-field
   > .wrapper
@@ -120,10 +121,15 @@ export default {
     > .subtitle
       transition opacity .3s
 
+    > .title
+      font-weight medium
+      font-size 14px
+      color black
+
     > .subtitle
       font-size 14px
       &:not(.primary):not(.accent):not(.danger):not(.warning):not(.info):not(.success):not(.flat)
-        color lighten($vue-ui-color-dark, 20%)
+        color lighten($mf-ui-color-dark-neutral, 20%)
         .vue-ui-icon
           svg
             fill @color
