@@ -299,17 +299,8 @@
                 colors($mf-ui-color-success, $mf-ui-color-dark)
         disable-focus-styles()
         // Keyboard focus style
-        &:focus:focus-visible
-            z-index 1
-            &::after
-                content ''
-                display block
-                position absolute
-                top 0
-                bottom @top
-                left @top
-                right @top
-                border solid 1px
-                border-radius ($br + 1px)
-                animation vue-ui-focus .3s forwards
+        &:focus
+         :focus-visible
+            border-radius $br
+            animation mf-ui-focus .05s forwards
 </style>

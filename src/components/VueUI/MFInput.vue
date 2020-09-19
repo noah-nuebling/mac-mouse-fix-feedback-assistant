@@ -240,7 +240,7 @@ colors($color)
   width auto
   min-width 200px
   border-radius $br
-  border 1px solid $border-color
+  border 1.2px solid $border-color
   transition box-shadow 0.05s linear 0s // For animating glow shadow on focus
 
   overflow hidden

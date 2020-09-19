@@ -34,6 +34,16 @@ $card-highlight = inset 0 1px 0 0 #ffffff
 $mf-border-glow-color = #69b7ff
 $mf-border-glow-shadow = 0 0 1px 2px $mf-border-glow-color
 
+@-webkit-keyframes mf-ui-focus {
+  0%{
+    box-shadow: 0 0 0 #000000
+  }
+  to {
+    box-shadow: $mf-border-glow-shadow
+  }
+}
+
+
 $mf-ui-color-light-neutral = #e8e8e8 // Used for secondary button backgrounds
 $mf-ui-color-light = $global-background-color // Used for selected input fields
 $mf-ui-color-darker = #002776

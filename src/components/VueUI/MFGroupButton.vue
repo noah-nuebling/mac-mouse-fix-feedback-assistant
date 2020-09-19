@@ -16,11 +16,12 @@
 <script>
 
 import MFGroup from './MFGroup.vue'
+import MFButton from "./MFButton";
 
 export default {
 
   name: 'MFGroupButton',
-
+  components: {MFButton},
   inheritAttrs: false,
 
   inject: [
@@ -68,6 +69,7 @@ export default {
   border-radius $br
 
   button-transitions()
+
   &:not(.selected):not(.flat)
     border solid 1px #e8e8e8
     button-colors($mf-ui-color-dark-neutral, $mf-ui-color-light) // This is the color scheme of an unselected button
