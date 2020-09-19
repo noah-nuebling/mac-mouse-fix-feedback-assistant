@@ -26,11 +26,11 @@
 
       <div class="common-fields vue-ui-grid col-2 default-gap">
 
-        <!-- Form type picker (Bug Report, Feature Request, ...) -->
+        <!-- Type picker (Bug Report, Feature Request, ...) -->
 
         <VueGroup
           v-model="type"
-          class="first-row span-2 extend"
+          class="first-row span-2 extend card-elevation"
         >
           <MFGroupButton
             v-for="option of types"
@@ -277,7 +277,7 @@ export default {
   /*background-color aqua*/
 
 .first-row
-  margin-bottom 36px
+  margin-bottom 56px
 
 .common-fields
   margin-bottom 24px
@@ -306,7 +306,7 @@ export default {
   flex-direction column
   justify-content flex-start
   // align-items center
-  margin 36px 0 64px 0
+  margin 52px 0 52px 0
 .title-sec__brand
   display flex
   flex-direction row
@@ -330,7 +330,7 @@ export default {
   border-radius $br
 
 .card
-  padding 32px 24px 20px 24px
+  padding 30px 24px 20px 24px
 
   margin-bottom: 48px
   background $card-color-light
