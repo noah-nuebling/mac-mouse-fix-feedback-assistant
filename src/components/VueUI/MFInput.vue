@@ -43,12 +43,14 @@
           @keydown.tab="onKeyTab"
         />
 
-        <input
-          v-if="showSuggestion"
-          class="input suggestion"
-          :value="suggestion"
-          disabled
-        >
+          <label>
+              <input
+                v-if="showSuggestion"
+                class="input suggestion"
+                :value="suggestion"
+                disabled
+              >
+          </label>
       </div>
 
       <slot name="right"/>
