@@ -89,8 +89,8 @@ export default {
   'title-title-other': 'Title',
   'title-placeholder-other': 'Enter any title.',
 
-  'body-title-other': 'Body (optional)',
-  'body-placeholder-other': 'Type in anything.',
+  'body-title-other': 'Message',
+  'body-placeholder-other': 'Add your message here. (optional)',
 
   // Thank you
 
