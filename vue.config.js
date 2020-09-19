@@ -13,8 +13,8 @@ module.exports = {
 
     // From logrocket tutorial / vue deployment tutorial
 
-  // publicPath: process.env.NODE_ENV === 'production' ? '/mac-mouse-fix-feedback-assistant/' : '/',
-  publicPath: '/mac-mouse-fix-feedback-assistant/',
+  publicPath: process.env.NODE_ENV === 'production' ? '/mac-mouse-fix-feedback-assistant/' : '/',
+  // publicPath: '/mac-mouse-fix-feedback-assistant/',
 
 
   chainWebpack: config => {

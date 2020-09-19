@@ -1,5 +1,6 @@
 {
   "name": "mac-mouse-fix-feedback-assistant",
+  "main": "src/main.js",
   "version": "0.2.0",
   "private": true,
   "scripts": {
@@ -28,6 +29,7 @@
     "babel-loader": "^8.1.0",
     "deepmerge": "^2.1.1",
     "eslint": "^7.9.0",
+    "eslint-loader": "^4.0.2",
     "eslint-plugin-vue": "^6.2.2",
     "execa": "latest",
     "install-peerdeps": "^2.0.3",
@@ -36,8 +38,7 @@
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "vue-template-compiler": "^2.5.16",
-    "webpack": "^4.44.2",
-    "eslint-loader": "^4.0.2"
+    "webpack": "^4.44.2"
   },
   "eslintConfig": {
     "root": true,
