@@ -14,13 +14,17 @@
 </template>
 
 <script>
+
+import MFGroup from './MFGroup.vue'
+
 export default {
+
   name: 'MFGroupButton',
 
   inheritAttrs: false,
 
   inject: [
-    'VueGroup',
+    'MFGroup',
   ],
 
   props: {
@@ -34,7 +38,7 @@ export default {
 
   computed: {
     selected () {
-      return this.value === this.VueGroup.data.value
+      return this.value === this.MFGroup.data.value
     },
   },
 
@@ -49,7 +53,7 @@ export default {
   methods: {
     handleClick (...args) {
       this.$emit('click', ...args)
-      this.VueGroup.setValue(this.value)
+      this.MFGroup.setValue(this.value)
     },
   },
 }
@@ -65,6 +69,7 @@ export default {
 
   button-transitions()
   &:not(.selected):not(.flat)
+    border solid 1px #e8e8e8
     button-colors($mf-ui-color-dark-neutral, $mf-ui-color-light) // This is the color scheme of an unselected button
     .vue-ui-dark-mode &
       button-colors($mf-ui-color-light, $mf-ui-color-dark)

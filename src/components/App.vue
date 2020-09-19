@@ -28,7 +28,7 @@
 
         <!-- Type picker (Bug Report, Feature Request, ...) -->
 
-        <VueGroup
+        <MFGroup
           v-model="type"
           class="first-row span-2 extend card-elevation"
         >
@@ -39,7 +39,7 @@
           >
             {{ option.name }}
           </MFGroupButton>
-        </VueGroup>
+        </MFGroup>
 
         <!-- Main input fields -->
 
@@ -138,9 +138,11 @@ import Other from  './Other.vue'
 import search from '../mixins/github-search'
 
 import MFButton from './VueUI/MFButton.vue'
+import MFGroup from "./VueUI/MFGroup";
 import MFGroupButton from './VueUI/MFGroupButton.vue'
 import MFFormField from './VueUI/MFFormField.vue'
 import MFInput from './VueUI/MFInput.vue'
+
 
 
 export default {
@@ -155,6 +157,7 @@ export default {
     FeatureRequest,
     Other,
     MFButton,
+    MFGroup,
     MFGroupButton,
     MFFormField,
     MFInput
@@ -188,9 +191,9 @@ export default {
   },
 
   watch: {
-//    repo (value) {
-//      if (value) updateQuery({ repo: value.id })
-//    },
+   repo (value) {
+     if (value) updateQuery({ repo: value.id })
+   },
 
     type (value) {
       updateQuery({ type: value })
