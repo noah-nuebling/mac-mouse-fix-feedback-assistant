@@ -30,7 +30,7 @@ export default {
 
   'context-title': 'Context',
   'context-placeholder':
-      'Specify under which circumstances the bug occurs',
+      'Specify under which circumstances the bug occurred',
   'context-subtitle': require('./context-subtitle.md'),
 
   'steps-title': 'Steps to reproduce',
