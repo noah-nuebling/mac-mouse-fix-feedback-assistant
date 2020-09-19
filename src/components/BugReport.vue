@@ -244,16 +244,16 @@ export default {
       } = this.attrs
 
       return generate(`
-### Description
+## Description
 ${description}
 
-### Steps to reproduce
+## Steps to reproduce
 ${steps}
 
-### Context
+## Context
 ${context}
 
-### Additional Comments
+## Additional Comments
 ${additional}
   `.trim())
     }

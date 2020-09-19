@@ -238,7 +238,12 @@ colors($color)
   width auto
   min-width 200px
   border-radius $br
+  border 1px solid $border-color
   transition box-shadow 0.05s linear 0s // For animating glow shadow on focus
+
+  overflow hidden
+  &::-webkit-resizer // Trying to hide the resizer. Doesn't seem to work.
+    display none
 
   > .content
     box-shadow $shadow-inner

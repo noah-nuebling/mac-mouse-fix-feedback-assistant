@@ -259,6 +259,7 @@ export default {
 
   html
     background $global-background-color
+    zoom 150%
 </style>
 
 <style lang="stylus" scoped>

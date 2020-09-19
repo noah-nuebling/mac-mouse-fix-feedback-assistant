@@ -95,13 +95,13 @@
                 const { description, rationale, additional } = this.attrs
 
                 return generate(`
-### Description
+## Description
 ${description}
 
-### Rationale
+## Rationale
 ${rationale}
 
-### Additional info
+## Additional info
 ${additional}
   `.trim())
             }
