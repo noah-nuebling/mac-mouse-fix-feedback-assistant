@@ -4,16 +4,14 @@ export default {
   // intro
 
   'intro': require('./thank-you-bug.md'),
-  'intro-modal-title': 'The reason behind our strict issue policy',
-  'intro-modal': require('./intro-modal.md'),
 
   // all report types
 
   // 'type-title': 'This is a',
 
   'title-title': 'Title',
-  'title-placeholder-bug': 'Enter a brief and clear title that expresses the problem.',
-  'title-placeholder-feature': 'Enter a brief and clear title that expresses the enhancement you\'d like to see.',
+  'title-placeholder-bug': 'Enter a brief and clear title that expresses the problem',
+  'title-placeholder-feature': 'Enter a brief and clear title that expresses the enhancement you\'d like to see',
 
   'additional-info-title': 'Additional comments (optional)',
   'additional-info-placeholder-feature': require('./additional-info-placeholder-feature.txt'),
@@ -26,35 +24,14 @@ export default {
   // bug report tab
 
   'bug-description-title': 'Description',
-  'bug-description-placeholder': 'Provide a descriptive summary of the problem.',
-
-  'repo-title': 'I am opening an issue for',
-  'repo-subtitle': 'Please make sure to file the issue at appropriate repo.',
+  'bug-description-placeholder': 'Provide a descriptive summary of the problem',
 
   'version-title': 'Version',
-  'version-subtitle': 'Check if the issue is reproducible with the latest stable version of Vue.',
 
   'context-title': 'Context',
   'context-placeholder':
-      'Specify under which circumstances the bug occurs.',
+      'Specify under which circumstances the bug occurs',
   'context-subtitle': require('./context-subtitle.md'),
-
-  'repro-title': 'Link to minimal reproduction',
-  'repro-subtitle': require('./repro-subtitle.md'),
-  'repro-modal-title': 'About Reproductions',
-  'repro-modal': require('./repro-modal.md'),
-  'cli-repro-subtitle': require('./cli-repro-subtitle.md'),
-  'cli-no-repro': 'If your issue cannot be reproduced with code, check here.',
-  'router-next-repro-subtitle': require('./router-next-repro-subtitle.md'),
-
-  'node-and-os-title': 'Node, npm/yarn and OS info',
-  'node-and-os-subtitle': 'Please specify node.js version, npm or yarn version, OS name & version. Example: Node 10.7.0 / yarn 1.7.0 / Windows 10',
-
-  'cli-envinfo-title': 'Environment Info',
-  'cli-envinfo-subtitle': require('./cli-envinfo-subtitle.md'),
-
-  'browser-and-os-title': 'Browser and OS info',
-  'browser-and-os-subtitle': 'Please specify browser name & version, OS name & version. Example: Chrome 62 / Windows 10',
 
   'steps-title': 'Steps to reproduce',
   'steps-placeholder':
@@ -63,34 +40,27 @@ export default {
       '3. Pat yourself on the back! This will be super helpful for fixing the bug. :D',
   'steps-subtitle': require('./steps-subtitle.md'),
 
-  'expected-title': 'What is expected?',
-  'actual-title': 'What is actually happening?',
-
   // feature request tab
 
   'feature-description-title': 'Description',
-  'feature-description-placeholder': 'Provide a descriptive summary of the enhancement you\'d like to see.',
+  'feature-description-placeholder': 'Provide a descriptive summary of the enhancement you\'d like to see',
 
   'rationale-title': 'Rationale',
   'rationale-placeholder':
-      'Describe why you would like to see this enhancement. \n' +
+      'Describe why you would like to see this enhancement \n' +
       '\n' +
       'Which problem would it solve? \n' +
       'How would you use the new feature? ',
-  // 'rationale-subtitle': require('./rationale-subtitle.md'),
-
-  'proposal-title': 'What does the proposed API look like?',
-  'proposal-subtitle': require('./proposal-subtitle.md'),
 
   // other tab
 
   'other': 'Other',
 
   'title-title-other': 'Title',
-  'title-placeholder-other': 'Enter any title.',
+  'title-placeholder-other': 'Enter a title',
 
-  'body-title-other': 'Message',
-  'body-placeholder-other': 'Add your message here. (optional)',
+  'body-title-other': 'Message (optional)',
+  'body-placeholder-other': 'Enter your message',
 
   // Thank you
 
@@ -106,8 +76,6 @@ export default {
   'bug-report': 'Bug Report',
   'feature-request': 'Feature Request',
   'similar-issues': 'Similar issues',
-  'show-more': 'Show more',
-  'show-less': 'Show less',
   'drop-warn':
     `Unfortunately, image drop/uploading is not supported due to GitHub API ` +
     `limitations. However, you can create the issue first (which will take you ` +
