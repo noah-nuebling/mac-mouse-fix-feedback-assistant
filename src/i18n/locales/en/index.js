@@ -72,7 +72,11 @@ export default {
   'feature-description-placeholder': 'Provide a descriptive summary of the enhancement you\'d like to see.',
 
   'rationale-title': 'Rationale',
-  'rationale-placeholder': require('./rationale-placeholder.txt'),
+  'rationale-placeholder':
+      'Describe why you would like to see this enhancement. \n' +
+      '\n' +
+      'Which problem would it solve? \n' +
+      'How would you use the new feature? ',
   // 'rationale-subtitle': require('./rationale-subtitle.md'),
 
   'proposal-title': 'What does the proposed API look like?',
