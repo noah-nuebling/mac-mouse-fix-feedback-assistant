@@ -128,7 +128,6 @@
 <!--<script lang="babel">-->
 <script>
 
-import { repos } from '../config'
 import { getQuery, updateQuery } from '../helpers'
 
 import FormIntro from './FormIntro.vue'
