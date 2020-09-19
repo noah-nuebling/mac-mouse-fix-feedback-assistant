@@ -5,11 +5,21 @@ export function getQuery () {
 }
 
 export function updateQuery (query) {
-  const newUrl = window.location.origin + '/?' + qs.stringify(
-    { ...getQuery(), ...query },
-    { encode: false }
-  ) + window.location.hash
-  window.history.pushState({
-    path: newUrl,
-  }, '', newUrl)
+
+  const newUrl =
+      window.location.origin
+      + window.location.pathname
+      + '?'
+      + qs.stringify(
+      {...getQuery(), ...query},
+      {encode: false}
+      )
+      + window.location.hash
+
+  window.history.pushState(
+      {
+        path: newUrl,
+      },
+      '',
+      newUrl)
 }

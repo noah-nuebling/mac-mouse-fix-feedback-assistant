@@ -199,8 +199,7 @@ export default {
   },
 
   created () {
-    const { repo, type } = getQuery()
-    // this.repo = this.repos.find(r => r.id === repo) || this.repos[0]
+    const { type } = getQuery()
     this.repo = "noah-nuebling/mac-mouse-fix"
     this.type = type || 'bug-report'
   },
