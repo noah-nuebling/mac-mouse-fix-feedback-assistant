@@ -112,7 +112,7 @@ export default {
       align-items stretch
 
     > .content
-      margin 6px 0
+      margin 10px 0 5px 0
 
       > *
         space-between-y(8px)
@@ -127,7 +127,7 @@ export default {
       color black
 
     > .subtitle
-      font-size 14px
+      font-size 13px
       &:not(.primary):not(.accent):not(.danger):not(.warning):not(.info):not(.success):not(.flat)
         color lighten($mf-ui-color-dark-neutral, 20%)
         .vue-ui-icon

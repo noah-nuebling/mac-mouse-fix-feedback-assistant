@@ -189,6 +189,19 @@
                     line-height 10px
                     // font-weight bold
                     font-family monospace
+        &.medium // Noah added this. Not compatible with .round and maybe other stuff
+            padding 18px 18px
+            font-size 14px
+            .vue-ui-icon
+                width 24px
+                height @width
+            > .content
+                > .tag-wrapper
+                    > .tag
+                        padding 2px 4px 0
+                        border-radius 7px
+                        font-size 12px
+                        line-height 12px
         &.big
             padding 0 18px
             font-size 16px

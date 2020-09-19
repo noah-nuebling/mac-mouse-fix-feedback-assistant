@@ -1,0 +1,1 @@
+Thanks for helping to make Mac Mouse Fix more useful! 🧠

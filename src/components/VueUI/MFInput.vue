@@ -263,7 +263,7 @@ colors($color)
         position relative
         z-index 1
         font-family inherit
-        font-size 14px
+        font-size 13px
         line-height 14px
         color @color
         padding 0

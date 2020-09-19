@@ -43,7 +43,7 @@
 
         <!-- Main input fields -->
 
-        <div class="card span-2">
+        <div class="card card-elevation span-2">
 
         <!-- content component -->
 
@@ -74,14 +74,14 @@
           <MFButton
             @click="submitAction = 'email'"
             type="submit"
-            class="secondary big"
+            class="secondary medium mf-submit-btn"
             :label="i18n('submit-btn-email')"
           />
-          <div class="vue-ui-spacer"></div>
+<!--          <div class="vue-ui-spacer"></div>-->
           <MFButton
             @click="submitAction = 'issue'"
             type="submit"
-            class="primary big"
+            class="primary medium mf-submit-btn"
             :label="i18n('submit-btn-gh')"
           />
         </div>
@@ -89,30 +89,28 @@
       </div>
     </form>
 
-    <VueModal
-      v-if="show"
-      :title="i18n('preview-title')"
-      class="medium"
-      @close="show = false"
-    >
-      <div class="default-body" v-html="generated.html"/>
+    <div class="card-flat">
+      <i18n
+        v-if="this.type == 'bug-report'"
+        id="thank-you-bug"
+        class="thank-you-text"
+      />
+      <i18n
+        v-if="this.type == 'feature-request'"
+        id="thank-you-feature"
+        class="thank-you-text"
+      />
+    </div>
 
-      <div slot="footer" class="actions">
-        <VueButton
-          class="primary big"
-          :label="i18n('create')"
-          @click="create()"
-        />
-      </div>
-    </VueModal>
   </div>
+
 
   <footer class="app-footer">
     <p>&hellip;</p>
     <small>
       Based on <a href="https://github.com/vuejs/vue-issue">Vue Issue Helper</a>
       &centerdot;
-      Check out source on <a href="https://github.com/noah-nuebling/mac-mouse-fix-issue-helper">GitHub</a>
+      Check out the <a href="https://github.com/noah-nuebling/mac-mouse-fix-issue-helper">Source Code</a>
     </small>
   </footer>
 </div>
@@ -259,6 +257,8 @@ export default {
   a
     color $link-color
 
+  html
+    background $global-background-color
 </style>
 
 <style lang="stylus" scoped>
@@ -283,12 +283,13 @@ export default {
   margin-bottom 24px
 
 .form-actions
-  h-box()
+  //h-box()
   //box-center()
   display flex
+  flex-direction row
   flex-wrap wrap
   justify-content flex-end
-  margin (12+24)px 0 0px 0
+  margin 20px 0 0px 0
 
 .app-footer
   text-align center
@@ -323,18 +324,42 @@ export default {
   font-weight bolder
   margin 12px 0 0 0
 
-.card
 
-  padding 24px
+.card-elevation
+  box-shadow $shadow-card, $card-highlight
+  border-radius $br
+
+.card
+  padding 32px 24px 20px 24px
+
   margin-bottom: 48px
   background $card-color-light
 
-  box-shadow $shadow-card
-
-  border-radius $corner-radius-card
+  border-radius $br
   border-style solid
   border-color $border-color
   border-width 0.5px
+
+.mf-submit-btn
+  margin 12px 0 0 18px
+
+.card-flat
+  display flex
+  align-items center
+  justify-content flex-start
+  padding 12px 16px 12px 16px
+  margin-bottom: 48px
+  border-radius $br
+  //border-style solid
+  border-color $border-color
+  border-width 0.5px
+  // background lighten($mouse-fix-accent, 85%)
+  background $card-color-dark
+  // box-shadow $shadow-high
+
+.thank-you-text
+  font-size 14px
+  padding-top: 6px // Need this to make some text vertically aligned for some reason
 
 
 </style>

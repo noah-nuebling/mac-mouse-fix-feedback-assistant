@@ -61,7 +61,7 @@ export default {
 
 .mf-ui-group-button.vue-ui-button
 
-  background aqua
+  border-radius $br
 
   button-transitions()
   &:not(.selected):not(.flat)

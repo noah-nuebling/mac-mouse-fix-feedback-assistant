@@ -3,7 +3,7 @@ export default {
 
   // intro
 
-  'intro': require('./intro.md'),
+  'intro': require('./thank-you-bug.md'),
   'intro-modal-title': 'The reason behind our strict issue policy',
   'intro-modal': require('./intro-modal.md'),
 
@@ -16,8 +16,8 @@ export default {
   'title-placeholder-feature': 'Enter a brief and clear title that expresses the enhancement you\'d like to see.',
 
   'additional-info-title': 'Additional comments (optional)',
-  'additional-info-placeholder-feature': require('./additional-info-placeholder.txt'),
-  'additional-info-placeholder-bug': require('./additional-info-placeholder.txt'),
+  'additional-info-placeholder-feature': require('./additional-info-placeholder-feature.txt'),
+  'additional-info-placeholder-bug': require('./additional-info-placeholder-bug.txt'),
 
   'attachments-title': 'Attachments (optional)',
   'attachments-subtitle-feature': require('./attachments-subtitle-feature.md'),
@@ -58,8 +58,8 @@ export default {
 
   'steps-title': 'Steps to reproduce',
   'steps-placeholder':
-      '1. Detail the exact steps taken to reproduce the problem\n' +
-      '2. Number each step\n' +
+      '1. Detail the exact steps taken to reproduce the problem \n' +
+      '2. Number each step \n' +
       '3. Pat yourself on the back! This is very helpful :D',
   'steps-subtitle': require('./steps-subtitle.md'),
 
@@ -69,7 +69,7 @@ export default {
   // feature request
 
   'feature-description-title': 'Description',
-  'feature-description-placeholder': 'Provide a descriptive summary of the enhancement.',
+  'feature-description-placeholder': 'Provide a descriptive summary of the enhancement you\'d like to see.',
 
   'rationale-title': 'Rationale',
   'rationale-placeholder': require('./rationale-placeholder.txt'),
@@ -78,13 +78,16 @@ export default {
   'proposal-title': 'What does the proposed API look like?',
   'proposal-subtitle': require('./proposal-subtitle.md'),
 
-  // preview
-  'submit-btn-gh': 'Create new Issue on GitHub',
-  'submit-btn-email': 'Send via email',
-  'preview-title': 'Issue Preview',
-  'create': 'Create',
+  // Thank you
+
+  'thank-you-bug': require('./thank-you-bug.md'),
+  'thank-you-feature': require('./thank-you-feature.md'),
 
   // misc
+
+  'submit-btn-gh': 'Create new Issue on GitHub',
+  'submit-btn-email': 'Send via Email',
+
   'bug-report': 'Bug Report',
   'feature-request': 'Feature Request',
   'similar-issues': 'Similar issues',
