@@ -170,6 +170,7 @@ export default {
         steps: '',
         additional: '',
       },
+      label: 'bug',
       versions: [],
       loadingVersion: false,
       reproNotAvailable: false

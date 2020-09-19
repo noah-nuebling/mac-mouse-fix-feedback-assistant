@@ -87,6 +87,7 @@
                     rationale: '',
                     additional: ''
                 },
+                label: 'enhancement',
             }
         },
 

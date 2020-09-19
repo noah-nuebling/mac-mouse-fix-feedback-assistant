@@ -23,7 +23,7 @@ export default {
   'attachments-subtitle-feature': require('./attachments-subtitle-feature.md'),
   'attachments-subtitle-bug': require('./attachments-subtitle-bug.md'),
 
-  // bug report
+  // bug report tab
 
   'bug-description-title': 'Description',
   'bug-description-placeholder': 'Provide a descriptive summary of the problem.',
@@ -66,7 +66,7 @@ export default {
   'expected-title': 'What is expected?',
   'actual-title': 'What is actually happening?',
 
-  // feature request
+  // feature request tab
 
   'feature-description-title': 'Description',
   'feature-description-placeholder': 'Provide a descriptive summary of the enhancement you\'d like to see.',
@@ -78,10 +78,21 @@ export default {
   'proposal-title': 'What does the proposed API look like?',
   'proposal-subtitle': require('./proposal-subtitle.md'),
 
+  // other tab
+
+  'other': 'Other',
+
+  'title-title-other': 'Title',
+  'title-placeholder-other': 'Enter any title.',
+
+  'body-title-other': 'Body (optional)',
+  'body-placeholder-other': 'Type in anything.',
+
   // Thank you
 
   'thank-you-bug': require('./thank-you-bug.md'),
   'thank-you-feature': require('./thank-you-feature.md'),
+  'thank-you-other': require('./thank-you-other.md'),
 
   // misc
 

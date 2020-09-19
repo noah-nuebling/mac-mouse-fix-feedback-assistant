@@ -100,6 +100,11 @@
         id="thank-you-feature"
         class="thank-you-text"
       />
+      <i18n
+        v-if="this.type == 'other'"
+        id="thank-you-other"
+        class="thank-you-text"
+      />
     </div>
 
   </div>
@@ -130,6 +135,7 @@ import FormIntro from './FormIntro.vue'
 import AppHeader from './AppHeader.vue'
 import BugReport from './BugReport.vue'
 import FeatureRequest from './FeatureRequest.vue'
+import Other from  './Other.vue'
 import search from '../mixins/github-search'
 
 import MFButton from './VueUI/MFButton.vue'
@@ -148,6 +154,7 @@ export default {
     AppHeader,
     BugReport,
     FeatureRequest,
+    Other,
     MFButton,
     MFGroupButton,
     MFFormField,
@@ -156,6 +163,8 @@ export default {
 
   data () {
     return {
+      title: '',
+      label: '',
       generated: {
         markdown: '',
         html: ''
@@ -173,7 +182,8 @@ export default {
     types () {
       return this.$lang && [
         { id: 'bug-report', name: this.i18n('bug-report') },
-        { id: 'feature-request', name: this.i18n('feature-request') }
+        { id: 'feature-request', name: this.i18n('feature-request') },
+        { id: 'other', name: this.i18n('other') }
       ]
     }
   },
@@ -220,6 +230,7 @@ export default {
 
     generate () {
       this.title = this.$refs.content.attrs.title
+      this.label = this.$refs.content.label
       this.generated = this.$refs.content.generate()
     },
 
@@ -236,13 +247,8 @@ export default {
     },
     creationHelper () {
       const title = encodeURIComponent(this.title).replace(/%2B/gi, '+')
+      var label = encodeURIComponent(this.label).replace(/%2B/gi, '+')
       const body = encodeURIComponent(this.generated.markdown).replace(/%2B/gi, '+')
-      var label = ''
-      if (this.type === 'feature-request') {
-        label = 'enhancement'
-      } else if (this.type === 'bug-report') {
-        label = 'bug'
-      }
 
       return {title, body, label}
     },
@@ -259,7 +265,10 @@ export default {
 
   html
     background $global-background-color
-    zoom 150%
+    zoom 125%
+    min-width $page-width-min
+
+
 </style>
 
 <style lang="stylus" scoped>
@@ -271,7 +280,7 @@ export default {
 
 
 .container
-  max-width $page-width
+  max-width $page-width-max
   margin 0 auto
   box-sizing border-box
   padding 0 24px
