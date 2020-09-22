@@ -37,7 +37,7 @@ export default {
   'steps-subtitle': require('./steps-subtitle.md'),
 
   'mmf-ver-title': 'Mac Mouse Fix Version',
-  'macos-ver-title': 'macOS version',
+  'macos-ver-title': 'macOS Version',
   'macos-ver-placeholder': 'Enter your macOS version',
 
   'mouse-title': 'Mouse Model',

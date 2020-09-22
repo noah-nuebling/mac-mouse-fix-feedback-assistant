@@ -141,7 +141,7 @@
               :title="i18n('mmf-ver-title')"
               class="span-1"
       >
-        <VueTypeAhead
+        <MFTypeAhead
           v-model="attrs.version"
           :suggestions="suggestions"
           :loading="loadingVersion"
@@ -217,9 +217,11 @@ import modal from '../mixins/check-modal'
 
 import MFFormField from "./VueUI/MFFormField";
 import MFInput from "./VueUI/MFInput";
+import MFTypeAhead from "./VueUI/MFTypeAhead";
 
 export default {
   components: {
+    MFTypeAhead,
     MFFormField,
     MFInput
   },

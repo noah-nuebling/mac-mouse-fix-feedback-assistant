@@ -15,13 +15,10 @@
 
 <script>
 
-import MFGroup from './MFGroup.vue'
-import MFButton from "./MFButton";
-
 export default {
 
   name: 'MFGroupButton',
-  components: {MFButton},
+  components: {},
   inheritAttrs: false,
 
   inject: [
@@ -75,7 +72,7 @@ export default {
     button-colors($mf-ui-color-dark-neutral, $mf-ui-color-light) // This is the color scheme of an unselected button
     .vue-ui-dark-mode &
       button-colors($mf-ui-color-light, $mf-ui-color-dark)
-      &.vue-ui-select-button
+      &.mf-ui-select-button
         button-colors($mf-ui-color-light, $mf-ui-color-dark-neutral)
 
   &.selected
@@ -94,7 +91,7 @@ export default {
         button-colors($mf-ui-color-light, $mf-ui-color-dark)
         .vue-ui-dark-mode &
           button-colors($mf-ui-color-light, $mf-ui-color-dark-neutral)
-          &.vue-ui-select-button
+          &.mf-ui-select-button
             background lighten($mf-ui-color-dark-neutral, 30%)
 
   &,
