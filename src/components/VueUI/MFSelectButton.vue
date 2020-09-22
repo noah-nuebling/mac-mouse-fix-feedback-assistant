@@ -1,5 +1,5 @@
 <template>
-  <VueGroupButton
+  <MFGroupButton
     ref="groupButton"
     class="mf-ui-select-button"
     v-bind="$attrs"
@@ -9,7 +9,7 @@
     @selected="onSelect"
   >
     <slot/>
-  </VueGroupButton>
+  </MFGroupButton>
 </template>
 
 <script>

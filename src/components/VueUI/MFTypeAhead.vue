@@ -1,6 +1,6 @@
 <template>
   <div class="mf-ui-type-ahead">
-    <VueSelect
+    <MFSelect
       :open="finalOpen"
       @update:open="val => open = val"
       trigger="manual"
@@ -30,7 +30,7 @@
           {{ suggestion.value }}
         </MFSelectButton>
       </template>
-    </VueSelect>
+    </MFSelect>
   </div>
 </template>
 
@@ -38,12 +38,14 @@
 
 import MFInput from './MFInput'
 import MFSelectButton from "./MFSelectButton";
+import MFSelect from "./MFSelect";
 
 export default {
 
   name: 'MFTypeAhead',
 
   components: {
+    MFSelect,
     MFSelectButton,
     MFInput
   },
