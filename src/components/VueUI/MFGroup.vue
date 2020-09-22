@@ -3,7 +3,7 @@
 
 <template>
   <div
-    class="vue-ui-group mf-ui-group-customization"
+    class="mf-ui-group mf-ui-group-customization"
     :class="{
       'has-indicator': indicator,
     }"
@@ -133,7 +133,7 @@ indicator(direction)
 .mf-ui-group-customization
 
 
-.vue-ui-group
+.mf-ui-group
   position relative
 
   > .content

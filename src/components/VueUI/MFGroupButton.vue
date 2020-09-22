@@ -1,5 +1,5 @@
 <template>
-  <VueButton
+  <MFButton
     class="mf-ui-group-button"
     :class="{
       selected,
@@ -10,15 +10,16 @@
     @click="handleClick"
   >
     <slot/>
-  </VueButton>
+  </MFButton>
 </template>
 
 <script>
 
+import MFButton from "./MFButton";
 export default {
 
   name: 'MFGroupButton',
-  components: {},
+  components: {MFButton},
   inheritAttrs: false,
 
   inject: [
@@ -61,7 +62,7 @@ export default {
 @import "../../../node_modules/@vue/ui/src/style/imports"
 @import "../../style/vars.styl"
 
-.mf-ui-group-button.vue-ui-button
+.mf-ui-group-button.mf-ui-button
 
   border-radius $br
 
@@ -76,16 +77,16 @@ export default {
         button-colors($mf-ui-color-light, $mf-ui-color-dark-neutral)
 
   &.selected
-    .vue-ui-group.has-indicator.primary &
+    .mf-ui-group.has-indicator.primary &
       button-colors($mf-ui-color-primary, $mf-ui-color-light-neutral)
       .vue-ui-dark-mode &
         button-colors($mf-ui-color-primary, $mf-ui-color-dark)
-    .vue-ui-group.has-indicator.accent &
+    .mf-ui-group.has-indicator.accent &
       button-colors($mf-ui-color-accent, $mf-ui-color-light-neutral)
       .vue-ui-dark-mode &
         button-colors(lighten($mf-ui-color-accent, 60%), $mf-ui-color-dark)
 
-  .vue-ui-group:not(.has-indicator) &
+  .mf-ui-group:not(.has-indicator) &
     &.selected
       &:not(.primary):not(.accent):not(.danger):not(.warning):not(.info):not(.success):not(.flat)
         button-colors($mf-ui-color-light, $mf-ui-color-dark)
@@ -96,13 +97,13 @@ export default {
 
   &,
   &.selected
-    .vue-ui-group.has-indicator &
+    .mf-ui-group.has-indicator &
       &.flat
         &,
         .vue-ui-dark-mode &
           background transparent
 
-  .vue-ui-group:not(.vertical) &
+  .mf-ui-group:not(.vertical) &
     &:not(.flat)
       &:not(:first-child)
         border-top-left-radius 0
@@ -121,7 +122,7 @@ export default {
           &:last-child
             padding-right 12px
 
-  .vue-ui-group.vertical &
+  .mf-ui-group.vertical &
     display flex
     width 100%
     &:not(.flat)
