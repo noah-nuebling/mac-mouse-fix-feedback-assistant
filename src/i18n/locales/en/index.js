@@ -13,13 +13,9 @@ export default {
   'title-placeholder-bug': 'Enter a brief and clear title that expresses the problem',
   'title-placeholder-feature': 'Enter a brief and clear title that expresses the enhancement you\'d like to see',
 
-  'additional-info-title': 'Additional comments (optional)',
+  'additional-info-title': 'Additional comments',
   'additional-info-placeholder-feature': require('./additional-info-placeholder-feature.txt'),
   'additional-info-placeholder-bug': require('./additional-info-placeholder-bug.txt'),
-
-  // 'attachments-title': 'Attachments (optional)',
-  // 'attachments-subtitle-feature': require('./attachments-subtitle-feature.md'),
-  // 'attachments-subtitle-bug': require('./attachments-subtitle-bug.md'),
 
   // bug report tab
 
@@ -44,16 +40,18 @@ export default {
   'macos-ver-title': 'macOS version',
   'macos-ver-placeholder': 'Enter your macOS version',
 
-  'mouse-title': 'Mouse model (optional)',
+  'mouse-title': 'Mouse model',
   'mouse-placeholder': 'Specify, which model of mouse you are using',
 
-  'console-logs-title': 'Console logs (optional)',
+  'console-logs-title': 'Console logs',
   'console-logs-placeholder': 'Paste console logs here',
   'console-logs-subtitle': require('./console-logs-subtitle.md'),
 
-  'crash-logs-title': 'Crash reports (optional)',
+  'crash-logs-title': 'Crash reports',
   'crash-logs-placeholder': 'Paste crash reports here',
   'crash-logs-subtitle': require('./crash-logs-subtitle.md'),
+
+  'actionability-note-bug': require('./actionability-note-bug.md'),
 
 
   // feature request tab
@@ -75,7 +73,7 @@ export default {
   'title-title-other': 'Title',
   'title-placeholder-other': 'Enter a title',
 
-  'body-title-other': 'Message (optional)',
+  'body-title-other': 'Message',
   'body-placeholder-other': 'Enter your message',
 
   // Thank you
