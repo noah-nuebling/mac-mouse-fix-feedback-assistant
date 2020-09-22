@@ -202,7 +202,9 @@ export default {
 
   created () {
     const { type } = getQuery()
-    this.repo = "noah-nuebling/mac-mouse-fix"
+    this.repo = {
+      id: "noah-nuebling/mac-mouse-fix"
+    }
     this.type = type || 'bug-report'
   },
 

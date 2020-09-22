@@ -17,9 +17,9 @@ export default {
   'additional-info-placeholder-feature': require('./additional-info-placeholder-feature.txt'),
   'additional-info-placeholder-bug': require('./additional-info-placeholder-bug.txt'),
 
-  'attachments-title': 'Attachments (optional)',
-  'attachments-subtitle-feature': require('./attachments-subtitle-feature.md'),
-  'attachments-subtitle-bug': require('./attachments-subtitle-bug.md'),
+  // 'attachments-title': 'Attachments (optional)',
+  // 'attachments-subtitle-feature': require('./attachments-subtitle-feature.md'),
+  // 'attachments-subtitle-bug': require('./attachments-subtitle-bug.md'),
 
   // bug report tab
 
@@ -39,6 +39,22 @@ export default {
       '2. Number each step \n' +
       '3. Pat yourself on the back! This will be super helpful for fixing the bug. :D',
   'steps-subtitle': require('./steps-subtitle.md'),
+
+  'mmf-ver-title': 'Mac Mouse Fix version',
+  'macos-ver-title': 'macOS version',
+  'macos-ver-placeholder': 'Enter your macOS version',
+
+  'mouse-title': 'Mouse model (optional)',
+  'mouse-placeholder': 'Specify, which model of mouse you are using',
+
+  'console-logs-title': 'Console logs (optional)',
+  'console-logs-placeholder': 'Paste console logs here',
+  'console-logs-subtitle': require('./console-logs-subtitle.md'),
+
+  'crash-logs-title': 'Crash reports (optional)',
+  'crash-logs-placeholder': 'Paste crash reports here',
+  'crash-logs-subtitle': require('./crash-logs-subtitle.md'),
+
 
   // feature request tab
 

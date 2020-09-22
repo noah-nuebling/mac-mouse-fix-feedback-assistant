@@ -90,20 +90,78 @@
 <!--        />-->
 <!--      </MFFormField>-->
 
-      <!-- Context -->
+      <!-- MMF Version -->
 
       <MFFormField
-              :title="i18n('context-title')"
+              :title="i18n('mmf-ver-title')"
+              class="span-1"
+      >
+        <VueTypeAhead
+          v-model="attrs.version"
+          :suggestions="suggestions"
+          :loading="loadingVersion"
+          show-all
+          show-max="30"
+          restrict-choice
+          required
+        />
+      </MFFormField>
+
+
+      <!-- macOS Version -->
+
+      <MFFormField
+              :title="i18n('macos-ver-title')"
+              class="span-2"
+      >
+        <MFInput
+                :placeholder="i18n('macos-ver-placeholder')"
+                v-model="attrs.macOSVersion"
+                required
+        />
+      </MFFormField>
+
+      <!-- Mouse model -->
+
+      <MFFormField
+              :title="i18n('mouse-title')"
               class="span-3"
       >
         <MFInput
-                :placeholder="i18n('context-placeholder')"
-                type="textarea"
-                rows="4"
-                v-model="attrs.context"
-                required
+                :placeholder="i18n('mouse-placeholder')"
+                v-model="attrs.mouse"
         />
-        <i18n slot="subtitle" id="context-subtitle"></i18n>
+      </MFFormField>
+
+
+      <!-- Console Logs -->
+
+      <MFFormField
+              :title="i18n('console-logs-title')"
+              class="span-1"
+      >
+        <MFInput
+                :placeholder="i18n('console-logs-placeholder')"
+                type="textarea"
+                rows="2"
+                v-model="attrs.consoleLogs"
+        />
+        <i18n id="console-logs-subtitle" slot="subtitle"/>
+      </MFFormField>
+
+      <!-- Crash logs -->
+
+      <MFFormField
+              :title="i18n('crash-logs-title')"
+              class="span-2"
+      >
+        <MFInput
+                :placeholder="i18n('crash-logs-placeholder')"
+                type="textarea"
+                rows="2"
+                v-model="attrs.crashLogs"
+        />
+        <i18n id="crash-logs-subtitle" slot="subtitle"/>
       </MFFormField>
 
       <!-- Additional comments -->
@@ -120,6 +178,7 @@
         />
 
       </MFFormField>
+
 
       <!-- ModalSheet -->
 
@@ -166,14 +225,16 @@ export default {
         title: '',
         description: '',
         version: '',
-        context: '',
         steps: '',
         additional: '',
+        macOSVersion: '',
+        mouse: '',
+        consoleLogs: '',
+        crashLogs: '',
       },
       label: 'bug',
       versions: [],
       loadingVersion: false,
-      reproNotAvailable: false
     }
   },
 
@@ -213,12 +274,14 @@ export default {
       const response = await fetch(`https://api.github.com/repos/${repoId}/releases?page=${page}&per_page=100`)
       const releases = await response.json()
 
+      console.log("RELEASES:", releases)
+
       if (this.repo.id !== repoId) return
 
       if (!releases || !(releases instanceof Array)) return false
 
       this.versions = this.versions.concat(releases.map(
-        r => ({ value: /^v/.test(r.tag_name) ? r.tag_name.substr(1) : r.tag_name })
+        r => ({ value: r.tag_name })
       ))
 
       const link = response.headers.get('Link')
