@@ -13,7 +13,7 @@ export default {
   'title-placeholder-bug': 'Enter a brief and clear title that expresses the problem',
   'title-placeholder-feature': 'Enter a brief and clear title that expresses the enhancement you\'d like to see',
 
-  'additional-info-title': 'Additional comments',
+  'additional-info-title': 'Additional Comments',
   'additional-info-placeholder-feature': require('./additional-info-placeholder-feature.txt'),
   'additional-info-placeholder-bug': require('./additional-info-placeholder-bug.txt'),
 
@@ -29,26 +29,26 @@ export default {
       'Specify under which circumstances the bug occurred',
   'context-subtitle': require('./context-subtitle.md'),
 
-  'steps-title': 'Steps to reproduce',
+  'steps-title': 'Steps to Reproduce',
   'steps-placeholder':
       '1. Detail the exact steps taken to reproduce the problem \n' +
       '2. Number each step \n' +
       '3. Pat yourself on the back! This will be super helpful for fixing the bug. :D',
   'steps-subtitle': require('./steps-subtitle.md'),
 
-  'mmf-ver-title': 'Mac Mouse Fix version',
+  'mmf-ver-title': 'Mac Mouse Fix Version',
   'macos-ver-title': 'macOS version',
   'macos-ver-placeholder': 'Enter your macOS version',
 
-  'mouse-title': 'Mouse model',
+  'mouse-title': 'Mouse Model',
   'mouse-placeholder': 'Specify, which model of mouse you are using',
 
-  'console-logs-title': 'Console logs',
-  'console-logs-placeholder': 'Paste console logs here',
+  'console-logs-title': 'Console Logs',
+  'console-logs-placeholder': 'Attach console logs here',
   'console-logs-subtitle': require('./console-logs-subtitle.md'),
 
-  'crash-logs-title': 'Crash reports',
-  'crash-logs-placeholder': 'Paste crash reports here',
+  'crash-logs-title': 'Crash Reports',
+  'crash-logs-placeholder': 'Attach crash reports here',
   'crash-logs-subtitle': require('./crash-logs-subtitle.md'),
 
   'actionability-note-bug': require('./actionability-note-bug.md'),

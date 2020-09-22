@@ -5,4 +5,4 @@
   - System Preferences 
   - Mouse Fix Helper 
 3. Double click the report you want to attach
-4. Copy-paste the content of the report into this text field 
+4. Copy-paste the content of the report into the text field above 

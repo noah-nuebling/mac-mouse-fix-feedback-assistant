@@ -42,7 +42,7 @@
           <hr class="actionability-box__desc__rule">
         </div>
 
-        <div class="actionability-box__content">
+        <div class="actionability-box__content vue-ui-grid default-gap">
 
           <!-- Steps to reproduce -->
 
@@ -346,6 +346,7 @@ ${additional}
   .actionability-box
 
     padding 0
+    margins 0 0 80px 0
 
     display flex
     flex-direction column

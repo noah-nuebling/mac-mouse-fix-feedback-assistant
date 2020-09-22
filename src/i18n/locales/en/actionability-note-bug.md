@@ -1,3 +1,3 @@
-### Note
+### Make this report amazing!
 
-Please fill out at least one of the following fields. That will make it possible to fix the bug.
+If you fill out __at least one__ of the following fields, it will make it much easier to determine what is causing your bug. This will make the report highly useful.
