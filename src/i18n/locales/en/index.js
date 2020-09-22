@@ -76,8 +76,5 @@ export default {
   'bug-report': 'Bug Report',
   'feature-request': 'Feature Request',
   'similar-issues': 'Similar issues',
-  'drop-warn':
-    `Unfortunately, image drop/uploading is not supported due to GitHub API ` +
-    `limitations. However, you can create the issue first (which will take you ` +
-    `to GitHub) and then drop the images needed.`
+  'drop-warn': require('./drop-warn.md'),
 }
