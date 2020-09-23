@@ -85,7 +85,7 @@ export default {
   // misc
 
   'submit-btn-gh': 'Create new Issue on GitHub',
-  'submit-btn-email': 'Send via Email',
+  'submit-btn-email': 'Send an Email',
 
   'bug-report': 'Bug Report',
   'feature-request': 'Feature Request',

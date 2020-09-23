@@ -24,13 +24,13 @@
 
 <!--      <FormIntro/>-->
 
-      <div class="common-fields vue-ui-grid col-2 default-gap">
+      <div class="common-fields vue-ui-grid col-2 small-gap">
 
         <!-- Type picker (Bug Report, Feature Request, ...) -->
 
         <MFGroup
           v-model="type"
-          class="first-row span-2 extend card-elevation"
+          class="first-row span-2 extend elevation-high"
         >
           <MFGroupButton
             v-for="option of types"
@@ -43,7 +43,7 @@
 
         <!-- Main input fields -->
 
-        <div class="card card-elevation span-2">
+        <div class="card elevation-high span-2">
 
         <!-- content component -->
 
@@ -271,6 +271,41 @@ export default {
     zoom 125%
     min-width $page-width-min
 
+  .small-gap
+    grid-gap: 8px
+
+
+  .card-flat
+    display flex
+    justify-content flex-start
+    padding 12px 16px 12px 16px
+    margin-bottom: 48px
+    border-radius $br
+    //border-style solid
+    border-color $border-color
+    border-width 0.5px
+    // background lighten($mouse-fix-accent, 85%)
+    background $card-color-dark
+    // box-shadow $shadow-high
+
+  .elevation-high
+    box-shadow $shadow-card, $card-highlight
+    border-radius $br
+
+  .elevation-low
+    box-shadow $shadow-lower, $card-highlight
+    border-radius $br
+
+  .card
+    padding 30px 24px 20px 24px
+
+    margin-bottom: 48px
+    background $card-color-light
+
+    border-radius $br
+    border-style solid
+    border-color $border-color
+    border-width 0.5px
 
 </style>
 
@@ -338,37 +373,9 @@ export default {
   margin 12px 0 0 0
 
 
-.card-elevation
-  box-shadow $shadow-card, $card-highlight
-  border-radius $br
-
-.card
-  padding 30px 24px 20px 24px
-
-  margin-bottom: 48px
-  background $card-color-light
-
-  border-radius $br
-  border-style solid
-  border-color $border-color
-  border-width 0.5px
-
 .mf-submit-btn
   margin 12px 0 0 18px
 
-.card-flat
-  display flex
-  align-items center
-  justify-content flex-start
-  padding 12px 16px 12px 16px
-  margin-bottom: 48px
-  border-radius $br
-  //border-style solid
-  border-color $border-color
-  border-width 0.5px
-  // background lighten($mouse-fix-accent, 85%)
-  background $card-color-dark
-  // box-shadow $shadow-high
 
 .thank-you-text
   font-size 14px

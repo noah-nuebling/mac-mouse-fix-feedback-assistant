@@ -1,6 +1,6 @@
 <template>
     <div class="other">
-        <div class="vue-ui-grid col-1 default-gap">
+        <div class="vue-ui-grid col-1 small-gap">
             <MFFormField
                     :title = "i18n('title-title-other')"
             >
@@ -60,5 +60,4 @@
 </script>
 
 <style scoped>
-
 </style>

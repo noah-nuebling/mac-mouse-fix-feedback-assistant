@@ -24,7 +24,7 @@ export default {
   extends: VueDropdownButton,
 
   inject: [
-    'VueSelect',
+    'MFSelect',
   ],
 
   props: {

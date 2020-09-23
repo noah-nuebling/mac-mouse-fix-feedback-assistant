@@ -1,6 +1,6 @@
 <template>
   <div class="bug-report" style="margin:0">
-    <div class="vue-ui-grid col-2 default-gap">
+    <div class="vue-ui-grid col-2 small-gap">
 
       <!-- Title -->
       <MFFormField
@@ -31,65 +31,6 @@
         <!--        <i18n slot="subtitle" id="feature-description-subtitle"/>-->
       </MFFormField>
 
-      <!-- Actionability box -->
-
-      <div class="actionability-box span-3">
-
-        <div class="actionability-box__desc">
-          <div class="actionability-box__desc__content">
-            <i18n class="actionability-box__desc__content__text" id="actionability-note-bug"></i18n>
-          </div>
-          <hr class="actionability-box__desc__rule">
-        </div>
-
-        <div class="actionability-box__content vue-ui-grid default-gap">
-
-          <!-- Steps to reproduce -->
-
-          <MFFormField
-                  class="span-3"
-                  :title="i18n('steps-title')"
-          >
-            <MFInput
-                    :placeholder="i18n('steps-placeholder')"
-                    type="textarea"
-                    rows="6"
-                    v-model="attrs.steps"
-                    required
-            />
-          </MFFormField>
-
-          <!-- Console Logs -->
-
-          <MFFormField
-                  :title="i18n('console-logs-title')"
-                  class="span-3"
-          >
-            <MFInput
-                    :placeholder="i18n('console-logs-placeholder')"
-                    type="textarea"
-                    rows="3"
-                    v-model="attrs.consoleLogs"
-            />
-            <i18n id="console-logs-subtitle" slot="subtitle"/>
-          </MFFormField>
-
-          <!-- Crash logs -->
-
-          <MFFormField
-                  :title="i18n('crash-logs-title')"
-                  class="span-3"
-          >
-            <MFInput
-                    :placeholder="i18n('crash-logs-placeholder')"
-                    type="textarea"
-                    rows="3"
-                    v-model="attrs.crashLogs"
-            />
-            <i18n id="crash-logs-subtitle" slot="subtitle"/>
-          </MFFormField>
-        </div>
-      </div>
 
 <!--      &lt;!&ndash; Expected outcome &ndash;&gt;-->
 
@@ -157,7 +98,7 @@
 
       <MFFormField
               :title="i18n('macos-ver-title')"
-              class="span-2"
+              class="span-1"
       >
         <MFInput
                 :placeholder="i18n('macos-ver-placeholder')"
@@ -170,13 +111,73 @@
 
       <MFFormField
               :title="i18n('mouse-title')"
-              class="span-3"
+              class="span-2"
       >
         <MFInput
                 :placeholder="i18n('mouse-placeholder')"
                 v-model="attrs.mouse"
         />
       </MFFormField>
+
+      <!-- Actionability box -->
+
+      <div class="card-flat elevation-low actionability-box span-3">
+
+        <div class="actionability-box__desc">
+          <div class="actionability-box__desc__content">
+            <i18n class="actionability-box__desc__content__text" id="actionability-note-bug"></i18n>
+          </div>
+          <hr class="actionability-box__desc__rule">
+        </div>
+
+        <div class="actionability-box__content vue-ui-grid small-gap">
+
+          <!-- Steps to reproduce -->
+
+          <MFFormField
+                  class="span-3"
+                  :title="i18n('steps-title')"
+          >
+            <MFInput
+                    :placeholder="i18n('steps-placeholder')"
+                    type="textarea"
+                    rows="6"
+                    v-model="attrs.steps"
+                    required
+            />
+          </MFFormField>
+
+          <!-- Console Logs -->
+
+          <MFFormField
+                  :title="i18n('console-logs-title')"
+                  class="span-1"
+          >
+            <MFInput
+                    :placeholder="i18n('console-logs-placeholder')"
+                    type="textarea"
+                    rows="3"
+                    v-model="attrs.consoleLogs"
+            />
+            <i18n id="console-logs-subtitle" slot="subtitle"/>
+          </MFFormField>
+
+          <!-- Crash logs -->
+
+          <MFFormField
+                  :title="i18n('crash-logs-title')"
+                  class="span-1"
+          >
+            <MFInput
+                    :placeholder="i18n('crash-logs-placeholder')"
+                    type="textarea"
+                    rows="3"
+                    v-model="attrs.crashLogs"
+            />
+            <i18n id="crash-logs-subtitle" slot="subtitle"/>
+          </MFFormField>
+        </div>
+      </div>
 
       <!-- Additional comments -->
 
@@ -192,7 +193,6 @@
         />
 
       </MFFormField>
-
 
       <!-- ModalSheet -->
 
@@ -347,20 +347,15 @@ ${additional}
 
   .actionability-box
 
-    padding 0
-    margins 0 0 80px 0
+    padding 20px 20px 12px 20px
+    margin 4px 0 12px 0
+
 
     display flex
     flex-direction column
 
-    background-color $card-color-dark
-
-    border-radius $br
-    border 1.5px solid $card-color-dark
-
   .actionability-box__content
-    padding 10px 12px 10px 12px
-
+    padding 0
 //  .actionability-box__footer
 //    display flex
 //    flex-direction column
@@ -386,14 +381,14 @@ ${additional}
 
   .actionability-box__desc__rule
 
-    margin 0px 0px 0px 0px
-    border-radius $br
+    margin 16px 0px 20px 0px
+    background none
     border-top 1.5px solid darken($border-color, 5%)
     width 100%
 
   .actionability-box__desc__content
     padding 0
-    margin 10px 12px 10px 12px
+    // margin 10px 12px 10px 12px
 
   .actionability-box__desc__content__text
 

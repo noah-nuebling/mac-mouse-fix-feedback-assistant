@@ -112,7 +112,7 @@ export default {
       align-items stretch
 
     > .content
-      margin 10px 0 5px 0
+      margin 10px 0 12px 0
 
       > *
         space-between-y(8px)
@@ -122,9 +122,9 @@ export default {
       transition opacity .3s
 
     > .title
-      font-weight medium
-      font-size 14px
-      color black
+      font-weight 600
+      font-size 13px
+      color #151515
 
     > .subtitle
       font-size 13px
