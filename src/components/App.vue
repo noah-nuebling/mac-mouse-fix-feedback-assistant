@@ -9,13 +9,44 @@
 
     <div class="container">
 
-      <!-- Title section-->
-      <div class="title-sec">
-        <div class="title-sec__brand">
-          <img class="title-sec__brand--img" src="../assets/images/logo.png" alt="Mac Mouse Fix's logo">
-          <h2 class="title-sec__brand--text">Mac Mouse Fix</h2>
+      <!-- Start region -->
+      
+      <div class="start-region">
+
+        <!-- Title section-->
+
+        <div class="title-sec">
+          <div class="title-sec__brand">
+            <img class="title-sec__brand--img" src="../assets/images/logo.png" alt="Mac Mouse Fix's logo">
+            <h2 class="title-sec__brand--text">Mac Mouse Fix</h2>
+          </div>
+          <h1 class="title-sec__title"> Feedback Assistant</h1>
         </div>
-        <h1 class="title-sec__title"> Feedback Assistant</h1>
+
+        <!-- Type picker (Bug Report, Feature Request, ...) -->
+
+        <MFGroup
+                v-model="type"
+                class="first-row span-2 extend elevation-high"
+        >
+          <MFGroupButton
+                  v-for="option of types"
+                  :key="option.id"
+                  :value="option.id"
+          >
+            {{ option.name }}
+          </MFGroupButton>
+        </MFGroup>
+        
+        <!-- More indicator -->
+        <div class="more-indicator">
+<!--          <img class="more-indicator__img" src="../assets/images/chevron.down.svg" alt="More indicator">-->
+          <object class="more-indicator__img"
+                  data="../assets/images/chevron.down.svg"
+                  type="image/svg+xml"
+                  alt="More indicator"/>
+        </div>
+
       </div>
 
       <!-- Form -->
@@ -25,21 +56,6 @@
         <!--      <FormIntro/>-->
 
         <div class="common-fields vue-ui-grid col-2 small-gap">
-
-          <!-- Type picker (Bug Report, Feature Request, ...) -->
-
-          <MFGroup
-                  v-model="type"
-                  class="first-row span-2 extend elevation-high"
-          >
-            <MFGroupButton
-                    v-for="option of types"
-                    :key="option.id"
-                    :value="option.id"
-            >
-              {{ option.name }}
-            </MFGroupButton>
-          </MFGroup>
 
           <!-- Main input fields -->
 
@@ -365,9 +381,6 @@
 
   /*background-color aqua*/
 
-  .first-row
-    margin-bottom 56px
-
   .common-fields
     margin-bottom 24px
 
@@ -417,15 +430,37 @@
     margin 12px 0 0 0
 
 
+  .first-row
+    margin-bottom 0px
+
   .mf-submit-btn
     margin 12px 0 0 18px
 
 
   .thank-you-text
     font-size 14px
-    padding-top: 6px
+    padding-top: 6px  // Need this to make some text vertically aligned for some reason
 
-  // Need this to make some text vertically aligned for some reason
+  .start-region
+
+    display flex
+    flex-direction column
+    justify-content space-evenly
+    align-items stretch
+
+  .more-indicator
+
+    display flex
+    justify-content center
+
+    margin 28px 0 28px 0
+
+
+  .more-indicator__img
+    fill aqua
+    height 16px
+    width auto
+
 
 
 </style>
