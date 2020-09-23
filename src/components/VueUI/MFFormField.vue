@@ -148,6 +148,14 @@
 
                 display flex
                 align-items flex-end
+                justify-content space-between
+                //justify-content flex-start
+
+                $side-margin = ($br/3)
+
+                margin 0 $side-margin 0 $side-margin
+
+                width auto
 
                 font-weight 600
                 font-size 13px

@@ -5,7 +5,7 @@
       <!-- Title -->
       <MFFormField
               :title="i18n('title-title')"
-              class="span-3"
+              class="span-2"
       >
           <MFInput
                   :placeholder="i18n('title-placeholder-bug')"
@@ -20,7 +20,7 @@
 
       <MFFormField
               :title="i18n('bug-description-title')"
-              class="span-3"
+              class="span-2"
       >
         <MFInput
                 :placeholder="i18n('bug-description-placeholder')"
@@ -65,7 +65,7 @@
 <!--      <MFFormField-->
 <!--              :title="i18n('version-title')"-->
 <!--              :subtitle="i18n('version-subtitle')"-->
-<!--              class="span-3"-->
+<!--              class="span-2"-->
 <!--      >-->
 <!--        <VueTypeAhead-->
 <!--                v-model="attrs.version"-->
@@ -123,7 +123,7 @@
 
       <!-- Actionability box -->
 
-      <div class="card-flat elevation-low actionability-box span-3">
+      <div class="card-flat elevation-low actionability-box span-2">
 
         <div class="actionability-box__desc">
           <div class="actionability-box__desc__content">
@@ -132,12 +132,12 @@
           <hr class="actionability-box__desc__rule">
         </div>
 
-        <div class="actionability-box__content vue-ui-grid small-gap">
+        <div class="actionability-box__content vue-ui-grid col-2 small-gap">
 
           <!-- Steps to reproduce -->
 
           <MFFormField
-                  class="span-3"
+                  class="span-2"
                   :title="i18n('steps-title')"
           >
               <MFInput
@@ -184,7 +184,7 @@
 
       <MFFormField
               :title="i18n('additional-info-title')"
-              class="span-3"
+              class="span-2"
       >
           <MFInput
                   :placeholder="i18n('additional-info-placeholder-bug')"
