@@ -26,15 +26,38 @@
         justify-self flex-end
 
         position relative
-        top 1px
+        top 2px
+        //top -2px
+
 
     .bg
+
+        $clr = darken($mf-ui-color-accent, 0%)
         margin 0
-        padding 3px 4px
+        padding 3px 6px
 
-        background darken($mf-ui-color-accent, 5%)
+        background $clr
 
-        border-radius 4px
+        //border-radius 10px
+        border-radius 5px
+
+        &:after
+            content: "";
+            width: 0px;
+            height: 0px;
+            position: absolute;
+
+            $bw = 5px
+            $bw-top = ($bw + $bw) * 0.866
+
+            border-top: $bw-top solid $clr;
+            border-right: $bw solid transparent;
+            border-bottom: $bw solid transparent;
+            border-left: $bw solid transparent;
+            left: 18.4px
+            bottom: -9.5px
+
+            z-index -1
 
     .text
         margin 0

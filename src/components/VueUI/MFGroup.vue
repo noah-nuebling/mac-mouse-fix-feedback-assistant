@@ -135,6 +135,7 @@ indicator(direction)
 
 .mf-ui-group
   position relative
+  background none
 
   > .content
     h-box()

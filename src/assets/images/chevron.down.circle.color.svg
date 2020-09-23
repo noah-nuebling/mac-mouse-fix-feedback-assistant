@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Shape</title>
+    <defs>
+        <filter id="filter-1">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.168731 0 0 0 0 0.458839 0 0 0 0 1.000000 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="chevron.down.circle.fill" transform="translate(-2611.000000, 0.000000)">
+            <g id="Symbols" transform="translate(498.000000, 0.000000)">
+                <g filter="url(#filter-1)" id="Regular-M">
+                    <g transform="translate(2112.300000, 0.000000)">
+                        <path d="M50.50467,99.6094 C77.75077,99.6094 100.30977,77.00196 100.30977,49.8047 C100.30977,22.5586 77.70197,0 50.45587,0 C23.25857,0 0.7,22.5586 0.7,49.8047 C0.7,77.00196 23.30747,99.6094 50.50467,99.6094 Z M55.53397,65.918 C52.36017,69.2871 48.69807,69.2871 45.52427,65.918 L25.79767,44.9707 C24.23517,43.3594 24.23517,41.0645 25.60237,39.5996 C27.16487,37.9883 29.60627,37.9883 31.02227,39.502 L50.50467,60.1563 L69.98707,39.502 C71.45197,37.9883 73.84457,38.0371 75.45587,39.5996 C76.87187,41.0156 76.77427,43.3594 75.26057,44.9707 L55.53397,65.918 Z" id="Shape" fill="#000000" fill-rule="nonzero"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

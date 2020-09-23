@@ -39,13 +39,12 @@
         </MFGroup>
         
         <!-- More indicator -->
-        <div class="more-indicator">
-<!--          <img class="more-indicator__img" src="../assets/images/chevron.down.svg" alt="More indicator">-->
-          <object class="more-indicator__img"
-                  data="../assets/images/chevron.down.svg"
-                  type="image/svg+xml"
-                  alt="More indicator"/>
-        </div>
+<!--        <div class="more-indicator">-->
+<!--&lt;!&ndash;          <img class="more-indicator__img" src="../assets/images/chevron.down.svg" alt="More indicator">&ndash;&gt;-->
+<!--          <img class="more-indicator__img"-->
+<!--                  src="../assets/images/chevron.down.circle.color.svg"-->
+<!--                  alt="More indicator"/>-->
+<!--        </div>-->
 
       </div>
 
@@ -197,17 +196,17 @@
         computed: {
             types() {
                 return this.$lang && [
-                    {id: 'bug-report', name: this.i18n('bug-report')},
                     {id: 'feature-request', name: this.i18n('feature-request')},
+                    {id: 'bug-report', name: this.i18n('bug-report')},
                     {id: 'other', name: this.i18n('other')}
                 ]
             }
         },
 
         watch: {
-            repo(value) {
-                if (value) updateQuery({repo: value.id})
-            },
+            // repo(value) {
+            //     if (value) updateQuery({repo: value.id})
+            // },
 
             type(value) {
                 updateQuery({type: value})
@@ -316,7 +315,7 @@
   html
 
     background $global-background-color
-    //zoom 125%
+    zoom 122%
     min-width $page-width-min
 
   .small-gap
@@ -339,9 +338,11 @@
 
   .elevation-high
     box-shadow $shadow-card, $card-highlight
+    border-radius $br
 
   .elevation-low
     box-shadow $shadow-lower, $card-highlight
+    border-radius $br
 
   .card
     padding 20px 16px 16px 16px
@@ -382,7 +383,7 @@
   /*background-color aqua*/
 
   .common-fields
-    margin-bottom 24px
+    margin-bottom 20px
 
   .form-actions
     //h-box()
@@ -399,15 +400,24 @@
 
   .app
     // background $global-background-color
-  .title-sec
 
-    //border solid
+  .start-region
+
+    display flex
+    flex-direction column
+    //justify-content flex-start
+    align-items stretch
+
+  .first-row
+    margin-bottom 46px
+
+  .title-sec
 
     display flex
     flex-direction column
     justify-content flex-start
     // align-items center
-    margin 52px 0 52px 0
+    margin 38px 0 38px 0
 
   .title-sec__brand
     display flex
@@ -427,11 +437,7 @@
   .title-sec__title
     align-self flex-start
     font-weight bolder
-    margin 12px 0 0 0
-
-
-  .first-row
-    margin-bottom 0px
+    margin 10px 0 0 0
 
   .mf-submit-btn
     margin 12px 0 0 18px
@@ -441,25 +447,21 @@
     font-size 14px
     padding-top: 6px  // Need this to make some text vertically aligned for some reason
 
-  .start-region
-
-    display flex
-    flex-direction column
-    justify-content space-evenly
-    align-items stretch
-
-  .more-indicator
-
-    display flex
-    justify-content center
-
-    margin 28px 0 28px 0
 
 
-  .more-indicator__img
-    fill aqua
-    height 16px
-    width auto
+  /*.more-indicator*/
+
+  /*  visibility hidden*/
+
+  /*  display flex*/
+  /*  justify-content center*/
+
+  /*  margin 28px 0 28px 0*/
+
+  /*.more-indicator__img*/
+  /*  fill aqua*/
+  /*  height 20px*/
+  /*  width auto*/
 
 
 

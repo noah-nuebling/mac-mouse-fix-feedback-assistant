@@ -151,7 +151,7 @@
                 justify-content space-between
                 //justify-content flex-start
 
-                $side-margin = ($br/3)
+                $side-margin = ($br/3   )
 
                 margin 0 $side-margin 0 $side-margin
 

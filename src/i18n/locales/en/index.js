@@ -33,8 +33,8 @@ export default {
   'steps-placeholder':
       '1. Detail the exact steps taken to reproduce the problem \n' +
       '2. Number each step \n' +
-      '3. Pat yourself on the back! This will be super helpful for fixing the bug. :D',
-  'steps-subtitle': require('./steps-subtitle.md'),
+      '3. Pat yourself on the back! This will be super useful for fixing the bug. :D',
+  'steps-subtitle': "",
 
   'mmf-ver-title': 'Mac Mouse Fix Version',
   'macos-ver-title': 'macOS Version',
