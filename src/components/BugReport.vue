@@ -7,13 +7,13 @@
               :title="i18n('title-title')"
               class="span-3"
       >
-        <MFInput
-                :placeholder="i18n('title-placeholder-bug')"
-                v-model="attrs.title"
-                required
-                autofocus
-                @blur="findIssues"
-        />
+          <MFInput
+                  :placeholder="i18n('title-placeholder-bug')"
+                  v-model="attrs.title"
+                  autofocus
+                  @blur="findIssues"
+                  required
+          />
       </MFFormField>
 
       <!-- Description -->
@@ -27,7 +27,9 @@
                 type="textarea"
                 rows="3"
                 v-model="attrs.description"
-                required/>
+                required
+        />
+
         <!--        <i18n slot="subtitle" id="feature-description-subtitle"/>-->
       </MFFormField>
 
@@ -41,7 +43,7 @@
 <!--                type="textarea"-->
 <!--                rows="4"-->
 <!--                v-model="attrs.expected"-->
-<!--                required-->
+<!--                -->
 <!--        />-->
 <!--      </MFFormField>-->
 
@@ -54,7 +56,7 @@
 <!--                type="textarea"-->
 <!--                rows="4"-->
 <!--                v-model="attrs.actual"-->
-<!--                required-->
+<!--                -->
 <!--        />-->
 <!--      </MFFormField>-->
 
@@ -72,7 +74,6 @@
 <!--                show-all-->
 <!--                show-max="30"-->
 <!--                restrict-choice-->
-<!--                required-->
 <!--        />-->
 <!--      </MFFormField>-->
 
@@ -82,15 +83,15 @@
               :title="i18n('mmf-ver-title')"
               class="span-1"
       >
-        <MFTypeAhead
-          v-model="attrs.version"
-          :suggestions="suggestions"
-          :loading="loadingVersion"
-          show-all
-          show-max="30"
-          restrict-choice
-          required
-        />
+          <MFTypeAhead
+            v-model="attrs.version"
+            :suggestions="suggestions"
+            :loading="loadingVersion"
+            show-all
+            show-max="30"
+            restrict-choice
+            required
+          />
       </MFFormField>
 
 
@@ -100,11 +101,11 @@
               :title="i18n('macos-ver-title')"
               class="span-1"
       >
-        <MFInput
-                :placeholder="i18n('macos-ver-placeholder')"
-                v-model="attrs.macOSVersion"
-                required
-        />
+          <MFInput
+                  :placeholder="i18n('macos-ver-placeholder')"
+                  v-model="attrs.macOSVersion"
+                  required
+          />
       </MFFormField>
 
       <!-- Mouse model -->
@@ -113,10 +114,11 @@
               :title="i18n('mouse-title')"
               class="span-2"
       >
-        <MFInput
-                :placeholder="i18n('mouse-placeholder')"
-                v-model="attrs.mouse"
-        />
+          <MFInput
+                  :placeholder="i18n('mouse-placeholder')"
+                  v-model="attrs.mouse"
+                  />
+
       </MFFormField>
 
       <!-- Actionability box -->
@@ -138,13 +140,12 @@
                   class="span-3"
                   :title="i18n('steps-title')"
           >
-            <MFInput
-                    :placeholder="i18n('steps-placeholder')"
-                    type="textarea"
-                    rows="6"
-                    v-model="attrs.steps"
-                    required
-            />
+              <MFInput
+                      :placeholder="i18n('steps-placeholder')"
+                      type="textarea"
+                      rows="6"
+                      v-model="attrs.steps"
+              />
           </MFFormField>
 
           <!-- Console Logs -->
@@ -153,12 +154,12 @@
                   :title="i18n('console-logs-title')"
                   class="span-1"
           >
-            <MFInput
-                    :placeholder="i18n('console-logs-placeholder')"
-                    type="textarea"
-                    rows="3"
-                    v-model="attrs.consoleLogs"
-            />
+              <MFInput
+                      :placeholder="i18n('console-logs-placeholder')"
+                      type="textarea"
+                      rows="3"
+                      v-model="attrs.consoleLogs"
+              />
             <i18n id="console-logs-subtitle" slot="subtitle"/>
           </MFFormField>
 
@@ -168,12 +169,12 @@
                   :title="i18n('crash-logs-title')"
                   class="span-1"
           >
-            <MFInput
-                    :placeholder="i18n('crash-logs-placeholder')"
-                    type="textarea"
-                    rows="3"
-                    v-model="attrs.crashLogs"
-            />
+              <MFInput
+                      :placeholder="i18n('crash-logs-placeholder')"
+                      type="textarea"
+                      rows="3"
+                      v-model="attrs.crashLogs"
+              />
             <i18n id="crash-logs-subtitle" slot="subtitle"/>
           </MFFormField>
         </div>
@@ -185,12 +186,12 @@
               :title="i18n('additional-info-title')"
               class="span-3"
       >
-        <MFInput
-                :placeholder="i18n('additional-info-placeholder-bug')"
-                type="textarea"
-                rows="3"
-                v-model="attrs.additional"
-        />
+          <MFInput
+                  :placeholder="i18n('additional-info-placeholder-bug')"
+                  type="textarea"
+                  rows="3"
+                  v-model="attrs.additional"
+          />
 
       </MFFormField>
 

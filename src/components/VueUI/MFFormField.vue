@@ -1,142 +1,171 @@
 <template>
-  <div
-    class="mf-ui-form-field"
-    :class="{
-      focused: injectedData.focused,
-      [`status-${injectedData.status}`]: injectedData.status,
-    }"
-  >
-    <div class="wrapper">
-      <div class="title">
-        <slot name="title">
-          <span v-html="title"/>
-        </slot>
-      </div>
-      <div class="content">
-        <slot/>
-      </div>
-      <div
-        class="subtitle"
-        :class="{
+    <div
+            ref="mfFormFieldRef"
+            class="mf-ui-form-field"
+            :class="{
+                      focused: injectedData.focused,
+                      [`status-${injectedData.status}`]: injectedData.status,
+                    }"
+    >
+        <div class="wrapper">
+            <div class="title">
+                <slot name="title">
+                    <span v-html="title"/>
+                    <OptionalTag
+                            v-if="!isRequired"
+                    />
+                </slot>
+            </div>
+            <div class="content">
+                <slot/>
+            </div>
+            <div
+                    class="subtitle"
+                    :class="{
           [`vue-ui-text ${injectedData.status}`]: injectedData.status,
         }"
-      >
-        <VueIcon
-          v-if="subtitleIconId"
-          :icon="subtitleIconId"
-        />
-        <slot name="subtitle">
-          <span v-html="subtitle"/>
-        </slot>
-      </div>
+            >
+                <VueIcon
+                        v-if="subtitleIconId"
+                        :icon="subtitleIconId"
+                />
+                <slot name="subtitle">
+                    <span v-html="subtitle"/>
+                </slot>
+            </div>
+        </div>
     </div>
-  </div>
 </template>
 
 <script>
-const statusIcons = {
-  danger: 'error',
-  warning: 'warning',
-  info: 'info',
-  success: 'check_circle',
-}
 
-export default {
-  name: 'MFFormField',
+    import OptionalTag from "../OptionalTag";
 
-  provide () {
-    return {
-      MFFormField: {
-        data: this.injectedData,
-      },
+    const statusIcons = {
+        danger: 'error',
+        warning: 'warning',
+        info: 'info',
+        success: 'check_circle',
     }
-  },
 
-  props: {
-    subtitle: {
-      type: String,
-      default: undefined,
-    },
+    export default {
+        name: 'MFFormField',
 
-    subtitleIcon: {
-      type: String,
-      default: undefined,
-    },
+        components: {
+            OptionalTag,
+        },
 
-    statusIcon: {
-      type: Boolean,
-      default: false,
-    },
+        provide() {
+            return {
+                MFFormField: {
+                    data: this.injectedData,
+                },
+            }
+        },
 
-    title: {
-      type: String,
-      required: true,
-    },
-  },
+        props: {
 
-  data () {
-    return {
-      injectedData: {
-        focused: false,
-        status: null,
-      },
+            subtitle: {
+                type: String,
+                default: undefined,
+            },
+
+            subtitleIcon: {
+                type: String,
+                default: undefined,
+            },
+
+            statusIcon: {
+                type: Boolean,
+                default: false,
+            },
+            title: {
+                type: String,
+                required: true,
+            },
+        },
+
+        data() {
+            return {
+                injectedData: {
+                    focused: false,
+                    status: null,
+                },
+            }
+        },
+
+        computed: {
+
+            isRequired() {
+
+                let defaultSlot = this.$slots.default
+
+                if (defaultSlot) {
+                    let isRequired = "required" in defaultSlot[0].data.attrs
+                    return isRequired
+                }
+                return false
+            },
+
+            subtitleIconId() {
+                if (this.subtitleIcon) {
+                    return this.subtitleIcon
+                }
+
+                if (this.statusIcon) {
+                    const status = this.injectedData.status
+                    if (status) {
+                        return statusIcons[status]
+                    }
+                }
+            },
+        },
     }
-  },
-
-  computed: {
-    subtitleIconId () {
-      if (this.subtitleIcon) {
-        return this.subtitleIcon
-      }
-
-      if (this.statusIcon) {
-        const status = this.injectedData.status
-        if (status) {
-          return statusIcons[status]
-        }
-      }
-    },
-  },
-}
 </script>
 
 <style lang="stylus">
-@import "../../../node_modules/@vue/ui/src/style/imports"
-@import "../../style/vars.styl"
+    @import "../../../node_modules/@vue/ui/src/style/imports"
+    @import "../../style/vars.styl"
 
-.mf-ui-form-field
-  > .wrapper
-    &,
-    > .content
-      v-box()
-      align-items stretch
+    .mf-ui-form-field
+        > .wrapper
+            &,
+            > .content
+                v-box()
+                align-items stretch
 
-    > .content
-      margin 10px 0 12px 0
+            > .content
+                margin 10px 0 12px 0
 
-      > *
-        space-between-y(8px)
+                > *
+                    space-between-y(8px)
 
-    > .title,
-    > .subtitle
-      transition opacity .3s
+            > .title,
+            > .subtitle
+                transition opacity .3s
 
-    > .title
-      font-weight 600
-      font-size 13px
-      color #151515
+            > .title
 
-    > .subtitle
-      font-size 13px
-      &:not(.primary):not(.accent):not(.danger):not(.warning):not(.info):not(.success):not(.flat)
-        color lighten($mf-ui-color-dark-neutral, 20%)
-        .vue-ui-icon
-          svg
-            fill @color
+                display flex
+                align-items flex-end
 
-  &:not(.focused)
-    > .wrapper
-      > .title,
-      > .subtitle
-        opacity .75
+                font-weight 600
+                font-size 13px
+                color #151515
+
+            > .subtitle
+                font-size 13px
+
+                &:not(.primary):not(.accent):not(.danger):not(.warning):not(.info):not(.success):not(.flat)
+                    color lighten($mf-ui-color-dark-neutral, 20%)
+
+                    .vue-ui-icon
+                        svg
+                            fill @color
+
+        &:not(.focused)
+            > .wrapper
+                > .title,
+                > .subtitle
+                    opacity .75
 </style>
