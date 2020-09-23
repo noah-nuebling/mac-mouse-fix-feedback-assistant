@@ -7,13 +7,13 @@
               :title="i18n('title-title')"
               class="span-2"
       >
-          <MFInput
-                  :placeholder="i18n('title-placeholder-bug')"
-                  v-model="attrs.title"
-                  autofocus
-                  @blur="findIssues"
-                  required
-          />
+        <MFInput
+                :placeholder="i18n('title-placeholder-bug')"
+                v-model="attrs.title"
+                autofocus
+                @blur="findIssues"
+                required
+        />
       </MFFormField>
 
       <!-- Description -->
@@ -34,48 +34,48 @@
       </MFFormField>
 
 
-<!--      &lt;!&ndash; Expected outcome &ndash;&gt;-->
+      <!--      &lt;!&ndash; Expected outcome &ndash;&gt;-->
 
-<!--      <MFFormField-->
-<!--              :title="i18n('expected-title')"-->
-<!--      >-->
-<!--        <MFInput-->
-<!--                type="textarea"-->
-<!--                rows="4"-->
-<!--                v-model="attrs.expected"-->
-<!--                -->
-<!--        />-->
-<!--      </MFFormField>-->
+      <!--      <MFFormField-->
+      <!--              :title="i18n('expected-title')"-->
+      <!--      >-->
+      <!--        <MFInput-->
+      <!--                type="textarea"-->
+      <!--                rows="4"-->
+      <!--                v-model="attrs.expected"-->
+      <!--                -->
+      <!--        />-->
+      <!--      </MFFormField>-->
 
-<!--      &lt;!&ndash; Actual outcome &ndash;&gt;-->
+      <!--      &lt;!&ndash; Actual outcome &ndash;&gt;-->
 
-<!--      <MFFormField-->
-<!--              :title="i18n('actual-title')"-->
-<!--      >-->
-<!--        <MFInput-->
-<!--                type="textarea"-->
-<!--                rows="4"-->
-<!--                v-model="attrs.actual"-->
-<!--                -->
-<!--        />-->
-<!--      </MFFormField>-->
+      <!--      <MFFormField-->
+      <!--              :title="i18n('actual-title')"-->
+      <!--      >-->
+      <!--        <MFInput-->
+      <!--                type="textarea"-->
+      <!--                rows="4"-->
+      <!--                v-model="attrs.actual"-->
+      <!--                -->
+      <!--        />-->
+      <!--      </MFFormField>-->
 
-<!--      &lt;!&ndash; Version &ndash;&gt;-->
+      <!--      &lt;!&ndash; Version &ndash;&gt;-->
 
-<!--      <MFFormField-->
-<!--              :title="i18n('version-title')"-->
-<!--              :subtitle="i18n('version-subtitle')"-->
-<!--              class="span-2"-->
-<!--      >-->
-<!--        <VueTypeAhead-->
-<!--                v-model="attrs.version"-->
-<!--                :suggestions="suggestions"-->
-<!--                :loading="loadingVersion"-->
-<!--                show-all-->
-<!--                show-max="30"-->
-<!--                restrict-choice-->
-<!--        />-->
-<!--      </MFFormField>-->
+      <!--      <MFFormField-->
+      <!--              :title="i18n('version-title')"-->
+      <!--              :subtitle="i18n('version-subtitle')"-->
+      <!--              class="span-2"-->
+      <!--      >-->
+      <!--        <VueTypeAhead-->
+      <!--                v-model="attrs.version"-->
+      <!--                :suggestions="suggestions"-->
+      <!--                :loading="loadingVersion"-->
+      <!--                show-all-->
+      <!--                show-max="30"-->
+      <!--                restrict-choice-->
+      <!--        />-->
+      <!--      </MFFormField>-->
 
       <!-- MMF Version -->
 
@@ -83,15 +83,15 @@
               :title="i18n('mmf-ver-title')"
               class="span-1"
       >
-          <MFTypeAhead
-            v-model="attrs.version"
-            :suggestions="suggestions"
-            :loading="loadingVersion"
-            show-all
-            show-max="30"
-            restrict-choice
-            required
-          />
+        <MFTypeAhead
+                v-model="attrs.version"
+                :suggestions="suggestions"
+                :loading="loadingVersion"
+                show-all
+                show-max="30"
+                restrict-choice
+                required
+        />
       </MFFormField>
 
 
@@ -101,11 +101,11 @@
               :title="i18n('macos-ver-title')"
               class="span-1"
       >
-          <MFInput
-                  :placeholder="i18n('macos-ver-placeholder')"
-                  v-model="attrs.macOSVersion"
-                  required
-          />
+        <MFInput
+                :placeholder="i18n('macos-ver-placeholder')"
+                v-model="attrs.macOSVersion"
+                required
+        />
       </MFFormField>
 
       <!-- Mouse model -->
@@ -114,10 +114,10 @@
               :title="i18n('mouse-title')"
               class="span-2"
       >
-          <MFInput
-                  :placeholder="i18n('mouse-placeholder')"
-                  v-model="attrs.mouse"
-                  />
+        <MFInput
+                :placeholder="i18n('mouse-placeholder')"
+                v-model="attrs.mouse"
+        />
 
       </MFFormField>
 
@@ -140,12 +140,12 @@
                   class="span-2"
                   :title="i18n('steps-title')"
           >
-              <MFInput
-                      :placeholder="i18n('steps-placeholder')"
-                      type="textarea"
-                      rows="6"
-                      v-model="attrs.steps"
-              />
+            <MFInput
+                    :placeholder="i18n('steps-placeholder')"
+                    type="textarea"
+                    rows="6"
+                    v-model="attrs.steps"
+            />
           </MFFormField>
 
           <!-- Console Logs -->
@@ -154,12 +154,12 @@
                   :title="i18n('console-logs-title')"
                   class="span-1"
           >
-              <MFInput
-                      :placeholder="i18n('console-logs-placeholder')"
-                      type="textarea"
-                      rows="3"
-                      v-model="attrs.consoleLogs"
-              />
+            <MFInput
+                    :placeholder="i18n('console-logs-placeholder')"
+                    type="textarea"
+                    rows="3"
+                    v-model="attrs.consoleLogs"
+            />
             <i18n id="console-logs-subtitle" slot="subtitle"/>
           </MFFormField>
 
@@ -169,12 +169,12 @@
                   :title="i18n('crash-logs-title')"
                   class="span-1"
           >
-              <MFInput
-                      :placeholder="i18n('crash-logs-placeholder')"
-                      type="textarea"
-                      rows="3"
-                      v-model="attrs.crashLogs"
-              />
+            <MFInput
+                    :placeholder="i18n('crash-logs-placeholder')"
+                    type="textarea"
+                    rows="3"
+                    v-model="attrs.crashLogs"
+            />
             <i18n id="crash-logs-subtitle" slot="subtitle"/>
           </MFFormField>
         </div>
@@ -186,12 +186,12 @@
               :title="i18n('additional-info-title')"
               class="span-2"
       >
-          <MFInput
-                  :placeholder="i18n('additional-info-placeholder-bug')"
-                  type="textarea"
-                  rows="3"
-                  v-model="attrs.additional"
-          />
+        <MFInput
+                :placeholder="i18n('additional-info-placeholder-bug')"
+                type="textarea"
+                rows="3"
+                v-model="attrs.additional"
+        />
 
       </MFFormField>
 
@@ -212,119 +212,119 @@
 </template>
 
 <script>
-import { gt, lt } from 'semver'
-import { generate } from '../helpers'
-import modal from '../mixins/check-modal'
+    import {gt, lt} from 'semver'
+    import {generate} from '../helpers'
+    import modal from '../mixins/check-modal'
 
-import MFFormField from "./VueUI/MFFormField";
-import MFInput from "./VueUI/MFInput";
-import MFTypeAhead from "./VueUI/MFTypeAhead";
+    import MFFormField from "./VueUI/MFFormField";
+    import MFInput from "./VueUI/MFInput";
+    import MFTypeAhead from "./VueUI/MFTypeAhead";
 
-export default {
-  components: {
-    MFTypeAhead,
-    MFFormField,
-    MFInput
-  },
-  props: {
-    repo: {
-      type: Object,
-      required: true
-    }
-  },
+    export default {
+        components: {
+            MFTypeAhead,
+            MFFormField,
+            MFInput
+        },
+        props: {
+            repo: {
+                type: Object,
+                required: true
+            }
+        },
 
-  mixins: [modal],
+        mixins: [modal],
 
-  data () {
-    return {
-      show: false,
-      attrs: {
-        title: '',
-        description: '',
-        version: '',
-        steps: '',
-        additional: '',
-        macOSVersion: '',
-        mouse: '',
-        consoleLogs: '',
-        crashLogs: '',
-      },
-      label: 'bug',
-      versions: [],
-      loadingVersion: false,
-    }
-  },
+        data() {
+            return {
+                show: false,
+                attrs: {
+                    title: '',
+                    description: '',
+                    version: '',
+                    steps: '',
+                    additional: '',
+                    macOSVersion: '',
+                    mouse: '',
+                    consoleLogs: '',
+                    crashLogs: '',
+                },
+                label: 'bug',
+                versions: [],
+                loadingVersion: false,
+            }
+        },
 
-  computed: {
-    suggestions () {
-      return this.versions
-        .slice()
-        .sort((a, b) => gt(a.value, b.value) ? -1 : 1)
-    },
+        computed: {
+            suggestions() {
+                return this.versions
+                    .slice()
+                    .sort((a, b) => gt(a.value, b.value) ? -1 : 1)
+            },
 
-    isCLI () {
-      return this.repo.id === 'vuejs/vue-cli'
-    },
+            isCLI() {
+                return this.repo.id === 'vuejs/vue-cli'
+            },
 
-    doesNotSupportVueInfo () {
-      return this.attrs.version && lt(this.attrs.version, '3.2.0')
-    }
-  },
+            doesNotSupportVueInfo() {
+                return this.attrs.version && lt(this.attrs.version, '3.2.0')
+            }
+        },
 
-  watch: {
-    repo () {
-      this.versions = []
-      this.attrs.version = ''
-      this.fetchVersions()
-    }
-  },
+        watch: {
+            repo() {
+                this.versions = []
+                this.attrs.version = ''
+                this.fetchVersions()
+            }
+        },
 
-  created () {
-    this.fetchVersions()
-    this.checkModal('why-repro')
-  },
+        created() {
+            this.fetchVersions()
+            this.checkModal('why-repro')
+        },
 
-  methods: {
-    async fetchVersions (page = 1) {
-      this.loadingVersion = true
-      const repoId = this.repo.id
-      const response = await fetch(`https://api.github.com/repos/${repoId}/releases?page=${page}&per_page=100`)
-      const releases = await response.json()
+        methods: {
+            async fetchVersions(page = 1) {
+                this.loadingVersion = true
+                const repoId = this.repo.id
+                const response = await fetch(`https://api.github.com/repos/${repoId}/releases?page=${page}&per_page=100`)
+                const releases = await response.json()
 
-      console.log("RELEASES:", releases)
+                console.log("RELEASES:", releases)
 
-      if (this.repo.id !== repoId) return
+                if (this.repo.id !== repoId) return
 
-      if (!releases || !(releases instanceof Array)) return false
+                if (!releases || !(releases instanceof Array)) return false
 
-      this.versions = this.versions.concat(releases.map(
-        r => ({ value: r.tag_name })
-      ))
+                this.versions = this.versions.concat(releases.map(
+                    r => ({value: r.tag_name})
+                ))
 
-      const link = response.headers.get('Link')
+                const link = response.headers.get('Link')
 
-      if (link && link.indexOf('rel="next"') > -1) {
-        await this.fetchVersions(page + 1)
-      } else {
-        this.loadingVersion = false
-      }
+                if (link && link.indexOf('rel="next"') > -1) {
+                    await this.fetchVersions(page + 1)
+                } else {
+                    this.loadingVersion = false
+                }
 
-      // set current version to the latest
-      if (this.suggestions.length) {
-        this.attrs.version = this.suggestions[0].value
-      }
-    },
+                // set current version to the latest
+                if (this.suggestions.length) {
+                    this.attrs.version = this.suggestions[0].value
+                }
+            },
 
-    generate () {
-      const {
-        //version,
-        description,
-        steps,
-        context,
-        additional
-      } = this.attrs
+            generate() {
+                const {
+                    //version,
+                    description,
+                    steps,
+                    context,
+                    additional
+                } = this.attrs
 
-      return generate(`
+                return generate(`
 ## Description
 ${description}
 
@@ -337,9 +337,9 @@ ${context}
 ## Additional Comments
 ${additional}
   `.trim())
+            }
+        },
     }
-  },
-}
 </script>
 
 <style lang="stylus" scoped>
@@ -347,9 +347,7 @@ ${additional}
   @import "./../style/vars.styl"
 
   .actionability-box
-
-    padding 20px 20px 12px 20px
-    margin 4px 0 12px 0
+    margin 8px 0 16px 0
 
 
     display flex
@@ -357,25 +355,26 @@ ${additional}
 
   .actionability-box__content
     padding 0
-//  .actionability-box__footer
-//    display flex
-//    flex-direction column
-//
-//  .actionability-box__footer__rule
-//
-//    margin 8px 0px 9px 0px
-//    border-radius $br
-//    border-top 1.5px solid darken($border-color, 5%)
-//    width 100%
-//
-//  .actionability-box__footer__text
-//
-//    margin 0px 12px 0px 12px
-//
-//    font-size 13px
-//    font-weight bold
-//    color #7f7f7f
-//
+
+  //  .actionability-box__footer
+  //    display flex
+  //    flex-direction column
+  //
+  //  .actionability-box__footer__rule
+  //
+  //    margin 8px 0px 9px 0px
+  //    border-radius $br
+  //    border-top 1.5px solid darken($border-color, 5%)
+  //    width 100%
+  //
+  //  .actionability-box__footer__text
+  //
+  //    margin 0px 12px 0px 12px
+  //
+  //    font-size 13px
+  //    font-weight bold
+  //    color #7f7f7f
+  //
   .actionability-box__desc
     display flex
     flex-direction column
@@ -389,7 +388,8 @@ ${additional}
 
   .actionability-box__desc__content
     padding 0
-    // margin 10px 12px 10px 12px
+
+  // margin 10px 12px 10px 12px
 
   .actionability-box__desc__content__text
 
