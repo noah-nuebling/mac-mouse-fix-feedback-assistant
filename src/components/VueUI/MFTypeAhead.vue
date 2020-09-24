@@ -242,6 +242,7 @@
 </script>
 
 <style lang="stylus">
+  @import "../../../node_modules/@vue/ui/src/style/imports.styl"
   @import "../../style/imports.styl"
 
   .mf-ui-type-ahead
