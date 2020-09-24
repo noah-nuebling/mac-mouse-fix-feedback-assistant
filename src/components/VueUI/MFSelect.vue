@@ -135,7 +135,6 @@
           flex auto 1 1
 
   .mf-ui-select-popover-content
-    padding $mf-dropdown-spacing // Gap to card border
     max-height 220px
     overflow-y auto
 

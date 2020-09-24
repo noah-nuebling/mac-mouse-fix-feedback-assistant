@@ -343,11 +343,11 @@
   // box-shadow $shadow-high
 
   .elevation-high
-    box-shadow $shadow-card, $card-highlight
+    box-shadow $shadow-card-high, $card-highlight
     border-radius $br
 
   .elevation-low
-    box-shadow $shadow-lower, $card-highlight
+    box-shadow $shadow-card-low, $card-highlight
     border-radius $br
 
   .card

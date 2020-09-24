@@ -168,8 +168,21 @@
   @import "../../style/vars.styl"
 
   .tooltip.popover:not(.force-tooltip) .popover-inner // Styling for the popup
+
+    border $mf-dropdown-border
+    box-shadow none
+
     border-radius ($br + $mf-dropdown-spacing)
     padding 0
+
+    background-color $mf-ui-color-light
+
+  .tooltip-arrow
+    //box-shadow none
+
+  .popover .wrapper
+    filter $mf-dropdown-drop-shadow
+    box-shadow $card-highlight
 
   .mf-ui-dropdown
 
@@ -190,6 +203,10 @@
       width 100%
 
   .mf-ui-dropdown-content.vue-ui-disable
+
+    $sp-v = $mf-dropdown-spacing + 1
+    $sp-h = $mf-dropdown-spacing
+    padding $sp-v $sp-h
 
     //border-radius $br
     //border 2px solid aquamarine
