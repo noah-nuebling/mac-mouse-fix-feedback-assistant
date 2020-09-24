@@ -310,7 +310,9 @@
 </script>
 
 <style lang="stylus">
-  @import '~@vue/ui/dist/vue-ui.css'
+  // @import '~@vue/ui/dist/vue-ui.css'
+  // ^ This interfered with styling v-popover - Should maybe consider removing all vue-ui stuff, as I don't think I need it
+
   @import "../style/vars.styl"
 
   a

@@ -167,6 +167,9 @@
   @import "../../../node_modules/@vue/ui/src/style/imports"
   @import "../../style/vars.styl"
 
+  .tooltip.popover:not(.force-tooltip) .popover-inner
+    border-radius ($br + 4)
+
   .mf-ui-dropdown
 
     display inline-block
