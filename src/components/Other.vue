@@ -21,6 +21,7 @@
                         type="textarea"
                         v-model="attrs.body"
                         rows="6"
+                        required
                 ></MFInput>
             </MFFormField>
         </div>

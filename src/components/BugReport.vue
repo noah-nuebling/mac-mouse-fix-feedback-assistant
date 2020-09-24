@@ -33,94 +33,6 @@
         <!--        <i18n slot="subtitle" id="feature-description-subtitle"/>-->
       </MFFormField>
 
-
-      <!--      &lt;!&ndash; Expected outcome &ndash;&gt;-->
-
-      <!--      <MFFormField-->
-      <!--              :title="i18n('expected-title')"-->
-      <!--      >-->
-      <!--        <MFInput-->
-      <!--                type="textarea"-->
-      <!--                rows="4"-->
-      <!--                v-model="attrs.expected"-->
-      <!--                -->
-      <!--        />-->
-      <!--      </MFFormField>-->
-
-      <!--      &lt;!&ndash; Actual outcome &ndash;&gt;-->
-
-      <!--      <MFFormField-->
-      <!--              :title="i18n('actual-title')"-->
-      <!--      >-->
-      <!--        <MFInput-->
-      <!--                type="textarea"-->
-      <!--                rows="4"-->
-      <!--                v-model="attrs.actual"-->
-      <!--                -->
-      <!--        />-->
-      <!--      </MFFormField>-->
-
-      <!--      &lt;!&ndash; Version &ndash;&gt;-->
-
-      <!--      <MFFormField-->
-      <!--              :title="i18n('version-title')"-->
-      <!--              :subtitle="i18n('version-subtitle')"-->
-      <!--              class="span-2"-->
-      <!--      >-->
-      <!--        <VueTypeAhead-->
-      <!--                v-model="attrs.version"-->
-      <!--                :suggestions="suggestions"-->
-      <!--                :loading="loadingVersion"-->
-      <!--                show-all-->
-      <!--                show-max="30"-->
-      <!--                restrict-choice-->
-      <!--        />-->
-      <!--      </MFFormField>-->
-
-      <!-- MMF Version -->
-
-      <MFFormField
-              :title="i18n('mmf-ver-title')"
-              class="span-1"
-      >
-        <MFTypeAhead
-                v-model="attrs.version"
-                :suggestions="suggestions"
-                :loading="loadingVersion"
-                show-all
-                show-max="30"
-                restrict-choice
-                required
-        />
-      </MFFormField>
-
-
-      <!-- macOS Version -->
-
-      <MFFormField
-              :title="i18n('macos-ver-title')"
-              class="span-1"
-      >
-        <MFInput
-                :placeholder="i18n('macos-ver-placeholder')"
-                v-model="attrs.macOSVersion"
-                required
-        />
-      </MFFormField>
-
-      <!-- Mouse model -->
-
-      <MFFormField
-              :title="i18n('mouse-title')"
-              class="span-2"
-      >
-        <MFInput
-                :placeholder="i18n('mouse-placeholder')"
-                v-model="attrs.mouse"
-        />
-
-      </MFFormField>
-
       <!-- Actionability box -->
 
       <div class="card-flat elevation-low actionability-box span-2">
@@ -179,6 +91,49 @@
           </MFFormField>
         </div>
       </div>
+
+      <!-- MMF Version -->
+
+      <MFFormField
+              :title="i18n('mmf-ver-title')"
+              class="span-1"
+      >
+        <MFTypeAhead
+                v-model="attrs.version"
+                :suggestions="suggestions"
+                :loading="loadingVersion"
+                show-all
+                show-max="30"
+                restrict-choice
+                required
+        />
+      </MFFormField>
+
+      <!-- macOS Version -->
+
+      <MFFormField
+              :title="i18n('macos-ver-title')"
+              class="span-1"
+      >
+        <MFInput
+                :placeholder="i18n('macos-ver-placeholder')"
+                v-model="attrs.macOSVersion"
+                required
+        />
+      </MFFormField>
+
+      <!-- Mouse model -->
+
+      <MFFormField
+              :title="i18n('mouse-title')"
+              class="span-2"
+      >
+        <MFInput
+                :placeholder="i18n('mouse-placeholder')"
+                v-model="attrs.mouse"
+        />
+
+      </MFFormField>
 
       <!-- Additional comments -->
 

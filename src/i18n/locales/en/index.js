@@ -41,7 +41,7 @@ export default {
   'macos-ver-placeholder': 'Enter your macOS version',
 
   'mouse-title': 'Mouse Model',
-  'mouse-placeholder': 'Specify, which model of mouse you are using',
+  'mouse-placeholder': 'Specify which model of mouse you are using',
 
   'console-logs-title': 'Console Logs',
   'console-logs-placeholder': 'Attach console logs here',
@@ -85,7 +85,7 @@ export default {
   // misc
 
   'submit-btn-gh': 'Create new Issue on GitHub',
-  'submit-btn-email': 'Send an Email',
+  'submit-btn-email': 'Send Email',
 
   'bug-report': 'Bug Report',
   'feature-request': 'Feature Request',

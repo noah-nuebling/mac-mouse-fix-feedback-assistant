@@ -295,19 +295,24 @@ colors($dark, $light, $invert = false)
     colors($mf-ui-color-success, $mf-ui-color-light-neutral)
     .vue-ui-dark-mode &
       colors($mf-ui-color-success, $mf-ui-color-dark)
-  disable-focus-styles()
+
   // Keyboard focus style
-  &:focus:focus-visible
+  disable-focus-styles()
+  transition $mf-border-glow-transition
+  &.focus-visible // &:focus:focus-visible // Noah: I changed this, idk why it didn't work before and why it works now, but it does
     z-index 1
-    &::after
-      content ''
-      display block
-      position absolute
-      top 0
-      bottom @top
-      left @top
-      right @top
-      border solid 1px
-      border-radius ($br + 1px)
-      animation vue-ui-focus .3s forwards
+    box-shadow $mf-border-glow-shadow
+    //animation mf-ui-focus .05s forwards
+
+//    &::after
+//      content ''
+//      display block
+//      position absolute
+//      top 0
+//      bottom @top
+//      left @top
+//      right @top
+//      border solid 1px
+//      border-radius ($br + 1px)
+//      animation vue-ui-focus .3s forwards
 </style>

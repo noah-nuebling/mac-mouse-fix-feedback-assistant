@@ -27,7 +27,7 @@
 
         <MFGroup
                 v-model="type"
-                class="first-row span-2 extend elevation-high"
+                class="type-picker span-2 extend elevation-high"
         >
           <MFGroupButton
                   v-for="option of types"
@@ -64,7 +64,11 @@
 
 
             <keep-alive>
-              <component :is="type" ref="content" :repo="repo"/>
+              <component
+                      :is="type"
+                      ref="content"
+                      :repo="repo"
+              />
             </keep-alive>
 
             <!-- attachments -->
@@ -187,7 +191,7 @@
                 show: false,
                 preview: false,
                 repo: null,
-                type: 'bug-report',
+                type: 'feature-request',
                 versions: {},
                 submitAction: '',
             }
@@ -218,7 +222,7 @@
             this.repo = {
                 id: "noah-nuebling/mac-mouse-fix"
             }
-            this.type = type || 'bug-report'
+            this.type = type || 'feature-request'
         },
 
         methods: {
@@ -351,9 +355,7 @@
     background $card-color-light
 
     border-radius $br
-    border-style solid
-    border-color $border-color
-    border-width 0.5px
+    border $card-border
 
     //
     @media (max-width: 700px)
@@ -408,7 +410,7 @@
     //justify-content flex-start
     align-items stretch
 
-  .first-row
+  .type-picker
     margin-bottom 46px
 
   .title-sec
