@@ -21,7 +21,7 @@ export default {
   components: {
     MFGroupButton
   },
-  extends: VueDropdownButton,
+  //extends: VueDropdownButton,
 
   inject: [
     'MFSelect',
@@ -41,7 +41,7 @@ export default {
   methods: {
     onSelect (selected) {
       if (selected) {
-        this.VueSelect.setCurrentChild(this)
+        this.MFSelect.setCurrentChild(this)
       }
     },
   },
@@ -49,8 +49,8 @@ export default {
 </script>
 
 <style lang="stylus">
-  @import "../../style/imports.styl"
   @import "../../../node_modules/@vue/ui/src/style/imports.styl"
+  @import "../../style/imports.styl"
 
   .mf-ui-select-button
     border-radius $br !important

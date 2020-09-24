@@ -156,7 +156,7 @@
             &:not(.ghost)
                 &:hover,
                 &:active,
-                .vue-ui-dropdown.open .dropdown-trigger &
+                .mf-ui-dropdown.open .dropdown-trigger &
                     button-colors($foreground, $background)
 
     .mf-ui-button
