@@ -126,6 +126,8 @@
 
 <style lang="stylus">
 
+  @import "../../style/imports.styl"
+
   .mf-ui-select
     .dropdown-trigger
       .mf-ui-button
@@ -133,7 +135,7 @@
           flex auto 1 1
 
   .mf-ui-select-popover-content
-    padding 0 4px
+    padding $mf-dropdown-spacing // Gap to card border
     max-height 220px
     overflow-y auto
 

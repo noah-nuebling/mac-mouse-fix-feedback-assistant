@@ -167,8 +167,9 @@
   @import "../../../node_modules/@vue/ui/src/style/imports"
   @import "../../style/vars.styl"
 
-  .tooltip.popover:not(.force-tooltip) .popover-inner
-    border-radius ($br + 4)
+  .tooltip.popover:not(.force-tooltip) .popover-inner // Styling for the popup
+    border-radius ($br + $mf-dropdown-spacing)
+    padding 0
 
   .mf-ui-dropdown
 
