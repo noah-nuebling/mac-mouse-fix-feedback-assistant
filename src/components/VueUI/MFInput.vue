@@ -214,8 +214,7 @@ export default {
 </script>
 
 <style lang="stylus">
-@import "../../../node_modules/@vue/ui/src/style/imports.styl"
-@import "../../style/vars.styl"
+@import "../../style/imports.styl"
 
 colors($color)
   > .content
