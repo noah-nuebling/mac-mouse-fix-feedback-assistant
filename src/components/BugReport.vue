@@ -85,7 +85,7 @@
                     :placeholder="i18n('crash-logs-placeholder')"
                     type="textarea"
                     rows="3"
-                    v-model="attrs.crashLogs"
+                    v-model="attrs.crashReports"
             />
             <i18n id="crash-logs-subtitle" slot="subtitle"/>
           </MFFormField>
@@ -174,6 +174,7 @@
     import MFFormField from "./VueUI/MFFormField";
     import MFInput from "./VueUI/MFInput";
     import MFTypeAhead from "./VueUI/MFTypeAhead";
+    import {emptyReplaced} from "../helpers/emptyReplaced";
 
     export default {
         components: {
@@ -202,7 +203,7 @@
                     macOSVersion: '',
                     mouse: '',
                     consoleLogs: '',
-                    crashLogs: '',
+                    crashReports: '',
                 },
                 label: 'bug',
                 versions: [],
@@ -271,27 +272,50 @@
             },
 
             generate() {
+
+                const a = emptyReplaced(this.attrs, '–')
+
                 const {
-                    //version,
                     description,
                     steps,
-                    context,
+                    consoleLogs,
+                    crashReports,
+                    version,
+                    macOSVersion,
+                    mouse,
                     additional
-                } = this.attrs
+                } = a
 
                 return generate(`
 ## Description
+
 ${description}
 
 ## Steps to reproduce
+
 ${steps}
 
 ## Context
-${context}
+
+Mac Mouse Fix Version: ${version}
+macOS Version: ${macOSVersion}
+Mouse Model: ${mouse}
 
 ## Additional Comments
+
 ${additional}
-  `.trim())
+
+---
+
+### Console Logs
+
+${consoleLogs}
+
+### Crash Reports
+
+${crashReports}
+
+`.trim())
             }
         },
     }
