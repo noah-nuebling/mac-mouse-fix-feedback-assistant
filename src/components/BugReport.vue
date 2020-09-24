@@ -35,7 +35,7 @@
 
       <!-- Actionability box -->
 
-      <div class="card-flat elevation-low actionability-box span-2">
+      <div class="card-flat card-large-forehead card-elevation-low actionability-box span-2">
 
         <div class="actionability-box__desc">
           <div class="actionability-box__desc__content">
@@ -309,11 +309,15 @@ ${additional}
 
 ### Console Logs
 
+\`\`\`
 ${consoleLogs}
+\`\`\`
 
 ### Crash Reports
 
+\`\`\`
 ${crashReports}
+\`\`\`
 
 `.trim())
             }

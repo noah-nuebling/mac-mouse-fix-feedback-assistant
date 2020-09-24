@@ -27,7 +27,7 @@
 
         <MFGroup
                 v-model="type"
-                class="type-picker span-2 extend elevation-high"
+                class="type-picker span-2 extend card-elevation-high"
         >
           <MFGroupButton
                   v-for="option of types"
@@ -58,7 +58,7 @@
 
           <!-- Main input fields -->
 
-          <div class="card elevation-high span-2">
+          <div class="card card-large-forehead card-elevation-high span-2">
 
             <!-- content component -->
 
@@ -126,17 +126,24 @@
         />
       </div>
 
+      <footer class="app-footer">
+        <p>&hellip;</p>
+        <small>
+
+          <span class="line">
+            Check it out on <a href="https://github.com/noah-nuebling/mac-mouse-fix-issue-helper">GitHub</a>
+          </span>
+          &centerdot;
+          <span class="line">
+            Visit the Mac Mouse Fix <a href="https://noah-nuebling.github.io/mac-mouse-fix-website/">Website</a>
+          </span>
+          &centerdot;
+          <span class="line">
+            Based on <a href="https://github.com/vuejs/vue-issue">Vue Issue Helper</a>
+          </span>
+        </small>
+      </footer>
     </div>
-
-
-    <footer class="app-footer">
-      <p>&hellip;</p>
-      <small>
-        Based on <a href="https://github.com/vuejs/vue-issue">Vue Issue Helper</a>
-        &centerdot;
-        Check out the <a href="https://github.com/noah-nuebling/mac-mouse-fix-issue-helper">Source Code</a>
-      </small>
-    </footer>
   </div>
 </template>
 
@@ -331,7 +338,7 @@
   .card-flat
     display flex
     justify-content flex-start
-    padding 20px 16px 16px 16px
+    padding 16px 16px 16px 16px
     margin-bottom: 48px
     border-radius $br
     //border-style solid
@@ -342,16 +349,16 @@
 
   // box-shadow $shadow-high
 
-  .elevation-high
+  .card-elevation-high
     box-shadow $shadow-card-high, $card-highlight
     border-radius $br
 
-  .elevation-low
+  .card-elevation-low
     box-shadow $shadow-card-low, $card-highlight
     border-radius $br
 
   .card
-    padding 20px 16px 16px 16px
+    padding 16px 16px 16px 16px
 
     margin-bottom: 48px
     background $card-color-light
@@ -366,6 +373,11 @@
 
         body
           background aqua
+  .line
+    display: inline-block
+
+  .card-large-forehead
+    padding-top 20px
 
 </style>
 
@@ -399,6 +411,7 @@
     margin 24px 0 0px 0
 
   .app-footer
+
     text-align center
     margin 24px 0
 
@@ -448,8 +461,9 @@
 
 
   .thank-you-text
+    //border solid
     font-size 14px
-    padding-top: 6px  // Need this to make some text vertically aligned for some reason
+    padding-top: 8px  // Need this to make some text vertically aligned for some reason
 
 
 
