@@ -83,6 +83,7 @@
 
     import MFFormField from "./VueUI/MFFormField";
     import MFInput from "./VueUI/MFInput";
+    import {emptyReplaced} from "../helpers/emptyReplaced";
 
     export default {
         components: {
@@ -103,7 +104,9 @@
 
         methods: {
             generate() {
-                const {description, rationale, additional} = this.attrs
+
+                const a = emptyReplaced(this.attrs, '–')
+                const {description, rationale, additional} = a
 
                 return generate(`
 ## Description

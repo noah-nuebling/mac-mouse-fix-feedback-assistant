@@ -33,6 +33,7 @@
 
     import MFFormField from "./VueUI/MFFormField";
     import MFInput from "./VueUI/MFInput";
+    import {emptyReplaced} from "../helpers/emptyReplaced";
 
     export default {
         name: 'Other.vue',
@@ -52,7 +53,8 @@
 
         methods: {
             generate () {
-                const { body } = this.attrs
+                const a = emptyReplaced(this.attrs, '–')
+                const { body } = a
 
                 return generate(`${body}`.trim())
             }
