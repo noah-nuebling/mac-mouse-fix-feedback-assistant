@@ -61,7 +61,7 @@ export default {
 
   'rationale-title': 'Rationale',
   'rationale-placeholder':
-      'Describe why you would like to see this enhancement \n' +
+      'Describe why you would like to see this enhancement. \n' +
       '\n' +
       'Which problem would it solve? \n' +
       'How would you use the new feature? ',

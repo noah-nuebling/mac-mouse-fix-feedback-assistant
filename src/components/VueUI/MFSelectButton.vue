@@ -53,6 +53,7 @@ export default {
 
   .mf-ui-select-button
     border-radius $br !important
+    //border-radius ($br - ($mf-dropdown-spacing)) !important
 
     margin-bottom $mf-dropdown-spacing // Item gap
     &:last-child

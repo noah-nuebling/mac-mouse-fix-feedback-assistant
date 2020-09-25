@@ -173,6 +173,8 @@
     box-shadow none
 
     border-radius ($br + ($mf-dropdown-spacing/1))
+    //border-radius $br
+
     padding 0
 
     background-color $mf-ui-color-light
