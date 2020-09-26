@@ -21,7 +21,7 @@ export default {
   components: {
     MFGroupButton
   },
-  //extends: VueDropdownButton,
+  extends: VueDropdownButton,
 
   inject: [
     'MFSelect',

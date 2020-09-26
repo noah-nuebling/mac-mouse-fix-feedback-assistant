@@ -9,7 +9,7 @@
                         v-model="attrs.title"
                         required
                         autofocus
-                        @blur="findIssues"
+                        @blur="$emit('findIssues')"
                 ></MFInput>
             </MFFormField>
 

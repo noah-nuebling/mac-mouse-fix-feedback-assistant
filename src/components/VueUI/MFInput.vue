@@ -191,7 +191,6 @@ export default {
         input.setSelectionRange(0, input.value.length)
       }
     },
-
     onBlur (event) {
       this.focused = false
       this.$emit('blur', event)

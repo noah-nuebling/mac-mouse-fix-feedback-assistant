@@ -12,7 +12,7 @@
                         :placeholder="i18n('title-placeholder-feature')"
                         v-model="attrs.title"
                         autofocus
-                        @blur="findIssues"
+                        @blur="$emit('findIssues')"
                         required
                 />
             </MFFormField>

@@ -68,6 +68,7 @@
                       :is="type"
                       ref="content"
                       :repo="repo"
+                      @findIssues="findIssues()"
               />
             </keep-alive>
 
@@ -239,6 +240,7 @@
             },
 
             findIssues() {
+
                 this.issues = []
                 if (this.title) {
                     this.fetchIssues(this.title, {is: 'issue', repo: this.repo.id})
