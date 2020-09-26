@@ -43,14 +43,12 @@
           @keydown.tab="onKeyTab"
         />
 
-          <label>
-              <input
-                v-if="showSuggestion"
-                class="input suggestion"
-                :value="suggestion"
-                disabled
-              >
-          </label>
+          <input
+            v-if="showSuggestion"
+            class="input suggestion"
+            :value="suggestion"
+            disabled
+          >
       </div>
 
       <slot name="right"/>
@@ -241,7 +239,7 @@ colors($color)
   border 1.2px solid $border-color
 
   overflow hidden
-  &::-webkit-resizer // Trying to hide the resizer. Doesn't seem to work.
+  &::-webkit-resizer // Noah: Trying to hide the resize-handle. Doesn't seem to work.
     display none
 
   > .content
