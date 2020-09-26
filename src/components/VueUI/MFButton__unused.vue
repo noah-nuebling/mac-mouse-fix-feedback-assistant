@@ -269,7 +269,7 @@
         &.loading
             > .content
                 visibility hidden
-        > .vue-ui-loading-indicator
+        > .mf-ui-loading-indicator
             position absolute
             top 0
             bottom 0

@@ -97,7 +97,7 @@
                       class="secondary medium mf-submit-btn"
                       :label="i18n('submit-btn-email')"
                       ref="submitEmail"
-                      :loading="uploadingPastebin"
+                      :loading="uploadingPastebin && submitAction === 'email'"
               />
               <!--          <div class="vue-ui-spacer"></div>-->
               <MFButton
@@ -105,7 +105,7 @@
                       type="submit"
                       class="primary medium mf-submit-btn"
                       :label="i18n('submit-btn-gh')"
-                      :loading="uploadingPastebin"
+                      :loading="uploadingPastebin && submitAction === 'issue'"
               />
             </div>
           </div>

@@ -18,14 +18,14 @@
       @click.capture="handleClick"
       @click.capture.native="handleClick"
   >
-    <VueLoadingIndicator
+    <MFLoadingIndicator
         v-if="loading"
     />
 
     <span
         class="content"
     >
-      <VueLoadingIndicator
+      <MFLoadingIndicator
           v-if="loadingSecondary"
           class="inline small loading-secondary"
       />
@@ -56,10 +56,11 @@
 
 <script>
 import DisabledChild from '../../../node_modules/@vue/ui/src/mixins/DisabledChild'
+import MFLoadingIndicator from "@/components/VueUI/MFLoadingIndicator";
 
 export default {
   name: 'MFButton',
-
+  components: {MFLoadingIndicator},
   inheritAttrs: false,
 
   mixins: [
@@ -267,12 +268,23 @@ colors($dark, $light, $invert = false)
   &.loading
     > .content
       visibility hidden
-  > .vue-ui-loading-indicator
-    position absolute
-    top 0
-    bottom 0
-    left 0
-    right 0
+    > .mf-ui-loading-indicator
+      position absolute
+      top 0
+      bottom 0
+      left 0
+      right 0
+
+      //margin 3px
+
+    &.primary > .mf-ui-loading-indicator > .animation
+      border-right-color $mf-ui-color-light
+      border-bottom-color $mf-ui-color-light
+    &.secondary > .mf-ui-loading-indicator > .animation
+      border-right-color $mf-ui-color-dark
+      border-bottom-color $mf-ui-color-dark
+
+
   // Colors
   colors($mf-ui-color-dark-neutral, $mf-ui-color-light-neutral)
   .vue-ui-dark-mode &

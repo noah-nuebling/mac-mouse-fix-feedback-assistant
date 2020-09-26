@@ -285,11 +285,15 @@ export default {
 
       let a = Object.assign({}, this.attrs)
 
-      if (a.consoleLogs !== "") {
-        a.consoleLogs = await getPastebin(a.consoleLogs)
-      }
-      if (a.crashReports !== "") {
-        a.crashReports = await getPastebin(a.crashReports)
+      try {
+        if (a.consoleLogs !== "") {
+          a.consoleLogs = await getPastebin(a.consoleLogs)
+        }
+        if (a.crashReports !== "") {
+          a.crashReports = await getPastebin(a.crashReports)
+        }
+      } catch (e) {
+        console.log("Error while trying to upload to pastebin. Putting strings into generated message directly.")
       }
 
       a = emptyReplaced(a, '–')

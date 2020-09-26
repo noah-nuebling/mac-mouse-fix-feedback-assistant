@@ -219,7 +219,7 @@ colors($color)
       background $color
   &.focused
     > .content
-      > .vue-ui-loading-indicator
+      > .mf-ui-loading-indicator
         .animation
           border-right-color $color
           border-bottom-color $color
@@ -313,7 +313,7 @@ colors($color)
         fill $lightened
         transition fill .3s
 
-    > .vue-ui-loading-indicator
+    > .mf-ui-loading-indicator
       &.left
         margin-right 8px
       &.right
