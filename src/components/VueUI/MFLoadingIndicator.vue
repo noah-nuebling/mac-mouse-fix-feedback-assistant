@@ -30,7 +30,7 @@ colors($color)
     width 16px
     height @width
     border-radius 50%
-    border 2px solid transparent
+    border 3px solid transparent
     colors($mf-ui-color-dark)
     .vue-ui-dark-mode &
       colors($mf-ui-color-dark-neutral)
@@ -50,7 +50,7 @@ colors($color)
     > .animation
       width 24px
       height @width
-      border-width 3px
+      border-width 4px
 
   &.overlay
     position absolute
