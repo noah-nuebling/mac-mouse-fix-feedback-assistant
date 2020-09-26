@@ -168,6 +168,8 @@
 
 <script>
     import {gt, lt} from 'semver'
+    // ^ I don't use semantic versioning, and the "0.9" version name is so far from semVer that this library breaks on it.
+    // Make sure to use x.x.x format for tag names of github releases, or this will break
     import {generate} from '../helpers'
     import modal from '../mixins/check-modal'
 
@@ -213,18 +215,20 @@
 
         computed: {
             suggestions() {
-                return this.versions
-                    .slice()
-                    .sort((a, b) => gt(a.value, b.value) ? -1 : 1)
+              let out = this.versions.slice()
+              try {
+                return out.sort((a, b) => gt(a.tag_name, b.tag_name) ? -1 : 1)
+                // ^ !All github release tag names have to follow semantic versioning for this stuff to work.
+                //     So no x.x, always x.x.x - three parts to the version number, otherwise this breaks
+              } catch (e) {
+                console.log("Couldn't sort release versions by semantic version number. " +
+                    "This might be because not all releases tag names follow semantic versioning. " +
+                    "Sorting by commit date instead. Error: ", e)
+                return out.sort((a, b) => {
+                    return new Date(b.created_at) - new Date(a.created_at);
+                })
+              }
             },
-
-            isCLI() {
-                return this.repo.id === 'vuejs/vue-cli'
-            },
-
-            doesNotSupportVueInfo() {
-                return this.attrs.version && lt(this.attrs.version, '3.2.0')
-            }
         },
 
         watch: {
@@ -254,7 +258,12 @@
                 if (!releases || !(releases instanceof Array)) return false
 
                 this.versions = this.versions.concat(releases.map(
-                    r => ({value: r.tag_name})
+                    r => ({
+                      tag_name: r.tag_name,
+                      value: r.name,
+                      created_at: r.created_at,
+                      published_at: r.published_at,
+                    })
                 ))
 
                 const link = response.headers.get('Link')

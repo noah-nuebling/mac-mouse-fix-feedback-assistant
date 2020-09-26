@@ -36,7 +36,7 @@
     import {emptyReplaced} from "../helpers/emptyReplaced";
 
     export default {
-        name: 'Other.vue',
+        name: 'Other',
         components: {
             MFFormField,
             MFInput
