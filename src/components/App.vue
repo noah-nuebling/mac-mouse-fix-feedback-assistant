@@ -96,6 +96,8 @@
                       type="submit"
                       class="secondary medium mf-submit-btn"
                       :label="i18n('submit-btn-email')"
+                      ref="submitEmail"
+                      :loading="uploadingPastebin"
               />
               <!--          <div class="vue-ui-spacer"></div>-->
               <MFButton
@@ -103,6 +105,7 @@
                       type="submit"
                       class="primary medium mf-submit-btn"
                       :label="i18n('submit-btn-gh')"
+                      :loading="uploadingPastebin"
               />
             </div>
           </div>
@@ -202,6 +205,7 @@
                 type: 'feature-request',
                 versions: {},
                 submitAction: '',
+                uploadingPastebin: false,
             }
         },
 
@@ -247,20 +251,34 @@
                 }
             },
 
-            submit() {
-                this.generate()
+            async submit() {
 
-                if (this.submitAction == 'issue') {
-                    this.createIssue()
-                } else if (this.submitAction == 'email') {
-                    this.createEmail()
-                }
+              console.log("Submitting...")
+
+              // Display loading indicator
+              this.uploadingPastebin = true
+
+              // Generate all the necessary values for submitting
+              await this.generate() // This generates pastebins and is therefore async
+
+              // Disable loading indicator
+              this.uploadingPastebin = false
+
+              console.log("Finished submitting.")
+
+              // Create a new email or GH Issue depending on which submit button the user clicked
+
+              if (this.submitAction == 'issue') {
+                this.createIssue()
+              } else if (this.submitAction == 'email') {
+                this.createEmail()
+              }
             },
 
-            generate() {
-                this.title = this.$refs.content.attrs.title
-                this.label = this.$refs.content.label
-                this.generated = this.$refs.content.generate()
+            async generate() {
+              this.title = this.$refs.content.attrs.title
+              this.label = this.$refs.content.label
+              this.generated = await this.$refs.content.generate()
             },
 
             createIssue() {

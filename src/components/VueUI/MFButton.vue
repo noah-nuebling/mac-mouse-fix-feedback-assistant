@@ -1,8 +1,8 @@
 <template>
   <component
-    :is="component"
-    class="mf-ui-button"
-    :class="[
+      :is="component"
+      class="mf-ui-button"
+      :class="[
       component,
       {
         disabled: finalDisabled,
@@ -10,29 +10,29 @@
         ghost,
       }
     ]"
-    v-bind="$attrs"
-    :type="type"
-    :tabindex="ghost ? -1 : 0"
-    role="button"
-    :aria-disabled="ghost"
-    @click.capture="handleClick"
-    @click.capture.native="handleClick"
+      v-bind="$attrs"
+      :type="type"
+      :tabindex="ghost ? -1 : 0"
+      role="button"
+      :aria-disabled="ghost"
+      @click.capture="handleClick"
+      @click.capture.native="handleClick"
   >
     <VueLoadingIndicator
-      v-if="loading"
+        v-if="loading"
     />
 
     <span
-      class="content"
+        class="content"
     >
       <VueLoadingIndicator
-        v-if="loadingSecondary"
-        class="inline small loading-secondary"
+          v-if="loadingSecondary"
+          class="inline small loading-secondary"
       />
       <VueIcon
-        v-else-if="iconLeft"
-        :icon="iconLeft"
-        class="button-icon left"
+          v-else-if="iconLeft"
+          :icon="iconLeft"
+          class="button-icon left"
       />
 
       <span class="default-slot">
@@ -46,9 +46,9 @@
       </div>
 
       <VueIcon
-        v-if="iconRight"
-        :icon="iconRight"
-        class="button-icon right"
+          v-if="iconRight"
+          :icon="iconRight"
+          class="button-icon right"
       />
     </span>
   </component>
@@ -302,7 +302,7 @@ colors($dark, $light, $invert = false)
   &.focus-visible // &:focus:focus-visible // Noah: I changed this, idk why it didn't work before and why it works now, but it does
     z-index 1
     box-shadow $mf-border-glow-shadow
-    //animation mf-ui-focus .05s forwards
+//animation mf-ui-focus .05s forwards
 
 //    &::after
 //      content ''
