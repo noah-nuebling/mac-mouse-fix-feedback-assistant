@@ -138,7 +138,9 @@ export default {
 @import "../../../node_modules/@vue/ui/src/style/base"
 @import "../../../node_modules/@vue/ui/src/style/imports"
 
-@import "../../style/imports.styl"
+@import "../../style/vars.styl"
+@import "../../style/mf-mixins.styl"
+//@import "../../style/imports.styl"
 
 $focus-color = $mf-ui-color-dark
 

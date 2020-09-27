@@ -1,0 +1,58 @@
+@import "./vars.styl"
+
+// Buttons
+
+button-colors($foreground, $background)
+  color $foreground
+  background $background
+  &:not(.ghost)
+    &:hover,
+    .vue-ui-dropdown.open .dropdown-trigger &
+      //if dark($foreground) // Foreground dark -> background light -> only darken bg a little bit on hover
+      //  background darken($background, 3%)
+      //else // Foreground light -> background dark -> darken bg a lot
+      //  background darken($background, 10%)
+
+    .vue-ui-dark-mode .vue-ui-dropdown.open .dropdown-trigger &
+      background $mf-ui-color-dark-neutral
+      color $mf-ui-color-light
+      > .content
+        > .button-icon
+          svg
+            fill $mf-ui-color-light
+
+    &:hover
+      .vue-ui-dark-mode .popover &
+        background $mf-ui-color-dark !important
+    &:active
+      background darken($background, 8%)
+  > .content
+    > .button-icon
+      svg
+        fill $foreground
+  > .vue-ui-loading-indicator,
+  > .content > .loading-secondary
+    .animation
+      border-right-color $foreground
+      border-bottom-color $foreground
+  > .content > .tag-wrapper > .tag
+    background $foreground
+    color $background
+    if $background is transparent
+      color $md-white
+  &::before
+    background $background
+
+  &.vue-ui-dropdown-button
+    background transparent
+    &:not(:hover)
+      color $mf-ui-color-dark
+      .vue-ui-dark-mode &
+        color $mf-ui-color-light !important
+      > .content
+        > .button-icon
+          svg
+            fill @color
+            .vue-ui-dark-mode &
+              fill $mf-ui-color-light !important
+
