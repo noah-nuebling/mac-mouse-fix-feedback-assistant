@@ -23,6 +23,6 @@ git commit -m 'deploy'
 
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
 
- git push -f git@github.com:noah-nuebling/mac-mouse-feedback-assistant.git master:gh-pages
+ git push -f git@github.com:noah-nuebling/mac-mouse-fix-feedback-assistant.git master:gh-pages
 
 cd -
