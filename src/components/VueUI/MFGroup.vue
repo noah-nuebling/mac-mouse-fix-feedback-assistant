@@ -109,7 +109,7 @@ export default {
 
 <style lang="stylus">
 @import "../../../node_modules/@vue/ui/src/style/imports"
-@import "../../style/vars.styl"
+@import "../../style/imports.styl"
 
 indicator(direction)
   > .indicator
