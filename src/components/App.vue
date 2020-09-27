@@ -133,17 +133,16 @@
       <footer class="app-footer">
         <p>&hellip;</p>
         <small>
-
-          <span class="line">
-            Check it out on <a href="https://github.com/noah-nuebling/mac-mouse-fix-issue-helper">GitHub</a>
-          </span>
-          &centerdot;
           <span class="line">
             Visit the Mac Mouse Fix <a href="https://noah-nuebling.github.io/mac-mouse-fix-website/">Website</a>
           </span>
           &centerdot;
           <span class="line">
-            Based on <a href="https://github.com/vuejs/vue-issue">Vue Issue Helper</a>
+            Check out the source code on <a href="https://github.com/noah-nuebling/mac-mouse-fix-issue-helper">GitHub</a>
+          </span>
+          &centerdot;
+          <span class="line">
+            Based on <a href="https://new-issue.vuejs.org/?repo=vuejs/vue">Vue Issue Helper</a>
           </span>
         </small>
       </footer>
@@ -357,7 +356,7 @@
   .card-flat
     display flex
     justify-content flex-start
-    padding 16px 16px 16px 16px
+    padding 12px 12px 12px 12px
     margin-bottom: 48px
     border-radius $br
     //border-style solid
@@ -413,7 +412,7 @@
     max-width $page-width-max
     margin 0 auto
     box-sizing border-box
-    padding 0 16px
+    padding 0 8px
 
   /*background-color aqua*/
 
