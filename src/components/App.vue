@@ -244,9 +244,8 @@
             },
 
             findIssues() {
-
                 this.issues = []
-                if (this.title) {
+                if (this.$refs.content.attrs.title) {
                     this.fetchIssues(this.title, {is: 'issue', repo: this.repo.id})
                 }
             },
@@ -259,7 +258,7 @@
               this.uploadingPastebin = true
 
               // Generate all the necessary values for submitting
-              await this.generate() // This generates pastebins and is therefore async
+              await this.generate() // This uploads to pastebins and is therefore async
 
               // Disable loading indicator
               this.uploadingPastebin = false

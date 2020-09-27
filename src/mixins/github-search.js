@@ -40,15 +40,17 @@ export default {
 
   methods: {
     async fetchIssues(term, filters) {
+
       const q = Object.keys(filters).map(
               key => toArray(filters[key]).map(value => `${key}:${value}`).join(' ')
           ).join(' ') + ' ' + term
 
       try {
         const { items } = await axios.get(API_ENDPOINT, { params: { q } })
+        console.log("Fetched issues from GitHub: ", items)
         this.$data._issues = items || []
       } catch (e) {
-        // ignore
+        console.log("Failed to fetch issues from GitHub. Error: ", e)
       }
     }
   }

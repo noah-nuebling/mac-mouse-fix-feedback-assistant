@@ -16,6 +16,12 @@
         />
       </MFFormField>
 
+<!--      <p-->
+<!--          v-for="i in $data._issues"-->
+<!--      >-->
+<!--        {{i}}-->
+<!--      </p>-->
+
       <!-- Description -->
 
       <MFFormField
