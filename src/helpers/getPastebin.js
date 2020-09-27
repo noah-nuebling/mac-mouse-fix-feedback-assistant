@@ -21,7 +21,8 @@ export async function getPastebin(body) {
 
     console.log("Getting hastebin...")
 
+    const CORSProxyURL = "https://cors-anywhere.herokuapp.com/"
     const baseURL = "https://hastebin.com/"
-    const response = await axios.post(baseURL + "documents", body)
+    const response = await axios.post(CORSProxyURL + baseURL + "documents", body)
     return baseURL + response.data.key
 }
