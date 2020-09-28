@@ -9,19 +9,33 @@ export async function getPastebinWithTimeout(body, timeout) {
     })
 }
 
-function validURL(str) {
-    var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
-        '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
-        '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
-        '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
-        '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
-        '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
-    return !!pattern.test(str);
-}
-
 // Upload arg string to pastebin and return url
 async function getPastebin(body) {
 
+    // Define CORS Proxy
+
+    const CORSProxyURL = "https://mmf-cors-proxy.noah-nuebling.workers.dev/?"
+    //const CORSProxyURL = "https://mmf-cors-proxy-2.noah-nuebling.workers.dev/?"
+    //const CORSProxyURL = "https://cors-anywhere.herokuapp.com/"
+    //const CORSProxyURL = ""
+
+    // Upload to some pastebin
+
+    const pasteURL = await getPastebinDotCom(CORSProxyURL, body);
+    //return await getHastebinDotCom(CORSProxyURL, body);
+
+    // Throw error if response is not a valid url
+    if (!validURL(pasteURL)) {
+        throw Error("The server didn't return a valid url. Instead it returned: " + pasteURL) // This line seems to cause jekyll compilation error for some reason
+    }
+
+    // Return
+
+    return pasteURL
+
+}
+
+async function getPastebinDotCom(CORSProxyURL, body) {
 
     // Pastebin api didn't work for some reason.
     // I'm always getting the error: "Bad API request, invalid api_dev_key"
@@ -36,13 +50,7 @@ async function getPastebin(body) {
 
     console.log("Uploading to pastebin...")
 
-    // Define some constants
-
-    // CORS Proxy
-    const CORSProxyURL = "https://mmf-cors-proxy.noah-nuebling.workers.dev/?"
-    //const CORSProxyURL = "https://mmf-cors-proxy-2.noah-nuebling.workers.dev/?"
-    //const CORSProxyURL = "https://cors-anywhere.herokuapp.com/"
-    //const CORSProxyURL = ""
+    // Defining some constants
 
     // Base url
     const baseURL = "https://pastebin.com/api/api_post.php"
@@ -72,28 +80,38 @@ async function getPastebin(body) {
 
     // Return url of created paste
 
-    // Throw error if response is not a valid url
-    if (!validURL(response.data)) {
-        throw Error("The server didn't return a valid url. Instead it returned: " + response.data)
-        // throw Error("The server didn't return a valid url. Instead it returned:", response.data)
-    }
-
     return response.data
+}
 
+async function getHastebinDotCom(CORSProxyURL, body) {
+
+    console.log("Uploading to hastebin...")
+
+    // Hastebin is incredibly slow sometimes (rn takes like 30 seconds to respond with a 503) - might be overloadedm, or maybe it blacklisted my ip
+    // It's staying slow af ... Using 'http' instead of 'https' makes it faster, but the server response is weird
+
+    const baseURL = "https://hastebin.com/"
+    const response = await axios.post(CORSProxyURL + baseURL + "documents/", body)
+    console.log("Server response:", response)
+
+    const responseURL = baseURL + response.data.key
+
+    return responseURL
+}
+
+function validURL(str) {
+    var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+        '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
+        '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+        '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+        '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+        '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+    return !!pattern.test(str);
 }
 
 // ---
 
 // v Tried to use other pastebin platforms but there were issues with all the ones I tried, and pastebin.com works now
-
-// console.log("Getting hastebin...")
-// Hastebin is incredibly slow sometimes (rn takes like 30 seconds to respond with a 503) - might be overloaded
-// It's staying slow af ... Using 'https' instead of 'http' makes it faster, but the server response is weird
-
-// const baseURL = "http://hastebin.com/documents/"
-// const response = await axios.post(CORSProxyURL + baseURL, body)
-// console.log("Server response:", response)
-// return baseURL + response.data.key
 
 // Creating ghostbin
 

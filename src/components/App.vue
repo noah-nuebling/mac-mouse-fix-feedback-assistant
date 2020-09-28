@@ -272,7 +272,7 @@ export default {
       const url = `https://github.com/noah-nuebling/mac-mouse-fix/issues/new?title=${title}&body=${body}&labels=${label}`
 
       if (url.length > URL_LIMIT) {
-        alert(this.i18n('alert-url-too-long'))
+        alert(this.i18n('alert-url-too-long')) // This is a horrible user experience, try to avoid at all cost
       }
       window.open(url)
     },
