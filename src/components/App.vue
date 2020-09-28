@@ -152,6 +152,12 @@ import MFGroupButton from './VueUI/MFGroupButton.vue'
 import MFFormField from './VueUI/MFFormField.vue'
 import MFInput from './VueUI/MFInput.vue'
 
+// Define constants
+
+// Practical max length for URLs is 2000 chars (src: https://stackoverflow.com/questions/417142/what-is-the-maximum-length-of-a-url-in-different-browsers)
+const URL_LIMIT = 2000
+
+// Export
 
 export default {
   name: 'App',
@@ -264,8 +270,11 @@ export default {
 
       const {title, body, label} = this.creationHelper()
       const url = `https://github.com/noah-nuebling/mac-mouse-fix/issues/new?title=${title}&body=${body}&labels=${label}`
-      window.open(url)
 
+      if (url.length > URL_LIMIT) {
+        alert(this.i18n('alert-url-too-long'))
+      }
+      window.open(url)
     },
     createEmail() {
       const {title, body, label} = this.creationHelper()

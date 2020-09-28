@@ -91,4 +91,5 @@ export default {
   'feature-request': 'Feature Request',
   'similar-issues': 'Similar issues',
   'drop-warn': require('./drop-warn.md'),
+  'alert-url-too-long': require('./alert-url-too-long.txt'),
 }
