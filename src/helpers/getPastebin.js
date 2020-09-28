@@ -35,7 +35,7 @@ async function getPastebin(body) {
     const baseURL = "https://pastebin.com/api/api_post.php"
 
     // API key
-    const apiKey = "SZxwVigJOFMVBAQCLs3HoZpHjrEQo53L" // KlamuserKai's key // Don't abuse this or you'll be eaten by cave trolls
+    const apiKey = "SZxwVigJOFMVBAQCLs3HoZpHjrEQo53L" // KlamuserKai's key // Don't abuse hos key or you'll be eaten by cave trolls
     //const apiKey = "rC1P3TfFhNgvpNoIWh5uEli0diQEh4m9"
 
     // Collect data for POST request

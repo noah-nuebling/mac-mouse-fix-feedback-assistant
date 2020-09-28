@@ -300,19 +300,19 @@ export default {
 
       // Practical max length for URLs is 2000 chars (src: https://stackoverflow.com/questions/417142/what-is-the-maximum-length-of-a-url-in-different-browsers)
       // So we're uploading some stuff to pastebin if it's too long
-      const MAX_LENGTH = 500
+      const LEN_LIMIT = 500
 
       let a = Object.assign({}, this.attrs)
 
       // Upload stuff to pastebin
       try {
-        if (a.consoleLogs.length > MAX_LENGTH) {
+        if (a.consoleLogs.length > LEN_LIMIT) {
           const x = await getPastebinWithTimeout(a.consoleLogs, PB_TIMEOUT)
           if (typeof x === 'string') {
             a.consoleLogs = x
           }
         }
-        if (a.crashReports.length > MAX_LENGTH) {
+        if (a.crashReports.length > LEN_LIMIT) {
           const x = await getPastebinWithTimeout(a.crashReports, PB_TIMEOUT)
           if (typeof x === 'string') {
             a.crashReports = x
