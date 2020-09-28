@@ -32,8 +32,7 @@ export default {
   'steps-title': 'Steps to Reproduce',
   'steps-placeholder':
       '1. Detail the exact steps taken to reproduce the problem \n' +
-      '2. Number each step \n' +
-      '3. Pat yourself on the back! This will be super useful for fixing the bug. :D',
+      '2. Number each step',
   'steps-subtitle': "",
 
   'mmf-ver-title': 'Mac Mouse Fix Version',
