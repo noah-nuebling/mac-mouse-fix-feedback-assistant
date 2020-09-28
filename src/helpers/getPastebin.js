@@ -75,6 +75,7 @@ async function getPastebin(body) {
     // Throw error if response is not a valid url
     if (!validURL(response.data)) {
         throw Error("The server didn't return a valid url. Instead it returned: " + response.data)
+        // throw Error("The server didn't return a valid url. Instead it returned:", response.data)
     }
 
     return response.data
