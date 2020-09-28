@@ -9,6 +9,15 @@ export async function getPastebinWithTimeout(body, timeout) {
     })
 }
 
+function validURL(str) {
+    var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+        '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
+        '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+        '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+        '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+        '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+    return !!pattern.test(str);
+}
 
 // Upload arg string to pastebin and return url
 async function getPastebin(body) {
@@ -20,6 +29,10 @@ async function getPastebin(body) {
     //  (When you use curl and pass data with -d it's also passed under the "form" key instead of the "data" key... )
     //  To pass stuff under the "form" key using axios you need to create a new FormData object and pass that as data to axios.post
     //  I'm very confused but hey it works!
+
+    // Stuff that's not so great about this solution:
+    // Each IP can only create 10 pastes on pastebin.com per day, after that a cryptic error message will be returned instead of the pastebin url.
+    //   If that happens we just throw an error
 
     console.log("Uploading to pastebin...")
 
@@ -58,6 +71,11 @@ async function getPastebin(body) {
     console.log("Server response:", response)
 
     // Return url of created paste
+
+    // Throw error if response is not a valid url
+    if (!validURL(response.data)) {
+        throw Error("The server didn't return a valid url. Instead it returned:", response.data)
+    }
 
     return response.data
 
