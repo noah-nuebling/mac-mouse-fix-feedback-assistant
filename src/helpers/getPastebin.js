@@ -1,5 +1,9 @@
 import axios from "axios"
 
+function getInvalidURLErr(url) {
+    return new Error("The server didn't return a valid url. Instead it returned: " + url) // This line seems to cause jekyll compilation error for some reason
+}
+
 export async function getPastebinWithTimeout(body, timeout) {
     return new Promise(function (resolve, reject) {
         getPastebin(body).then(resolve, reject)
@@ -21,16 +25,24 @@ async function getPastebin(body) {
 
     // Upload to some pastebin
 
-    const pasteURL = await getPastebinDotCom(CORSProxyURL, body);
-    //return await getHastebinDotCom(CORSProxyURL, body);
+    let pasteURL = ''
+    try {
+        pasteURL = await getPastebinDotCom(CORSProxyURL, body);
+        if (!validURL(pasteURL)) {
+            throw getInvalidURLErr(pasteURL)
+        }
+    } catch (e) {
+        console.log('Error while trying to upload to pastebin.com.', e)
+        console.log('Trying hastebin.com instead.')
+        pasteURL = await getHastebinDotCom(CORSProxyURL, body);
+    }
 
     // Throw error if response is not a valid url
     if (!validURL(pasteURL)) {
-        throw Error("The server didn't return a valid url. Instead it returned: " + pasteURL) // This line seems to cause jekyll compilation error for some reason
+        throw getInvalidURLErr(pasteURL)
     }
 
     // Return
-
     return pasteURL
 
 }
@@ -79,16 +91,14 @@ async function getPastebinDotCom(CORSProxyURL, body) {
     console.log("Server response:", response)
 
     // Return url of created paste
-
     return response.data
 }
 
 async function getHastebinDotCom(CORSProxyURL, body) {
 
-    console.log("Uploading to hastebin...")
+    // Hastebin is incredibly slow sometimes (rn takes like 30 seconds to respond with a 503) - might be overloaded, or maybe it blacklisted my ip from testing
 
-    // Hastebin is incredibly slow sometimes (rn takes like 30 seconds to respond with a 503) - might be overloadedm, or maybe it blacklisted my ip
-    // It's staying slow af ... Using 'http' instead of 'https' makes it faster, but the server response is weird
+    console.log("Uploading to hastebin...")
 
     const baseURL = "https://hastebin.com/"
     const response = await axios.post(CORSProxyURL + baseURL + "documents/", body)
@@ -100,7 +110,7 @@ async function getHastebinDotCom(CORSProxyURL, body) {
 }
 
 function validURL(str) {
-    var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+    const pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
         '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
         '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
         '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
