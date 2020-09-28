@@ -18,20 +18,22 @@ async function getPastebin(body) {
 
     // Define CORS Proxy
 
-    const CORSProxyURL = "https://mmf-cors-proxy.noah-nuebling.workers.dev/?"
-    //const CORSProxyURL = "https://mmf-cors-proxy-2.noah-nuebling.workers.dev/?"
-    //const CORSProxyURL = "https://cors-anywhere.herokuapp.com/"
-    //const CORSProxyURL = ""
+    const CORSProxyURL_Custom = "https://mmf-cors-proxy.noah-nuebling.workers.dev/?" // Should be fastest
+    const CORSProxyURL_Custom_2 = "https://mmf-cors-proxy-2.noah-nuebling.workers.dev/?" // Should be just as fast
+    const CORSProxyURL_Heroku = "https://cors-anywhere.herokuapp.com/" // Bit slower but public and maintained by someone else
+    const CORSProxyURL_None = "" //  For testing
 
     // Upload to some pastebin
 
     let pasteURL = ''
     try {
-        pasteURL = await getPastebinDotCom(CORSProxyURL, body);
+        // Try to upload to pastebin.com
+        pasteURL = await getPastebinDotCom(CORSProxyURL_Custom, body);
         if (!validURL(pasteURL)) {
             throw getInvalidURLErr(pasteURL)
         }
     } catch (e) {
+        // Try to upload to hastebin.com
         console.log('Error while trying to upload to pastebin.com.', e)
         console.log('Trying hastebin.com instead.')
         pasteURL = await getHastebinDotCom(CORSProxyURL, body);
@@ -58,7 +60,7 @@ async function getPastebinDotCom(CORSProxyURL, body) {
 
     // Stuff that's not so great about this solution:
     // Each IP can only create 10 pastes on pastebin.com per day, after that a cryptic error message will be returned instead of the pastebin url.
-    //   If that happens we just throw an error
+    //   Callers can check if this happened with validURL()
 
     console.log("Uploading to pastebin...")
 
@@ -68,7 +70,7 @@ async function getPastebinDotCom(CORSProxyURL, body) {
     const baseURL = "https://pastebin.com/api/api_post.php"
 
     // API key
-    const apiKey = "SZxwVigJOFMVBAQCLs3HoZpHjrEQo53L" // KlamuserKai's key // Don't abuse hos key or you'll be eaten by cave trolls
+    const apiKey = "SZxwVigJOFMVBAQCLs3HoZpHjrEQo53L" // KlamuserKai's key // Don't abuse his key or you'll be eaten by cave trolls
     //const apiKey = "rC1P3TfFhNgvpNoIWh5uEli0diQEh4m9"
 
     // Collect data for POST request
@@ -96,7 +98,7 @@ async function getPastebinDotCom(CORSProxyURL, body) {
 
 async function getHastebinDotCom(CORSProxyURL, body) {
 
-    // Hastebin is incredibly slow sometimes (rn takes like 30 seconds to respond with a 503) - might be overloaded, or maybe it blacklisted my ip from testing
+    // Hastebin is incredibly slow sometimes (rn takes like 30 seconds to respond with a 503) - might be overloaded, or maybe it blacklisted my ip due to testing
 
     console.log("Uploading to hastebin...")
 
@@ -121,9 +123,9 @@ function validURL(str) {
 
 // ---
 
-// v Tried to use other pastebin platforms but there were issues with all the ones I tried, and pastebin.com works now
+// v Tried to use other pastebin platforms
 
-// Creating ghostbin
+// Uploading to ghostbin
 
 // const baseURL = "https://ghostbin.com/paste/new"
 //
