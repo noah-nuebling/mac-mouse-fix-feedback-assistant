@@ -49,20 +49,17 @@
       </div>
 
       <!-- Form -->
-
       <form class="main-form" @submit.prevent="submit()">
 
         <!--      <FormIntro/>-->
 
-        <div class="common-fields vue-ui-grid col-2 small-gap">
+        <!-- Grid -->
+        <div class="vue-ui-grid col-2 small-gap">
 
-          <!-- Main input fields -->
+          <!-- Card -->
+          <div class="card padding-big padding-large-forehead card-elevation-high span-2">
 
-          <div class="card card-large-forehead card-elevation-high span-2">
-
-            <!-- content component -->
-
-
+            <!-- Content component -->
             <keep-alive>
               <component
                       :is="type"
@@ -71,23 +68,6 @@
                       @findIssues="findIssues()"
               />
             </keep-alive>
-
-            <!-- attachments -->
-            <!--      <MFFormField-->
-            <!--              :title="i18n('attachments-title')"-->
-            <!--      >-->
-            <!--&lt;!&ndash;        <MFInput&ndash;&gt;-->
-            <!--&lt;!&ndash;        type="file"&ndash;&gt;-->
-            <!--&lt;!&ndash;        multiple&ndash;&gt;-->
-            <!--&lt;!&ndash;        >&ndash;&gt;-->
-            <!--&lt;!&ndash;          WHAT DOES THIS DOOOO&ndash;&gt;-->
-            <!--&lt;!&ndash;        </MFInput>&ndash;&gt;-->
-
-            <!--        <input type="file" multiple>-->
-
-            <!--        <i18n v-show="this.type == 'feature-request'" slot="subtitle" id="attachments-subtitle-feature"></i18n>-->
-            <!--        <i18n v-show="this.type == 'bug-report'" slot="subtitle" id="attachments-subtitle-bug"></i18n>-->
-            <!--      </MFFormField>-->
 
             <!-- Form actions -->
             <div class="form-actions">
@@ -112,21 +92,21 @@
         </div>
       </form>
 
-      <div class="card-flat">
+      <div class="card-flat thank-you">
         <i18n
                 v-if="this.type == 'bug-report'"
                 id="thank-you-bug"
-                class="thank-you-text"
+                class="thank-you__text"
         />
         <i18n
                 v-if="this.type == 'feature-request'"
                 id="thank-you-feature"
-                class="thank-you-text"
+                class="thank-you__text"
         />
         <i18n
                 v-if="this.type == 'other'"
                 id="thank-you-other"
-                class="thank-you-text"
+                class="thank-you__text"
         />
       </div>
 
@@ -356,8 +336,8 @@
   .card-flat
     display flex
     justify-content flex-start
-    padding 12px 12px 12px 12px
-    margin-bottom: 48px
+    padding 0
+    margin: 0
     border-radius $br
     //border-style solid
     border-color $border-color
@@ -376,9 +356,9 @@
     border-radius $br
 
   .card
-    padding 16px 16px 16px 16px
 
-    margin-bottom: 48px
+    padding 0
+    margin 0
     background $card-color-light
 
     border-radius $br
@@ -394,8 +374,16 @@
   .line
     display: inline-block
 
-  .card-large-forehead
+  .padding-big
+    padding 16px
+
+  .padding-small
+    padding 12px
+
+  .padding-large-forehead
     padding-top 20px
+  .padding-small-forehead
+    padding-top 16px
 
 </style>
 
@@ -414,10 +402,8 @@
     box-sizing border-box
     padding 0 8px
 
-  /*background-color aqua*/
-
-  .common-fields
-    margin-bottom 20px
+  //.common-fields
+  //  margin-bottom 20px
 
   .form-actions
     //h-box()
@@ -429,9 +415,8 @@
     margin 24px 0 0px 0
 
   .app-footer
-
     text-align center
-    margin 24px 0
+    margin-bottom 16px
 
   .app
     // background $global-background-color
@@ -452,7 +437,7 @@
     flex-direction column
     justify-content flex-start
     // align-items center
-    margin 38px 0 38px 0
+    margin 40px 0 38px 0
 
   .title-sec__brand
     display flex
@@ -478,11 +463,22 @@
     margin 12px 0 0 18px
 
 
-  .thank-you-text
-    //border solid
-    font-size 14px
-    padding-top: 8px  // Need this to make some text vertically aligned for some reason
+  .thank-you
 
+    // Margin
+    $m = 32px
+    $cw-m = 22px // Counterweight for top margin, so it looks evenly spaced from top and bottom
+    margin ($m + $cw-m) 0 $m 0
+
+    // Padding
+    $pv = 16px
+    $ph = 16px
+    padding $pv $ph $pv $ph
+
+
+  .thank-you__text
+    font-size 14px
+    padding-top 8px // Need this to make some text vertically aligned for some reason
 
 
   /*.more-indicator*/

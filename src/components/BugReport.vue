@@ -16,11 +16,11 @@
         />
       </MFFormField>
 
-<!--      <p-->
-<!--          v-for="i in $data._issues"-->
-<!--      >-->
-<!--        {{i}}-->
-<!--      </p>-->
+      <!--      <p-->
+      <!--          v-for="i in $data._issues"-->
+      <!--      >-->
+      <!--        {{i}}-->
+      <!--      </p>-->
 
       <!-- Description -->
 
@@ -41,7 +41,7 @@
 
       <!-- Actionability box -->
 
-      <div class="card-flat card-large-forehead card-elevation-low actionability-box span-2">
+      <div class="card-flat padding-small padding-small-forehead card-elevation-low actionability-box span-2">
 
         <div class="actionability-box__desc">
           <div class="actionability-box__desc__content">
@@ -173,6 +173,9 @@
 </template>
 
 <script>
+
+// Imports
+
 import {gt} from 'semver'
 // ^ I don't use semantic versioning, and the "0.9" version name is so far from semVer that this library breaks on it.
 // Make sure to use x.x.x format for tag names of github releases, or this will break
@@ -183,7 +186,13 @@ import MFFormField from "./VueUI/MFFormField";
 import MFInput from "./VueUI/MFInput";
 import MFTypeAhead from "./VueUI/MFTypeAhead";
 import {emptyReplaced} from "../helpers/emptyReplaced";
-import {getPastebin} from "@/helpers/getPastebin";
+import {getPastebinWithTimeout} from "@/helpers/getPastebin";
+
+// Constants
+
+const PB_TIMEOUT = 3 * 1000 // In ms // using 5s the browser blocks popup
+
+// Export
 
 export default {
   components: {
@@ -293,13 +302,20 @@ export default {
 
       try {
         if (a.consoleLogs !== "") {
-          a.consoleLogs = await getPastebin(a.consoleLogs)
+          const x = await getPastebinWithTimeout(a.consoleLogs, PB_TIMEOUT)
+          if (typeof x === 'string') {
+            a.consoleLogs = x
+          }
         }
         if (a.crashReports !== "") {
-          a.crashReports = await getPastebin(a.crashReports)
+          const x = await getPastebinWithTimeout(a.crashReports, PB_TIMEOUT)
+          if (typeof x === 'string') {
+            a.crashReports = x
+          }
+          a.crashReports = await getPastebinWithTimeout(a.crashReports, PB_TIMEOUT)
         }
       } catch (e) {
-        console.log("Error while trying to upload to pastebin. Putting strings into generated message directly.")
+        console.log("An error occured while trying to upload to pastebin. Putting strings into generated message directly.", e)
       }
 
       a = emptyReplaced(a, '–')
@@ -355,7 +371,7 @@ ${crashReports}
 @import "./../style/vars.styl"
 
 .actionability-box
-  margin 8px 0 16px 0
+  margin 6px 0 16px 0
 
 
   display flex
@@ -389,7 +405,7 @@ ${crashReports}
 
 .actionability-box__desc__rule
 
-  margin 16px 0px 20px 0px
+  margin 12px 0px 16px 0px
   background none
   border-top 1.5px solid darken($border-color, 5%)
   width 100%

@@ -68,7 +68,7 @@ export default {
 
   // other tab
 
-  'other': 'General',
+  'other': 'Other',
 
   'title-title-other': 'Title',
   'title-placeholder-other': 'Enter a title',

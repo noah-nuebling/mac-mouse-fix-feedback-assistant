@@ -127,6 +127,8 @@
     @import "../../../node_modules/@vue/ui/src/style/imports"
     @import "../../style/vars.styl"
 
+    $side-margin = ($br/3)
+
     .mf-ui-form-field
         > .wrapper
             &,
@@ -143,6 +145,7 @@
             > .title,
             > .subtitle
                 transition opacity .3s
+                margin 0 $side-margin 0 $side-margin
 
             > .title
 
@@ -150,10 +153,6 @@
                 align-items flex-end
                 justify-content space-between
                 //justify-content flex-start
-
-                $side-margin = ($br/3   )
-
-                margin 0 $side-margin 0 $side-margin
 
                 width auto
 
