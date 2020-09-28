@@ -13,45 +13,92 @@ export async function getPastebinWithTimeout(body, timeout) {
 // Upload arg string to pastebin and return url
 async function getPastebin(body) {
 
-    // const CORSProxyURL = "https://cors-anywhere.herokuapp.com/"
-    const CORSProxyURL = "https://mmf-cors-proxy.noah-nuebling.workers.dev/?"
 
     // Pastebin api didn't work for some reason.
     // I'm always getting the error: "Bad API request, invalid api_dev_key"
+    // SOLUTION: You need to pass all the data under the "form" key (or whatever the terminology is) else it's not recognized by the api
+    //  (When you use curl and pass data with -d it's also passed under the "form" key instead of the "data" key... )
+    //  To pass stuff under the "form" key using axios you need to create a new FormData object and pass that as data to axios.post
+    //  I'm very confused but hey it works!
 
-    // console.log("Getting pastebin...")
-    //
-    // const apiKey = "rC1P3TfFhNgvpNoIWh5uEli0diQEh4m9"
-    //
-    // const response = await axios.post(CORSProxyURL + "https://pastebin.com/api/api_post.php", {
-    //         "api_dev_key": apiKey,
-    //         "api_option": 'paste',
-    //         "api_paste_code": body
-    // })
-    // console.log(response)
+    console.log("Uploading to pastebin...")
 
-    // console.log("Getting hastebin...")
-    // Hastebin is incredibly slow sometimes (rn takes like 30 seconds to respond with a 503) - might be overloaded
+    // Define some constants
 
-    const baseURL = "https://hastebin.com/documents/"
-    const response = await axios.post(CORSProxyURL + baseURL, body)
+    // CORS Proxy
+    const CORSProxyURL = "https://mmf-cors-proxy.noah-nuebling.workers.dev/?"
+    //const CORSProxyURL = "https://mmf-cors-proxy-2.noah-nuebling.workers.dev/?"
+    //const CORSProxyURL = "https://cors-anywhere.herokuapp.com/"
+    //const CORSProxyURL = ""
+
+    // Base url
+    const baseURL = "https://pastebin.com/api/api_post.php"
+
+    // API key
+    const apiKey = "SZxwVigJOFMVBAQCLs3HoZpHjrEQo53L" // KlamuserKai's key // Don't abuse this or you'll be eaten by cave trolls
+    //const apiKey = "rC1P3TfFhNgvpNoIWh5uEli0diQEh4m9"
+
+    // Collect data for POST request
+
+    // URL
+    let url = CORSProxyURL + baseURL
+
+    // Data
+    let data = new FormData()
+    data.append("api_dev_key", apiKey)
+    data.append("api_option", 'paste')
+    data.append("api_paste_code", body)
+
+    // Config
+    let config = {}
+
+    // Send POST request
+
+    const response = await axios.post(url, data, config)
     console.log("Server response:", response)
-    return baseURL + response.data.key
 
-    // Creating ghostbin
+    // Return url of created paste
 
-    // const baseURL = "https://ghostbin.com/paste/new"
-    // const response = await axios.post(CORSProxyURL + baseURL, {
-    //     form: {
-    //         text: "test post"
-    //     },
-    //     headers: {
-    //         'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'
-    //     }
-    // })
-    // console.log("Server response:", response)
-
-    // Requesting httpbin for testing
-
+    return response.data
 
 }
+
+// ---
+
+// v Tried to use other pastebin platforms but there were issues with all the ones I tried, and pastebin.com works now
+
+// console.log("Getting hastebin...")
+// Hastebin is incredibly slow sometimes (rn takes like 30 seconds to respond with a 503) - might be overloaded
+// It's staying slow af ... Using 'https' instead of 'http' makes it faster, but the server response is weird
+
+// const baseURL = "http://hastebin.com/documents/"
+// const response = await axios.post(CORSProxyURL + baseURL, body)
+// console.log("Server response:", response)
+// return baseURL + response.data.key
+
+// Creating ghostbin
+
+// const baseURL = "https://ghostbin.com/paste/new"
+//
+// let data = new FormData()
+// data.append("text" ,body)
+//
+// const response = await axios.post(CORSProxyURL + baseURL, data, {
+//     'Content-Type': 'multipart/form-data'
+// })
+
+// const response = await request.post({
+//     url: CORSProxyURL + baseURL,
+//     form: {
+//         text: "AMAZING TEST MESSAGE"
+//     },
+//     headers: {
+//         'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'
+//     }
+// })
+
+// console.log("Server response:", response)
+//
+// return
+
+// Requesting httpbin for testing

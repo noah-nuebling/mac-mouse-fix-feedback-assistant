@@ -267,7 +267,7 @@ export default {
       const response = await fetch(`https://api.github.com/repos/${repoId}/releases?page=${page}&per_page=100`)
       const releases = await response.json()
 
-      console.log("RELEASES:", releases)
+      // console.log("RELEASES:", releases)
 
       if (this.repo.id !== repoId) return
 
@@ -312,7 +312,6 @@ export default {
           if (typeof x === 'string') {
             a.crashReports = x
           }
-          a.crashReports = await getPastebinWithTimeout(a.crashReports, PB_TIMEOUT)
         }
       } catch (e) {
         console.log("An error occured while trying to upload to pastebin. Putting strings into generated message directly.", e)
