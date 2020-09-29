@@ -274,13 +274,17 @@ export default {
       if (url.length > URL_LIMIT) {
         alert(this.i18n('alert-url-too-long')) // This is a horrible user experience, try to avoid at all cost
         // TODO: Send automatic email with debug info
+        window.open(url) // If we used window.location.href here, the alert wouldn't be shown
+      } else {
+        window.location.href = url
       }
-      window.open(url)
+      //window.open(url)
     },
     createEmail() {
       const {title, body, label} = this.creationHelper()
       const url = `mailto:noah.n.public@gmail.com?subject=${title}%20-%20Mac%20Mouse%20Fix%20Feedback%20%5b${label}%5d&body=${body}`
-      window.open(url)
+      //window.open(url)
+      window.location.href = url
     },
     creationHelper() {
       const title = encodeURIComponent(this.title).replace(/%2B/gi, '+')
