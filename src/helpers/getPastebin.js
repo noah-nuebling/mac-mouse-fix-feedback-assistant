@@ -19,9 +19,9 @@ async function getPastebin(body) {
     // Define CORS Proxy
 
     const CORSProxyURL_Custom = "https://mmf-cors-proxy.noah-nuebling.workers.dev/?" // Should be fastest
-    const CORSProxyURL_Custom_2 = "https://mmf-cors-proxy-2.noah-nuebling.workers.dev/?" // Should be just as fast
-    const CORSProxyURL_Heroku = "https://cors-anywhere.herokuapp.com/" // Bit slower but public and maintained by someone else
-    const CORSProxyURL_None = "" //  For testing
+    // const CORSProxyURL_Custom_2 = "https://mmf-cors-proxy-2.noah-nuebling.workers.dev/?" // Should be just as fast
+    // const CORSProxyURL_Heroku = "https://cors-anywhere.herokuapp.com/" // Bit slower but public and maintained by someone else
+    // const CORSProxyURL_None = "" //  For testing
 
     // Upload to some pastebin
 
@@ -36,7 +36,7 @@ async function getPastebin(body) {
         // Try to upload to hastebin.com
         console.log('Error while trying to upload to pastebin.com.', e)
         console.log('Trying hastebin.com instead.')
-        pasteURL = await getHastebinDotCom(CORSProxyURL, body);
+        pasteURL = await getHastebinDotCom(CORSProxyURL_Custom, body);
     }
 
     // Throw error if response is not a valid url
