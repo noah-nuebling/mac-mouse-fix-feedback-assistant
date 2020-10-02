@@ -18,17 +18,20 @@ async function getPastebin(body) {
 
     // Define CORS Proxy
 
-    const CORSProxyURL_Custom = "https://mmf-cors-proxy.noah-nuebling.workers.dev/?" // Should be fastest
-    // const CORSProxyURL_Custom_2 = "https://mmf-cors-proxy-2.noah-nuebling.workers.dev/?" // Should be just as fast
-    // const CORSProxyURL_Heroku = "https://cors-anywhere.herokuapp.com/" // Bit slower but public and maintained by someone else
-    // const CORSProxyURL_None = "" //  For testing
+    // Top 10 free CORS proxies: https://nordicapis.com/10-free-to-use-cors-proxies/
+
+    //const CORSProxyURL_CloudFlare = "https://mmf-cors-proxy.noah-nuebling.workers.dev/?" // Should be fastest
+    const CORSProxyURL_CloudFlare= "https://mmf-cors-proxy-2.noah-nuebling.workers.dev/?" // Should be just as fast
+    // ^ All these cloudflare workers seem to have the same IP. Each ip can only create 10 pastes per day with the pastebin.com api... :/
+    const CORSProxyURL_Heroku = "https://cors-anywhere.herokuapp.com/" // Pretty slow but public and maintained by someone else
+    const CORSProxyURL_None = "" //  For testing
 
     // Upload to some pastebin
 
     let pasteURL = ''
     try {
         // Try to upload to pastebin.com
-        pasteURL = await getPastebinDotCom(CORSProxyURL_Custom, body);
+        pasteURL = await getHastebinDotCom(CORSProxyURL_CloudFlare, body);
         if (!validURL(pasteURL)) {
             throw getInvalidURLErr(pasteURL)
         }
@@ -36,7 +39,7 @@ async function getPastebin(body) {
         // Try to upload to hastebin.com
         console.log('Error while trying to upload to pastebin.com.', e)
         console.log('Trying hastebin.com instead.')
-        pasteURL = await getHastebinDotCom(CORSProxyURL_Custom, body);
+        pasteURL = await getPastebinDotCom(CORSProxyURL_CloudFlare, body);
     }
 
     // Throw error if response is not a valid url
@@ -71,6 +74,7 @@ async function getPastebinDotCom(CORSProxyURL, body) {
 
     // API key
     const apiKey = "SZxwVigJOFMVBAQCLs3HoZpHjrEQo53L" // KlamuserKai's key // Don't abuse his key or you'll be eaten by cave trolls
+    //const apiKey = "dY-a4YprdKatsKqvQWPoza3Mui4seCMQ" // Noah's key
 
     // Collect data for POST request
 
@@ -82,6 +86,7 @@ async function getPastebinDotCom(CORSProxyURL, body) {
     data.append("api_dev_key", apiKey)
     data.append("api_option", 'paste')
     data.append("api_paste_code", body)
+    data.append("api_paste_private", '1') // 0: public, 1: unlisted, 2: private
 
     // Config
     let config = {}
