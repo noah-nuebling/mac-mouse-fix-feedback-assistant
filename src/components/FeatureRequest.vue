@@ -11,7 +11,6 @@
                 <MFInput
                         type='textarea'
                         class="single-line-ta"
-                        :oninput="autoHeight(this)"
                         :placeholder="i18n('title-placeholder-feature')"
                         v-model="attrs.title"
                         autofocus
