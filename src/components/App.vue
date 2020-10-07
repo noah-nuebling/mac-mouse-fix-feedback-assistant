@@ -497,7 +497,7 @@ hr
   // Margin
   $m = 52px
   $cw-m = 4px // Counterweight for top margin, so it looks evenly spaced from top and bottom
-  margin ($m + $cw-m) 0 0px 0
+  margin ($m + $cw-m) 0 8px  0
 
 .footer-container
   //margin 0 auto
