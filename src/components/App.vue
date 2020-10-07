@@ -349,10 +349,20 @@ a
   color $link-color
 
 html
-
   background $global-background-color
-  zoom 122%
+  zoom $global-zoom
   min-width $page-width-min
+
+@media only screen and (max-width: 700px)
+  .span-1
+    grid-column: span 2
+  body
+    //background aqua
+  html
+    zoom $global-zoom-mobile
+  .mf-ui-group-button
+    font-size 12px
+
 
 hr
   background-color transparent
@@ -391,14 +401,6 @@ hr
 
   border-radius $br
   border $card-border
-
-  //
-  @media (max-width: 700px)
-    .span-1
-      grid-column: span 2
-
-      body
-        background aqua
 
 .app-footer
   text-align center
