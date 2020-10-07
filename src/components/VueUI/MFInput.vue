@@ -26,7 +26,11 @@
 
       <slot name="left"/>
 
-      <div class="input-wrapper">
+      <div
+          class="input-wrapper"
+          v-resize @resize="autoResize ? mixin_autoResize_resize($refs.input) : null"
+           >
+        <!-- Using @resize directly on the child component doesn't work for some reason, so we're using it above. -->
         <component
           :is="type === 'textarea' ? type : 'input'"
           ref="input"

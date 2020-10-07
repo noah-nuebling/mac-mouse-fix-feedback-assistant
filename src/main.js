@@ -1,9 +1,11 @@
 import Vue from 'vue'
 import i18n from './i18n/plugin'
 import VueUi from '@vue/ui'
+import resize from 'vue-element-resize-detector'
 
 import App from './components/App.vue'
 
+Vue.use(resize)
 Vue.use(i18n)
 Vue.use(VueUi)
 
