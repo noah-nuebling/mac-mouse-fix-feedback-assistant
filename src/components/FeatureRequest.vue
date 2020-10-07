@@ -9,6 +9,9 @@
                     :is-required="true"
             >
                 <MFInput
+                        type='textarea'
+                        class="single-line-ta"
+                        :oninput="autoHeight(this)"
                         :placeholder="i18n('title-placeholder-feature')"
                         v-model="attrs.title"
                         autofocus
@@ -79,10 +82,9 @@
 </template>
 
 <script>
-    import {generate} from '../helpers'
-
     import MFFormField from "./VueUI/MFFormField";
     import MFInput from "./VueUI/MFInput";
+    import {generate, autoHeight} from '../helpers'
     import {emptyReplaced} from "../helpers/emptyReplaced";
 
     export default {
@@ -103,6 +105,9 @@
         },
 
         methods: {
+            autoHeight(elem) {
+              autoHeight(elem)
+            },
             generate() {
 
                 const a = emptyReplaced(this.attrs, '–')

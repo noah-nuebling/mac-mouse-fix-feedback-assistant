@@ -341,7 +341,7 @@ export default {
 
 <style lang="stylus">
 // @import '~@vue/ui/dist/vue-ui.css'
-// ^ This interfered with styling v-popover - Should maybe consider removing all vue-ui stuff, as I don't think I need it
+// ^ This interfered with styling v-popover - Should maybe consider removing all vue-ui stuff, as it leads to confusion and interference
 
 @import "../style/vars.styl"
 
@@ -354,16 +354,23 @@ html
   zoom 122%
   min-width $page-width-min
 
+// Textarea that looks like a single line input
+// But when the placeholder/content is too long it can wrap lines and grow vertically
+.single-line-ta
+  //resize: none
+  //height: auto
+  //&:after
+  //  visibility hidden
+  //&::webkit-resizer
+  //  visibility hidden
 
 hr
   background-color transparent
   border-top 1px solid lighten(black, 85%)
   margin 0px $br 0px $br
 
-
 .small-gap
   grid-gap: 8px
-
 
 .card-flat
   display flex
@@ -388,7 +395,6 @@ hr
   border-radius $br
 
 .card
-
   padding 0
   margin 0
   background $card-color-light
