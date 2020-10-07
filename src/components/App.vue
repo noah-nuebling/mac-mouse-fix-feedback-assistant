@@ -110,22 +110,29 @@
         />
       </div>
 
+      <hr>
+
       <footer class="app-footer">
-        <p>&hellip;</p>
-        <small>
-          <span class="line">
-            Visit the Mac Mouse Fix <a href="https://noah-nuebling.github.io/mac-mouse-fix-website/">Website</a>
-          </span>
-          &centerdot;
-          <span class="line">
-            Check out the source code on <a
-              href="https://github.com/noah-nuebling/mac-mouse-fix-issue-helper">GitHub</a>
-          </span>
-          &centerdot;
-          <span class="line">
-            Based on <a href="https://new-issue.vuejs.org/?repo=vuejs/vue">Vue Issue Helper</a>
-          </span>
-        </small>
+        <div class="vue-ui-grid col-2">
+          <small class="span-1 footer__col">
+            <span class="footer__line">
+              Visit the Mac Mouse Fix <a href="https://noah-nuebling.github.io/mac-mouse-fix-website/">Website</a>
+            </span>
+            <span class="footer__line">
+              Check out the source code on <a
+                href="https://github.com/noah-nuebling/mac-mouse-fix-issue-helper">GitHub</a>
+            </span>
+          </small>
+          <small class="span-1 footer__col">
+            <span class="footer__line">
+              Based on <a href="https://new-issue.vuejs.org/?repo=vuejs/vue">Vue Issue Helper</a>
+            </span>
+            <span class="footer__line">
+              Powered by <a
+                href="https://pastebin.com/">Pastebin</a>
+            </span>
+          </small>
+        </div>
       </footer>
     </div>
   </div>
@@ -345,6 +352,13 @@ html
   zoom 122%
   min-width $page-width-min
 
+
+hr
+  background-color transparent
+  border-top 1px solid lighten(black, 85%)
+  margin 0px $br 0px $br
+
+
 .small-gap
   grid-gap: 8px
 
@@ -388,8 +402,21 @@ html
       body
         background aqua
 
-.line
-  display: inline-block
+.app-footer
+  text-align center
+  $cw = 6px
+  $m = 6px
+  margin ($m + $cw) 0 $m 0
+
+.footer__col
+  //margin-left 8px
+
+.footer__line
+  font-size 11px
+  color lighten($mf-ui-color-dark-neutral, 20%)
+  display: block
+  margin 0px 0 8px $br
+  text-align start
 
 .padding-big
   padding 16px
@@ -431,10 +458,6 @@ html
   flex-wrap wrap
   justify-content flex-end
   margin 24px 0 0px 0
-
-.app-footer
-  text-align center
-  margin-bottom 16px
 
 .app
   // background $global-background-color
@@ -483,8 +506,8 @@ html
 .thank-you
 
   // Margin
-  $m = 32px
-  $cw-m = 22px // Counterweight for top margin, so it looks evenly spaced from top and bottom
+  $m = 52px
+  $cw-m = 4px // Counterweight for top margin, so it looks evenly spaced from top and bottom
   margin ($m + $cw-m) 0 $m 0
 
   // Padding
