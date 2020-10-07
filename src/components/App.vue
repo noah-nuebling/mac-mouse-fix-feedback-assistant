@@ -92,7 +92,7 @@
         </div>
       </form>
 
-      <div class="card-flat footer">
+      <div class="card-flat card-elevation-low footer">
         <div class="footer-container">
           <i18n
               v-if="this.type == 'bug-report'"
@@ -537,7 +537,7 @@ hr
   border-bottom 1px solid lighten($mf-ui-color-dark-neutral, 70%)
 
 .link-accent
-  color $link-color
+  //color $link-color
 
 // Need this to make some text vertically aligned for some reason
 
