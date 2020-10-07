@@ -8,6 +8,8 @@
           class="span-2"
       >
         <MFInput
+            type='textarea'
+            rows="1"
             :placeholder="i18n('title-placeholder-bug')"
             v-model="attrs.title"
             autofocus
@@ -122,6 +124,8 @@
           class="span-1"
       >
         <MFInput
+            type='textarea'
+            rows="1"
             :placeholder="i18n('macos-ver-placeholder')"
             v-model="attrs.macOSVersion"
             required
@@ -135,6 +139,8 @@
           class="span-2"
       >
         <MFInput
+            type='textarea'
+            rows="1"
             :placeholder="i18n('mouse-placeholder')"
             v-model="attrs.mouse"
         />

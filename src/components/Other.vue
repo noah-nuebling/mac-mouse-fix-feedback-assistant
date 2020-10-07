@@ -5,6 +5,8 @@
                     :title = "i18n('title-title-other')"
             >
                 <MFInput
+                        type='textarea'
+                        rows="1"
                         :placeholder="i18n('title-placeholder-other')"
                         v-model="attrs.title"
                         required

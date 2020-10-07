@@ -96,7 +96,7 @@ export default {
 
     autoResize: {
       type: Boolean,
-      default: false,
+      default: true,
     },
 
     iconLeft: {

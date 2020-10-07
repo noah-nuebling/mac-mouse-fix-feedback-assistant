@@ -429,7 +429,7 @@ hr
     padding-top 16px
   .actionability-card-padding
     padding 8px
-    padding-top 12px
+    padding-top 16px
 
 </style>
 

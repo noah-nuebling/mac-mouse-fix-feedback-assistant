@@ -18,6 +18,7 @@
               :suggestion="suggestion"
               @focus="onFocus"
               @blur="onBlur"
+              :auto-resize="false"
       />
 
       <template v-if="shownSuggestions.length">
