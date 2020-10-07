@@ -308,7 +308,7 @@ colors($color)
 
       > textarea.input
         padding 8px 10px
-        resize vertical
+        resize none //resize vertical
         min-height 30px
         box-sizing border-box
         line-height 18px
