@@ -354,16 +354,6 @@ html
   zoom 122%
   min-width $page-width-min
 
-// Textarea that looks like a single line input
-// But when the placeholder/content is too long it can wrap lines and grow vertically
-.single-line-ta
-  //resize: none
-  //height: auto
-  //&:after
-  //  visibility hidden
-  //&::webkit-resizer
-  //  visibility hidden
-
 hr
   background-color transparent
   border-top 1px solid lighten(black, 85%)

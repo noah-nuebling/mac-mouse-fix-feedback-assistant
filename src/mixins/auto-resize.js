@@ -2,15 +2,22 @@
 
 export default {
     methods: {
-        mixin_autoResize_resize(event) {
-            event.target.style.height = "auto";
-            event.target.style.height = `${event.target.scrollHeight}px`;
+        mixin_autoResize_resize(target) {
+
+            console.log('RESISIZNG AUTOMATICALLY')
+
+            target.style.height = "auto";
+            let h = target.scrollHeight
+            if (target.value === '') { // Placeholders seem to have a smaller bottom margin so we're adding some extra height
+                //h += 8;
+            }
+            target.style.height = `${h}px`;
         }
     },
-    mounted() {
-        this.$nextTick(() => {
-            this.$el.setAttribute("style", "height",
-                `${this.$el.scrollHeight}px`);
-        });
-    }
+    // mounted() {
+    //     this.$nextTick(() => {
+    //         this.$el.setAttribute("style", "height",
+    //             `${this.$el.scrollHeight}px`);
+    //     });
+    // }
 };

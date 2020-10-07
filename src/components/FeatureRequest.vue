@@ -10,7 +10,8 @@
             >
                 <MFInput
                         type='textarea'
-                        class="single-line-textarea"
+                        rows="1"
+                        :auto-resize="true"
                         :placeholder="i18n('title-placeholder-feature')"
                         v-model="attrs.title"
                         autofocus

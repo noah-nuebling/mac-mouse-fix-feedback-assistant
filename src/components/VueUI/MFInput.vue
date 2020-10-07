@@ -37,7 +37,7 @@
           :disabled="finalDisabled"
           v-bind="$attrs"
           v-on="listeners"
-          @input="valueModel = $event.currentTarget.value"
+          @input="valueModel = $event.currentTarget.value; autoResize ? mixin_autoResize_resize($event.currentTarget) : null"
           @focus="onFocus"
           @blur="onBlur"
           @keydown.tab="onKeyTab"
@@ -72,6 +72,7 @@
 
 <script>
 import DisabledChild from '../../../node_modules/@vue/ui/src/mixins/DisabledChild'
+import autoResize from '../../mixins/auto-resize'
 
 export default {
   name: 'MFInput',
@@ -80,6 +81,7 @@ export default {
 
   mixins: [
     DisabledChild,
+    autoResize
   ],
 
   inject: {
@@ -87,6 +89,12 @@ export default {
   },
 
   props: {
+
+    autoResize: {
+      type: Boolean,
+      default: false,
+    },
+
     iconLeft: {
       type: String,
       default: null,
@@ -207,6 +215,12 @@ export default {
       }
     },
   },
+
+  mounted() {
+    if (this.$props.autoResize) {
+      this.mixin_autoResize_resize(this.$refs.input)
+    }
+  }
 }
 </script>
 
@@ -279,6 +293,8 @@ colors($color)
           height 30px
         &::placeholder
           color $lightened
+          margin 7px // Not sure what this does, but needed to make textarea auto-resizing work right
+          //border 1px solid black
           .vue-ui-dark-mode &
             color lighten($lightened, 30%)
         // Disable noisy browser styles
