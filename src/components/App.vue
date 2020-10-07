@@ -92,50 +92,40 @@
         </div>
       </form>
 
-      <div class="card-flat thank-you">
+      <div class="card-flat footer">
         <i18n
             v-if="this.type == 'bug-report'"
             id="thank-you-bug"
-            class="thank-you__text"
+            class="footer__text"
         />
         <i18n
             v-if="this.type == 'feature-request'"
             id="thank-you-feature"
-            class="thank-you__text"
+            class="footer__text"
         />
         <i18n
             v-if="this.type == 'other'"
             id="thank-you-other"
-            class="thank-you__text"
+            class="footer__text"
         />
-      </div>
+        <hr>
 
-      <hr>
-
-      <footer class="app-footer">
-        <div class="vue-ui-grid col-2">
-          <small class="span-1 footer__col">
-            <span class="footer__line">
-              Visit the Mac Mouse Fix <a href="https://noah-nuebling.github.io/mac-mouse-fix-website/">Website</a>
-            </span>
-            <span class="footer__line">
-              Check out the source code on <a
-                href="https://github.com/noah-nuebling/mac-mouse-fix-issue-helper">GitHub</a>
-            </span>
+        <div class="vue-ui-grid col-2 footer-links">
+          <small class="span-1 footer-links__col">
+              <a class='footer-links__line' href="https://noah-nuebling.github.io/mac-mouse-fix-website/">Visit the Mac Mouse Fix <span class="link-accent">Website</span></a>
+            <a class="footer-links__line" href="https://github.com/noah-nuebling/mac-mouse-fix-issue-helper">Check out the source code on <span class="link-accent">GitHub</span></a>
           </small>
-          <small class="span-1 footer__col">
-            <span class="footer__line">
-              Based on <a href="https://new-issue.vuejs.org/?repo=vuejs/vue">Vue Issue Helper</a>
-            </span>
-<!--
-            <span class="footer__line">
-              Powered by <a
-                href="https://pastebin.com/">Pastebin</a>
-            </span>
--->
+          <small class="span-1 footer-links__col">
+            <a class="footer-links__line" href="https://new-issue.vuejs.org/?repo=vuejs/vue">Based on <span class="link-accent">Vue Issue Helper</span></a>
+            <!--
+                        <span class="footer__line">
+                          Powered by <a
+                            href="https://pastebin.com/">Pastebin</a>
+                        </span>
+            -->
           </small>
         </div>
-      </footer>
+      </div>
     </div>
   </div>
 </template>
@@ -355,8 +345,11 @@ html
 
 hr
   background-color transparent
-  border-top 1px solid lighten(black, 85%)
-  margin 0px $br 0px $br
+  //border-top 1px solid lighten(black, 85%)
+  border-top 1px solid lighten(black, 70%)
+
+  //margin 0px $br 0px $br
+  margin 0
 
 .small-gap
   grid-gap: 8px
@@ -391,21 +384,24 @@ hr
   border-radius $br
   border $card-border
 
-.app-footer
-  text-align center
-  $cw = 6px
-  $m = 6px
+.footer-links
+  $cw = 6px // counterweight
+  $m = 6px // margin
   margin ($m + $cw) 0 $m 0
 
-.footer__col
+.footer-links__col
   //margin-left 8px
 
-.footer__line
+.footer-links__line
   font-size 11px
   color lighten($mf-ui-color-dark-neutral, 20%)
   display: block
-  margin 0px 0 8px $br
   text-align start
+  margin-left $br
+  margin-right $br
+  margin-bottom 8px
+  padding-bottom 8px
+  border-bottom 0.5px solid lighten($mf-ui-color-dark-neutral, 70%)
 
 .form-card-padding
   padding 16px
@@ -447,6 +443,7 @@ hr
   margin 0 auto
   box-sizing border-box
   padding 0 8px
+  padding-bottom 9px
 
 //.common-fields
 //  margin-bottom 20px
@@ -504,12 +501,15 @@ hr
   margin 12px 0 0 18px
 
 
-.thank-you
+.footer
+
+  display flex
+  flex-direction column
 
   // Margin
   $m = 52px
   $cw-m = 4px // Counterweight for top margin, so it looks evenly spaced from top and bottom
-  margin ($m + $cw-m) 0 $m 0
+  margin ($m + $cw-m) 0 0px 0
 
   // Padding
   $pv = 16px
@@ -517,9 +517,12 @@ hr
   padding $pv $ph $pv $ph
 
 
-.thank-you__text
+.footer__text
   font-size 14px
   padding-top 8px
+
+.link-accent
+  color $link-color
 
 // Need this to make some text vertically aligned for some reason
 
