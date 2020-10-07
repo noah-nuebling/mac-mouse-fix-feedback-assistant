@@ -384,25 +384,6 @@ hr
   border-radius $br
   border $card-border
 
-.footer-links
-  $cw = 6px // counterweight
-  $m = 6px // margin
-  margin ($m + $cw) 0 $m 0
-
-.footer-links__col
-  //margin-left 8px
-
-.footer-links__line
-  font-size 11px
-  color lighten($mf-ui-color-dark-neutral, 20%)
-  display: block
-  text-align start
-  margin-left $br
-  margin-right $br
-  margin-bottom 8px
-  padding-bottom 8px
-  border-bottom 0.5px solid lighten($mf-ui-color-dark-neutral, 70%)
-
 .form-card-padding
   padding 16px
   padding-top 20px
@@ -519,7 +500,26 @@ hr
 
 .footer__text
   font-size 14px
+
+  margin-top 8px
+  margin-bottom 12px
+
+.footer-links
+  margin 0 0 8px 0
+
+.footer-links__col
+  //margin-left 8px
+
+.footer-links__line
+  font-size 11px
+  color lighten($mf-ui-color-dark-neutral, 20%)
+  display: block
+  text-align start
+  margin-left $br
+  margin-right $br
   padding-top 8px
+  padding-bottom 8px
+  border-bottom 0.5px solid lighten($mf-ui-color-dark-neutral, 70%)
 
 .link-accent
   color $link-color
