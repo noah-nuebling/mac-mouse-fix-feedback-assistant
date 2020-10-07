@@ -20,8 +20,8 @@ async function getPastebin(body) {
 
     // Top 10 free CORS proxies: https://nordicapis.com/10-free-to-use-cors-proxies/
 
-    //const CORSProxyURL_CloudFlare = "https://mmf-cors-proxy.noah-nuebling.workers.dev/?" // Should be fastest
-    const CORSProxyURL_CloudFlare= "https://mmf-cors-proxy-2.noah-nuebling.workers.dev/?" // Should be just as fast
+    const CORSProxyURL_CloudFlare = "https://mmf-cors-proxy.noah-nuebling.workers.dev/?" // Should be fastest
+    //const CORSProxyURL_CloudFlare= "https://mmf-cors-proxy-2.noah-nuebling.workers.dev/?" // Should be just as fast
     // ^ All these cloudflare workers seem to have the same IP. Each ip can only create 10 pastes per day with the pastebin.com api... :/
     const CORSProxyURL_Heroku = "https://cors-anywhere.herokuapp.com/" // Pretty slow but public and maintained by someone else
     const CORSProxyURL_None = "" //  For testing
@@ -31,7 +31,7 @@ async function getPastebin(body) {
     let pasteURL = ''
     try {
         // Try to upload to pastebin.com
-        pasteURL = await getHastebinDotCom(CORSProxyURL_CloudFlare, body);
+        pasteURL = await getPastebinDotCom(CORSProxyURL_CloudFlare, body);
         if (!validURL(pasteURL)) {
             throw getInvalidURLErr(pasteURL)
         }
@@ -39,7 +39,7 @@ async function getPastebin(body) {
         // Try to upload to hastebin.com
         console.log('Error while trying to upload to pastebin.com.', e)
         console.log('Trying hastebin.com instead.')
-        pasteURL = await getPastebinDotCom(CORSProxyURL_CloudFlare, body);
+        pasteURL = await getHastebinDotCom(CORSProxyURL_CloudFlare, body);
     }
 
     // Throw error if response is not a valid url
@@ -92,7 +92,6 @@ async function getPastebinDotCom(CORSProxyURL, body) {
     let config = {}
 
     // Send POST request
-
     const response = await axios.post(url, data, config)
     console.log("Server response:", response)
 

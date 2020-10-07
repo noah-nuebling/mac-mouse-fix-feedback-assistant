@@ -127,10 +127,12 @@
             <span class="footer__line">
               Based on <a href="https://new-issue.vuejs.org/?repo=vuejs/vue">Vue Issue Helper</a>
             </span>
+<!--
             <span class="footer__line">
               Powered by <a
                 href="https://pastebin.com/">Pastebin</a>
             </span>
+-->
           </small>
         </div>
       </footer>
