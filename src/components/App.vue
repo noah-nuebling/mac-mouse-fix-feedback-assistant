@@ -499,13 +499,15 @@ hr
 
 
 .footer__text
-  font-size 14px
+  font-size 13px
 
-  margin-top 8px
-  margin-bottom 12px
+  $cw = 4px // counterweight
+  $m = 2px // margin
+  margin-top $m
+  margin-bottom $m + $cw
 
 .footer-links
-  margin 0 0 8px 0
+  margin 0 0 0px 0
 
 .footer-links__col
   //margin-left 8px
