@@ -93,37 +93,39 @@
       </form>
 
       <div class="card-flat footer">
-        <i18n
-            v-if="this.type == 'bug-report'"
-            id="thank-you-bug"
-            class="footer__text"
-        />
-        <i18n
-            v-if="this.type == 'feature-request'"
-            id="thank-you-feature"
-            class="footer__text"
-        />
-        <i18n
-            v-if="this.type == 'other'"
-            id="thank-you-other"
-            class="footer__text"
-        />
-        <hr>
+        <div class="footer-container">
+          <i18n
+              v-if="this.type == 'bug-report'"
+              id="thank-you-bug"
+              class="footer__text"
+          />
+          <i18n
+              v-if="this.type == 'feature-request'"
+              id="thank-you-feature"
+              class="footer__text"
+          />
+          <i18n
+              v-if="this.type == 'other'"
+              id="thank-you-other"
+              class="footer__text"
+          />
+          <hr>
 
-        <div class="vue-ui-grid col-2 footer-links">
-          <small class="span-1 footer-links__col">
+          <div class="vue-ui-grid col-2 footer-links">
+            <small class="span-1 footer-links__col">
               <a class='footer-links__line' href="https://noah-nuebling.github.io/mac-mouse-fix-website/">Visit the Mac Mouse Fix <span class="link-accent">Website</span></a>
-            <a class="footer-links__line" href="https://github.com/noah-nuebling/mac-mouse-fix-issue-helper">Check out the source code on <span class="link-accent">GitHub</span></a>
-          </small>
-          <small class="span-1 footer-links__col">
-            <a class="footer-links__line" href="https://new-issue.vuejs.org/?repo=vuejs/vue">Based on <span class="link-accent">Vue Issue Helper</span></a>
-            <!--
-                        <span class="footer__line">
-                          Powered by <a
-                            href="https://pastebin.com/">Pastebin</a>
-                        </span>
-            -->
-          </small>
+              <a class="footer-links__line" href="https://github.com/noah-nuebling/mac-mouse-fix-issue-helper">Check out the source code on <span class="link-accent">GitHub</span></a>
+            </small>
+            <small class="span-1 footer-links__col">
+              <a class="footer-links__line" href="https://new-issue.vuejs.org/?repo=vuejs/vue">Based on <span class="link-accent">Vue Issue Helper</span></a>
+              <!--
+                          <span class="footer__line">
+                            Powered by <a
+                              href="https://pastebin.com/">Pastebin</a>
+                          </span>
+              -->
+            </small>
+          </div>
         </div>
       </div>
     </div>
@@ -486,22 +488,33 @@ hr
 
   display flex
   flex-direction column
+  //border-radius 0
+
+  margin 0 auto
+  width 100%
+  max-width $page-width-max
 
   // Margin
   $m = 52px
   $cw-m = 4px // Counterweight for top margin, so it looks evenly spaced from top and bottom
   margin ($m + $cw-m) 0 0px 0
 
+.footer-container
+  //margin 0 auto
+  //width 100%
+  //max-width $page-width-max
+  box-sizing border-box
+
   // Padding
   $pv = 16px
   $ph = 16px
   padding $pv $ph $pv $ph
 
-
 .footer__text
+  //text-align center
   font-size 13px
 
-  $cw = 4px // counterweight
+  $cw = 12px // counterweight
   $m = 2px // margin
   margin-top $m
   margin-bottom $m + $cw
@@ -516,12 +529,12 @@ hr
   font-size 11px
   color lighten($mf-ui-color-dark-neutral, 20%)
   display: block
-  text-align start
+  //text-align center
   margin-left $br
   margin-right $br
   padding-top 8px
   padding-bottom 8px
-  border-bottom 0.5px solid lighten($mf-ui-color-dark-neutral, 70%)
+  border-bottom 1px solid lighten($mf-ui-color-dark-neutral, 70%)
 
 .link-accent
   color $link-color
