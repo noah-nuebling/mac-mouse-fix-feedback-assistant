@@ -8,9 +8,6 @@ export default {
 
             target.style.height = "auto";
             let h = target.scrollHeight
-            if (target.value === '') { // Placeholders seem to have a smaller bottom margin so we're adding some extra height
-                //h += 8;
-            }
             target.style.height = `${h}px`;
         }
     },

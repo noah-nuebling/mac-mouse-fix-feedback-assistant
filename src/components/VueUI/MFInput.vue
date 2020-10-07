@@ -296,9 +296,11 @@ colors($color)
         &:not(textarea)
           height 30px
         &::placeholder
-          color $lightened
-          margin 7px // Not sure what this does, but needed to make textarea auto-resizing work right
           //border 1px solid black
+          color $lightened
+          padding-bottom 7px
+          // ^ Needed to make textarea auto-resizing look right
+          //     Need to use padding for Safari, margin only works on Chrome
           .vue-ui-dark-mode &
             color lighten($lightened, 30%)
         // Disable noisy browser styles
