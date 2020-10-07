@@ -114,7 +114,7 @@
           <div class="vue-ui-grid col-2 footer-links">
             <small class="span-1 footer-links__col">
               <a class='footer-links__line' href="https://noah-nuebling.github.io/mac-mouse-fix-website/">Visit the Mac Mouse Fix <span class="link-accent">Website</span></a>
-              <a class="footer-links__line" href="https://github.com/noah-nuebling/mac-mouse-fix-issue-helper">Check out the source code on <span class="link-accent">GitHub</span></a>
+              <a class="footer-links__line" href="https://github.com/noah-nuebling/mac-mouse-fix-feedback-assistant">Check out the source code on <span class="link-accent">GitHub</span></a>
             </small>
             <small class="span-1 footer-links__col">
               <a class="footer-links__line" href="https://new-issue.vuejs.org/?repo=vuejs/vue">Based on <span class="link-accent">Vue Issue Helper</span></a>
