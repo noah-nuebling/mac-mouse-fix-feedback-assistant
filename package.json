@@ -1,5 +1,5 @@
 {
-  "name": "mac-mouse-fix-feedback-assistant-clone",
+  "name": "mac-mouse-fix-feedback-assistant",
   "main": "src/main.js",
   "version": "0.2.0",
   "private": true,
