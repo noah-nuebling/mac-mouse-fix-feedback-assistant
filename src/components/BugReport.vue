@@ -41,7 +41,7 @@
 
       <!-- Actionability box -->
 
-      <div class="card-flat padding-small padding-small-forehead card-elevation-low actionability-box span-2">
+      <div class="card-flat actionability-card-padding card-elevation-low actionability-box span-2">
 
         <div class="actionability-box__desc">
           <div class="actionability-box__desc__content">

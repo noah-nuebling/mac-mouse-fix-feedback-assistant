@@ -57,7 +57,7 @@
         <div class="vue-ui-grid col-2 small-gap">
 
           <!-- Card -->
-          <div class="card padding-big padding-large-forehead card-elevation-high span-2">
+          <div class="card form-card-padding card-elevation-high span-2">
 
             <!-- Content component -->
             <keep-alive>
@@ -353,17 +353,6 @@ html
   zoom $global-zoom
   min-width $page-width-min
 
-@media only screen and (max-width: 700px)
-  .span-1
-    grid-column: span 2
-  body
-    //background aqua
-  html
-    zoom $global-zoom-mobile
-  .mf-ui-group-button
-    font-size 12px
-
-
 hr
   background-color transparent
   border-top 1px solid lighten(black, 85%)
@@ -418,17 +407,29 @@ hr
   margin 0px 0 8px $br
   text-align start
 
-.padding-big
+.form-card-padding
   padding 16px
-
-.padding-small
-  padding 12px
-
-.padding-large-forehead
   padding-top 20px
 
-.padding-small-forehead
+.actionability-card-padding
+  padding 12px
   padding-top 16px
+
+@media only screen and (max-width: 700px)
+  html
+    zoom $global-zoom-mobile
+  body
+    //background aqua
+  .mf-ui-group-button
+    font-size 12px
+  .span-1
+    grid-column: span 2 !important // Didn't use to need !important here, not sure what happened
+  .form-card-padding
+    padding 12px
+    padding-top 16px
+  .actionability-card-padding
+    padding 8px
+    padding-top 12px
 
 </style>
 
