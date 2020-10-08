@@ -112,19 +112,18 @@
         <hr class="footer-rule">
 
         <div class="vue-ui-grid col-2 footer-links">
-          <small class="span-1 footer-links__col">
-            <a class='footer-links__line' href="https://noah-nuebling.github.io/mac-mouse-fix-website/">Visit the <span class="footer-links__line--accent">Mac Mouse Fix Website</span></a>
-            <a class="footer-links__line" href="https://github.com/noah-nuebling/mac-mouse-fix-feedback-assistant">Check out the source code on <span class="footer-links__line--accent">GitHub</span></a>
-          </small>
-          <small class="span-1 footer-links__col">
-            <a class="footer-links__line" href="https://new-issue.vuejs.org/?repo=vuejs/vue">Based on <span class="footer-links__line--accent">Vue Issue Helper</span></a>
-            <!--
-                        <span class="footer__line">
-                          Powered by <a
-                            href="https://pastebin.com/">Pastebin</a>
-                        </span>
-            -->
-          </small>
+            <a class='span-1 footer-links__line' href="https://noah-nuebling.github.io/mac-mouse-fix-website/">
+              Visit the <span class="footer-links__line--accent">Mac Mouse Fix Website</span>
+            </a>
+            <a class="span-1 footer-links__line" href="https://github.com/noah-nuebling/mac-mouse-fix-feedback-assistant">
+              Check out the source code on <span class="footer-links__line--accent">GitHub</span>
+            </a>
+            <a class="span-1 footer-links__line" href="https://new-issue.vuejs.org/?repo=vuejs/vue">
+              Based on <span class="footer-links__line--accent">Vue Issue Helper</span>
+            </a>
+<!--            <a class="span-1 footer-links__line" href="https://pastebin.com/">
+              Powered by <span class="footer-links__line&#45;&#45;accent">Pastebin</span>
+            </a>-->
         </div>
       </div>
     </div>
@@ -389,18 +388,21 @@ html
 @media only screen and (max-width: 700px)
   html
     zoom $global-zoom-mobile
-  body
-    //background aqua
   .mf-ui-group-button
     font-size 12px
-  .span-1
-    grid-column: span 2 !important // Didn't use to need !important here, not sure what happened
+  .vue-ui-grid.col-2 .span-1 // Using ".vue-ui-grid.col-2" to increase specificity
+    grid-column: span 2
   .form-card-padding
     padding 12px
     padding-top 16px
-  //.actionability-card-padding
-    //padding 8px
-    //padding-top 16px
+
+  .footer-container // Using '& >' to increase specificity
+    & > .footer-links
+      margin-top 16px !important // No idea why we need to use !important here. This should be more specific then the .footer-links selector in scoped
+      & > .footer-links__line
+        border none
+  .footer-links__line, .footer-text
+    text-align center
 
 </style>
 
@@ -521,10 +523,7 @@ html
   margin 0
 
 .footer-links
-  margin 0 0 0px 0
-
-.footer-links__col
-  //margin-left 8px
+  margin 0
 
 .footer-links__line
   font-size 11px
