@@ -113,11 +113,11 @@
 
           <div class="vue-ui-grid col-2 footer-links">
             <small class="span-1 footer-links__col">
-              <a class='footer-links__line' href="https://noah-nuebling.github.io/mac-mouse-fix-website/">Visit the Mac Mouse Fix <span class="link-accent">Website</span></a>
-              <a class="footer-links__line" href="https://github.com/noah-nuebling/mac-mouse-fix-feedback-assistant">Check out the source code on <span class="link-accent">GitHub</span></a>
+              <a class='footer-links__line' href="https://noah-nuebling.github.io/mac-mouse-fix-website/">Visit the <span class="footer-links__line--accent">Mac Mouse Fix Website</span></a>
+              <a class="footer-links__line" href="https://github.com/noah-nuebling/mac-mouse-fix-feedback-assistant">Check out the source code on <span class="footer-links__line--accent">GitHub</span></a>
             </small>
             <small class="span-1 footer-links__col">
-              <a class="footer-links__line" href="https://new-issue.vuejs.org/?repo=vuejs/vue">Based on <span class="link-accent">Vue Issue Helper</span></a>
+              <a class="footer-links__line" href="https://new-issue.vuejs.org/?repo=vuejs/vue">Based on <span class="footer-links__line--accent">Vue Issue Helper</span></a>
               <!--
                           <span class="footer__line">
                             Powered by <a
@@ -406,9 +406,9 @@ hr
   .form-card-padding
     padding 12px
     padding-top 16px
-  .actionability-card-padding
-    padding 8px
-    padding-top 16px
+  //.actionability-card-padding
+    //padding 8px
+    //padding-top 16px
 
 </style>
 
@@ -514,7 +514,7 @@ hr
   //text-align center
   font-size 13px
 
-  $cw = 12px // counterweight
+  $cw = 15px // counterweight
   $m = 2px // margin
   margin-top $m
   margin-bottom $m + $cw
@@ -527,17 +527,22 @@ hr
 
 .footer-links__line
   font-size 11px
-  color lighten($mf-ui-color-dark-neutral, 20%)
+  //font-weight lighter
+  color lighten($mf-ui-color-dark-neutral, 30%)
+  //color $link-color
   display: block
   //text-align center
   margin-left $br
-  margin-right $br
-  padding-top 8px
-  padding-bottom 8px
+  margin-right 0
+  $m = 10px
+  padding-top $m
+  padding-bottom $m
   border-bottom 1px solid lighten($mf-ui-color-dark-neutral, 70%)
 
-.link-accent
-  //color $link-color
+.footer-links__line--accent
+  color $link-color
+  //color lighten($mf-ui-color-dark-neutral, 20%)
+  //font-weight bold
 
 // Need this to make some text vertically aligned for some reason
 

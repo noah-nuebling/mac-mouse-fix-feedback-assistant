@@ -257,14 +257,12 @@ colors($color)
   border 1.2px solid $border-color
 
   overflow hidden
-  &::-webkit-resizer // Noah: Trying to hide the resize-handle. Doesn't seem to work.
-    display none
 
   > .content
     box-shadow $shadow-inner
     h-box()
     box-center()
-    padding 0 10px
+    padding 0px 10px
     //border solid 1px $mf-ui-color-light-neutral
     color $mf-ui-color-dark-neutral
     border-radius $br
@@ -280,6 +278,8 @@ colors($color)
       flex auto 1 1
 
       > .input
+        //margin 0px !important
+        //border 1px solid black !important
         position relative
         z-index 1
         font-family inherit
@@ -294,7 +294,7 @@ colors($color)
         .vue-ui-dark-mode &
           color $mf-ui-color-light
         &:not(textarea)
-          height 30px
+          height 33px
         &::placeholder
           //border 1px solid black
           color $lightened
