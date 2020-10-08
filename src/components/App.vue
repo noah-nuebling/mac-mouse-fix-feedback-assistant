@@ -398,10 +398,10 @@ html
 
   .footer-container // Using '& >' to increase specificity
     & > .footer-links
-      //margin-top 16px !important // No idea why we need to use !important here. This should be more specific then the .footer-links selector in scoped
+      margin-top 16px !important // No idea why we need to use !important here. This should be more specific then the .footer-links selector in scoped
       & > .footer-links__line
         margin-left 0
-        //border none
+        border none
 
 
   .footer-links__line, .footer-text
