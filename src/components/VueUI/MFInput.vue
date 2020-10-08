@@ -313,7 +313,7 @@ colors($color)
         resize none //resize vertical
         min-height 30px
         box-sizing border-box
-        line-height 18px
+        line-height 17px
 
       > .suggestion
         position absolute
