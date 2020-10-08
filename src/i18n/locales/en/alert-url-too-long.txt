@@ -1,15 +1,18 @@
-💩
-You've entered a lot of text, unfortunately it might not be possible to create your GitHub Issue because of that.
+⚠️
+You've entered a lot of text - that's great! But unfortunately it might not be possible to create your GitHub Issue because of that.
 
 ---
+
 Mac Mouse Fix Feedback Assistant will try to create a GitHub Issue for you anyways once you dismiss this alert. (Might be blocked by your browser as a popup)
 
-If that fails please try following:
-1. Copy the content of the 'Console Logs' and 'Crash Reports' fields somewhere else and delete their content. Now the total amount of entered text should be much reduced.
-2. Try to create the Issue again. You should end up on github.com and be presented with a text field.
-3. Paste the former content of the 'Console Logs' and 'Crash Reports' fields into that text field.
-4. Submit the Issue.
+If that fails please try one of the following:
+1. Send an email instead by clicking "Send Email"
+2. Delete some text and then try to create the GitHub Issue again
+    - Delete some text.
+    - Click "Create new Issue on Github". You should end up on github.com and be presented with a text field.
+    - Paste the text you deleted into that field.
+    - Submit the Issue.
 
-Unfortunately it's not possible to provide a better experience right now without paying for cloud storage.
+Unfortunately it's not possible to provide a better experience right now without spending money on cloud storage or something similar.
 
-But here's a cute emoji as thanks for your commitment to providing great feedback for Mac Mouse Fix: 👻
+But here's a cute emoji as a thanks for your commitment to providing great feedback for Mac Mouse Fix 👻 :)

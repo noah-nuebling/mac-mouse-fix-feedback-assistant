@@ -298,8 +298,11 @@ export default {
 
   mounted() {
 
+    // Test
+    alert(this.i18n('alert-url-too-long'))
 
-    // Trying to change the layout when the canvas is smaller, to support smaller screen sizes.
+
+    // Trying to change the layout when the canvas is smaller by making all elements take up a full column, to support smaller screen sizes.
     // This approach almost worked, but it's kinda janky and has some weird edge cases
     // So I resorted to using media queries to do the same thing
 
