@@ -511,7 +511,7 @@ html
 
 .footer-text
   //text-align center
-  font-size 13px
+  font-size 12px
 
   $cw = 14px // counterweight
   $m = 8px // margin
