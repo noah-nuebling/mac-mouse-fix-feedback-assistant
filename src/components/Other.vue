@@ -33,8 +33,8 @@
 <script>
     import { generate } from '../helpers'
 
-    import MFFormField from "./VueUI/MFFormField";
-    import MFInput from "./VueUI/MFInput";
+    import MFFormField from "./MFUI/MFFormField";
+    import MFInput from "./MFUI/MFInput";
     import {emptyReplaced} from "../helpers/emptyReplaced";
 
     export default {

@@ -188,9 +188,9 @@ import {gt} from 'semver'
 import {generate} from '../helpers'
 import modal from '../mixins/check-modal'
 
-import MFFormField from "./VueUI/MFFormField";
-import MFInput from "./VueUI/MFInput";
-import MFTypeAhead from "./VueUI/MFTypeAhead";
+import MFFormField from "./MFUI/MFFormField";
+import MFInput from "./MFUI/MFInput";
+import MFTypeAhead from "./MFUI/MFTypeAhead";
 import {emptyReplaced} from "../helpers/emptyReplaced";
 import {getPastebinWithTimeout} from "@/helpers/getPastebin";
 

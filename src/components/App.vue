@@ -145,11 +145,11 @@ import FeatureRequest from './FeatureRequest.vue'
 import Other from './Other.vue'
 import search from '../mixins/github-search'
 
-import MFButton from './VueUI/MFButton.vue'
-import MFGroup from "./VueUI/MFGroup";
-import MFGroupButton from './VueUI/MFGroupButton.vue'
-import MFFormField from './VueUI/MFFormField.vue'
-import MFInput from './VueUI/MFInput.vue'
+import MFButton from './MFUI/MFButton.vue'
+import MFGroup from "./MFUI/MFGroup";
+import MFGroupButton from './MFUI/MFGroupButton.vue'
+import MFFormField from './MFUI/MFFormField.vue'
+import MFInput from './MFUI/MFInput.vue'
 
 // Define constants
 
@@ -296,8 +296,13 @@ export default {
 
   mounted() {
 
+
+
     // Test
     // alert(this.i18n('alert-url-too-long'))
+    // setTimeout(function () {
+    //   throw new Error('fck dis shit')
+    // }, 3000)
 
 
     // Trying to change the layout when the canvas is smaller by making all elements take up a full column, to support smaller screen sizes.

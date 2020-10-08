@@ -81,8 +81,8 @@
 </template>
 
 <script>
-    import MFFormField from "./VueUI/MFFormField";
-    import MFInput from "./VueUI/MFInput";
+    import MFFormField from "./MFUI/MFFormField";
+    import MFInput from "./MFUI/MFInput";
     import {generate} from '../helpers'
     import {emptyReplaced} from "../helpers/emptyReplaced";
 

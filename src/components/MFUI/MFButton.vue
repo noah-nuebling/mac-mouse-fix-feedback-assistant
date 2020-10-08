@@ -56,7 +56,7 @@
 
 <script>
 import DisabledChild from '../../../node_modules/@vue/ui/src/mixins/DisabledChild'
-import MFLoadingIndicator from "@/components/VueUI/MFLoadingIndicator";
+import MFLoadingIndicator from "@/components/MFUI/MFLoadingIndicator";
 
 export default {
   name: 'MFButton',
