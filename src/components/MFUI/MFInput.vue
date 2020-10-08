@@ -324,8 +324,13 @@ colors($color)
         overflow hidden
         white-space nowrap
         text-overflow ellipsis
-        color $lightened
         pointer-events none
+        color $lightened
+
+        -webkit-text-fill-color $lightened // Need this to make color look right on Safari
+        //                                 ^v src: https://stackoverflow.com/questions/262158/disabled-input-text-color
+        opacity 1 // Might need this to make it look good on iOS
+
 
     > .input-icon
       &.left

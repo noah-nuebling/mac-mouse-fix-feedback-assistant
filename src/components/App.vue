@@ -298,9 +298,10 @@ export default {
 
 
 
-    // Test
+    // Testing
     // alert(this.i18n('alert-url-too-long'))
     // setTimeout(function () {
+    //   console.log('PLESS')
     //   throw new Error('fck dis shit')
     // }, 3000)
 
