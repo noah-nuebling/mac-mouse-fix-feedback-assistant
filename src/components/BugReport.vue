@@ -77,7 +77,7 @@
             <MFInput
                 :placeholder="i18n('console-logs-placeholder')"
                 type="textarea"
-                rows="3"
+                rows="1"
                 v-model="attrs.consoleLogs"
             />
             <i18n id="console-logs-subtitle" slot="subtitle"/>
@@ -92,7 +92,7 @@
             <MFInput
                 :placeholder="i18n('crash-logs-placeholder')"
                 type="textarea"
-                rows="3"
+                rows="1"
                 v-model="attrs.crashReports"
             />
             <i18n id="crash-logs-subtitle" slot="subtitle"/>

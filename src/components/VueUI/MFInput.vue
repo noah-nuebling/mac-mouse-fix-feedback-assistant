@@ -278,6 +278,7 @@ colors($color)
       flex auto 1 1
 
       > .input
+        max-height 300px // Would be nice to be able to override this by setting a prop
         //margin 0px !important
         //border 1px solid black !important
         position relative
