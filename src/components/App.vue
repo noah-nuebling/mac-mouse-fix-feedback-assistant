@@ -91,41 +91,40 @@
           </div>
         </div>
       </form>
+    </div>
+    <div class="footer">
+      <div class="footer-container">
+        <i18n
+            v-if="this.type == 'bug-report'"
+            id="thank-you-bug"
+            class="footer-text"
+        />
+        <i18n
+            v-if="this.type == 'feature-request'"
+            id="thank-you-feature"
+            class="footer-text"
+        />
+        <i18n
+            v-if="this.type == 'other'"
+            id="thank-you-other"
+            class="footer-text"
+        />
+        <hr class="footer-rule">
 
-      <div class="card-flat card-elevation-low footer">
-        <div class="footer-container">
-          <i18n
-              v-if="this.type == 'bug-report'"
-              id="thank-you-bug"
-              class="footer__text"
-          />
-          <i18n
-              v-if="this.type == 'feature-request'"
-              id="thank-you-feature"
-              class="footer__text"
-          />
-          <i18n
-              v-if="this.type == 'other'"
-              id="thank-you-other"
-              class="footer__text"
-          />
-          <hr>
-
-          <div class="vue-ui-grid col-2 footer-links">
-            <small class="span-1 footer-links__col">
-              <a class='footer-links__line' href="https://noah-nuebling.github.io/mac-mouse-fix-website/">Visit the <span class="footer-links__line--accent">Mac Mouse Fix Website</span></a>
-              <a class="footer-links__line" href="https://github.com/noah-nuebling/mac-mouse-fix-feedback-assistant">Check out the source code on <span class="footer-links__line--accent">GitHub</span></a>
-            </small>
-            <small class="span-1 footer-links__col">
-              <a class="footer-links__line" href="https://new-issue.vuejs.org/?repo=vuejs/vue">Based on <span class="footer-links__line--accent">Vue Issue Helper</span></a>
-              <!--
-                          <span class="footer__line">
-                            Powered by <a
-                              href="https://pastebin.com/">Pastebin</a>
-                          </span>
-              -->
-            </small>
-          </div>
+        <div class="vue-ui-grid col-2 footer-links">
+          <small class="span-1 footer-links__col">
+            <a class='footer-links__line' href="https://noah-nuebling.github.io/mac-mouse-fix-website/">Visit the <span class="footer-links__line--accent">Mac Mouse Fix Website</span></a>
+            <a class="footer-links__line" href="https://github.com/noah-nuebling/mac-mouse-fix-feedback-assistant">Check out the source code on <span class="footer-links__line--accent">GitHub</span></a>
+          </small>
+          <small class="span-1 footer-links__col">
+            <a class="footer-links__line" href="https://new-issue.vuejs.org/?repo=vuejs/vue">Based on <span class="footer-links__line--accent">Vue Issue Helper</span></a>
+            <!--
+                        <span class="footer__line">
+                          Powered by <a
+                            href="https://pastebin.com/">Pastebin</a>
+                        </span>
+            -->
+          </small>
         </div>
       </div>
     </div>
@@ -348,26 +347,16 @@ html
   zoom $global-zoom
   min-width $page-width-min
 
-hr
-  background-color transparent
-  //border-top 1px solid lighten(black, 85%)
-  border-top 1px solid lighten(black, 70%)
-
-  //margin 0px $br 0px $br
-  margin 0
-
 .small-gap
   grid-gap: 8px
 
-.card-flat
+.card-secondary
   display flex
   justify-content flex-start
   padding 0
   margin: 0
   border-radius $br
-  //border-style solid
-  border-color $border-color
-  border-width 0.5px
+  border 1px solid $border-color
   // background lighten($mouse-fix-accent, 85%)
   background $card-color-dark
 
@@ -488,24 +477,26 @@ hr
 
 
 .footer
-
+  background-color $card-color-dark
   display flex
   flex-direction column
-  //border-radius 0
+  border-radius 0
 
-  margin 0 auto
-  width 100%
-  max-width $page-width-max
+  //margin 0 auto
+  //width 100%
+  //max-width $page-width-max
 
   // Margin
   $m = 52px
   $cw-m = 4px // Counterweight for top margin, so it looks evenly spaced from top and bottom
-  margin ($m + $cw-m) 0 8px  0
+  margin-top ($m + $cw-m)
+  margin-bottom 0px // 8px
+  padding-bottom 0px
 
 .footer-container
-  //margin 0 auto
-  //width 100%
-  //max-width $page-width-max
+  margin 0 auto
+  width 100%
+  max-width $page-width-max
   box-sizing border-box
 
   // Padding
@@ -513,14 +504,21 @@ hr
   $ph = 16px
   padding $pv $ph $pv $ph
 
-.footer__text
+.footer-text
   //text-align center
   font-size 13px
 
-  $cw = 15px // counterweight
-  $m = 2px // margin
+  $cw = 14px // counterweight
+  $m = 8px // margin
   margin-top $m
   margin-bottom $m + $cw
+
+.footer-rule
+  background-color transparent
+  //border-top 1px solid lighten(black, 85%)
+  border-bottom $footer-rule-border
+  //margin 0px $br 0px $br
+  margin 0
 
 .footer-links
   margin 0 0 0px 0
@@ -535,12 +533,12 @@ hr
   //color $link-color
   display: block
   //text-align center
-  margin-left $br
+  margin-left 6px
   margin-right 0
   $m = 10px
   padding-top $m
   padding-bottom $m
-  border-bottom 1px solid lighten($mf-ui-color-dark-neutral, 70%)
+  border-bottom $footer-rule-border
 
 .footer-links__line--accent
   color $link-color
