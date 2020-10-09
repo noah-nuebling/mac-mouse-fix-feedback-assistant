@@ -197,6 +197,7 @@ import {getPastebinWithTimeout} from "@/helpers/getPastebin";
 // Constants
 
 const PB_TIMEOUT = 3 * 1000 // In ms // If we wait too long it's annoying also the browser then blocks popup
+//const PB_TIMEOUT = 1 // Testing
 
 // Export
 

@@ -272,7 +272,6 @@ export default {
 
       if (url.length > URL_LIMIT) {
         alert(this.i18n('alert-url-too-long')) // This is a horrible user experience, try to avoid at all cost
-        // TODO: Send automatic email with debug info
         window.open(url) // If we used window.location.href here, the alert wouldn't be shown
       } else {
         window.location.href = url

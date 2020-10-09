@@ -1,8 +1,5 @@
 import axios from "axios"
 
-function getInvalidURLErr(url) {
-    return new Error("The server didn't return a valid url. Instead it returned: " + url) // This line seems to cause jekyll compilation error for some reason
-}
 
 export async function getPastebinWithTimeout(body, timeout) {
     return new Promise(function (resolve, reject) {
@@ -12,9 +9,32 @@ export async function getPastebinWithTimeout(body, timeout) {
         }, timeout)
     }).catch(reason => {
         console.log('Getting pastebin failed for some reason. Sending debug email.')
+        sendDebugMail(reason)
         // Propagate the rejection / error further
         throw reason
     })
+}
+
+function sendDebugMail(reason) {
+
+    const method = 'POST'
+    const url = 'https://formspree.io/f/xnqojwwl'
+
+    let data = new FormData()
+    data.append('reason', reason)
+
+    let xhr = new XMLHttpRequest();
+    xhr.open(method, url);
+    xhr.setRequestHeader("Accept", "application/json");
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState !== XMLHttpRequest.DONE) return;
+        console.log('Response from Formspree.io', xhr.status, xhr.response, xhr.responseType)
+    };
+    xhr.send(data);
+}
+
+function getInvalidURLErr(url) {
+    return new Error("The server didn't return a valid url. Instead it returned: " + url) // This line seems to cause jekyll compilation error for some reason
 }
 
 // Upload arg string to pastebin and return url
