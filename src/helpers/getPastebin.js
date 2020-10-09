@@ -74,7 +74,7 @@ async function getPastebinDotCom(CORSProxyURL, body) {
 
     // API key
     const apiKey = "SZxwVigJOFMVBAQCLs3HoZpHjrEQo53L" // KlamuserKai's key // Don't abuse his key or you'll be eaten by cave trolls
-    //const apiKey = "dY-a4YprdKatsKqvQWPoza3Mui4seCMQ" // Noah's key
+    //const apiKey = "dY-a4YprdKatsKqvQWPoza3Mui4seCMQ" // Noah's key (public)
 
     // Collect data for POST request
 
