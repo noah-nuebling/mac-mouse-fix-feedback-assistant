@@ -121,9 +121,9 @@
             <a class="span-1 footer-links__line" href="https://new-issue.vuejs.org/?repo=vuejs/vue">
               Based on <span class="footer-links__line--accent">Vue Issue Helper</span>
             </a>
-<!--            <a class="span-1 footer-links__line" href="https://pastebin.com/">
-              Powered by <span class="footer-links__line&#45;&#45;accent">Pastebin</span>
-            </a>-->
+            <a class="span-1 footer-links__line" href="https://pastebin.com/">
+              Powered by <span class="footer-links__line--accent">Pastebin</span>
+            </a>
         </div>
       </div>
     </div>
