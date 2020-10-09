@@ -10,6 +10,10 @@ export async function getPastebinWithTimeout(body, timeout) {
         setTimeout(function () {
             reject(new Error("Timed out, because Pastebin API took too long to respond."))
         }, timeout)
+    }).catch(reason => {
+        console.log('Getting pastebin failed for some reason. Sending debug email.')
+        // Propagate the rejection / error further
+        throw reason
     })
 }
 
@@ -20,18 +24,18 @@ async function getPastebin(body) {
 
     // Top 10 free CORS proxies: https://nordicapis.com/10-free-to-use-cors-proxies/
 
-    const CORSProxyURL_CloudFlare = "https://mmf-cors-proxy.noah-nuebling.workers.dev/?" // Should be fastest
-    //const CORSProxyURL_CloudFlare= "https://mmf-cors-proxy-2.noah-nuebling.workers.dev/?" // Should be just as fast
+    const CORSProxyURL = "https://mmf-cors-proxy.noah-nuebling.workers.dev/?" // Should be fastest
+    //const CORSProxyURL= "https://mmf-cors-proxy-2.noah-nuebling.workers.dev/?" // Should be just as fast
     // ^ All these cloudflare workers seem to have the same IP. Each ip can only create 10 pastes per day with the pastebin.com api... :/
-    const CORSProxyURL_Heroku = "https://cors-anywhere.herokuapp.com/" // Pretty slow but public and maintained by someone else
-    const CORSProxyURL_None = "" //  For testing
+    //const CORSProxyURL_Heroku = "https://cors-anywhere.herokuapp.com/" // Pretty slow but public and maintained by someone else
+    //const CORSProxyURL = "" //  For testing
 
     // Upload to some pastebin
 
     let pasteURL = ''
     try {
         // Try to upload to pastebin.com
-        pasteURL = await getPastebinDotCom(CORSProxyURL_CloudFlare, body);
+        pasteURL = await getPastebinDotCom(CORSProxyURL, body);
         if (!validURL(pasteURL)) {
             throw getInvalidURLErr(pasteURL)
         }
@@ -39,7 +43,7 @@ async function getPastebin(body) {
         // Try to upload to hastebin.com
         console.log('Error while trying to upload to pastebin.com.', e)
         console.log('Trying hastebin.com instead.')
-        pasteURL = await getHastebinDotCom(CORSProxyURL_CloudFlare, body);
+        pasteURL = await getHastebinDotCom(CORSProxyURL, body);
     }
 
     // Throw error if response is not a valid url
