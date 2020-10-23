@@ -1,5 +1,16 @@
 @import "./vars.styl"
 
+
+mf-focus-ring()
+  box-sizing border-box
+  box-shadow $mf-border-glow-shadow
+
+$mf-border-glow-color = #69b7ff
+$mf-border-glow-shadow = 0 0 0 3px $mf-border-glow-color // Looks weird in Safari
+$mf-border-glow-border = 4px solid $mf-border-glow-color
+$mf-border-glow-transition = box-shadow 0.00s linear 0s // unused
+
+
 // Buttons
 
 button-colors($foreground, $background)

@@ -254,7 +254,7 @@ colors($color)
   width auto
   min-width 200px
   border-radius $br
-  border 1.2px solid $border-color
+  border $mf-ui-input-border
 
   overflow hidden
 
@@ -394,9 +394,8 @@ colors($color)
   &.status-success
     colors($mf-ui-color-success)
 
-  transition $mf-border-glow-transition
   &.focused
-    box-shadow $mf-border-glow-shadow
+    mf-focus-ring()
     &:not(.flat)
       > .content
         background $mf-ui-color-light
