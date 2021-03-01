@@ -29,7 +29,7 @@ export default {
       'Specify under which circumstances the bug occurred',
   'context-subtitle': require('./context-subtitle.md'),
 
-  'steps-title': 'Steps to Reproduce',
+  'steps-title': '1. Steps to Reproduce',
   'steps-placeholder':
       '1. Detail the exact steps taken to reproduce the problem \n' +
       '2. Number each step',
@@ -42,11 +42,11 @@ export default {
   'mouse-title': 'Mouse Model',
   'mouse-placeholder': 'Specify which model of mouse you are using',
 
-  'console-logs-title': 'Console Logs',
+  'console-logs-title': '2. Console Logs',
   'console-logs-placeholder': 'Attach console logs here',
   'console-logs-subtitle': require('./console-logs-subtitle.md'),
 
-  'crash-logs-title': 'Crash Reports',
+  'crash-logs-title': '3. Crash Reports',
   'crash-logs-placeholder': 'Attach crash reports here',
   'crash-logs-subtitle': require('./crash-logs-subtitle.md'),
 
