@@ -268,7 +268,10 @@ export default {
     createIssue() {
 
       const {title, body, label} = this.creationHelper()
-      const url = `https://github.com/noah-nuebling/mac-mouse-fix/issues/new?title=${title}&body=${body}&labels=${label}`
+      // const url = `https://github.com/noah-nuebling/mac-mouse-fix/issues/new?title=${title}&body=${body}&labels=${label}`
+      // ^ Adding labels is only for contributors, so this doesn't work
+      // v Instead we're putting the label into the title string
+      const url = `https://github.com/noah-nuebling/mac-mouse-fix/issues/new?title=${title}%20%5b${label}%5d&body=${body}`
 
       if (url.length > URL_LIMIT) {
         alert(this.i18n('alert-url-too-long')) // This is a horrible user experience, try to avoid at all cost
