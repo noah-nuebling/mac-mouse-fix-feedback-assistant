@@ -398,6 +398,8 @@ html
     zoom $global-zoom-mobile
   .mf-ui-group-button
     font-size 12px
+    //font-size clamp(8px,90%,12px) // Doesn't work on Safari
+
   .vue-ui-grid.col-2 .span-1 // Using ".vue-ui-grid.col-2" to increase specificity
     grid-column: span 2
   .form-card-padding
@@ -414,6 +416,10 @@ html
 
   .footer-links__line, .footer-text
     text-align center
+
+@media only screen and (max-width: 460px) // Prevent clipping on the 'enhancement-request' button
+  .mf-ui-group-button
+    font-size 9px
 
 </style>
 

@@ -67,7 +67,7 @@ export default {
 
   // other tab
 
-  'other': 'Free Form',
+  'other': 'Free form',
 
   'title-title-other': 'Title',
   'title-placeholder-other': 'Enter a title',
@@ -86,8 +86,8 @@ export default {
   'submit-btn-gh': 'Create new Issue on GitHub',
   'submit-btn-email': 'Send Email',
 
-  'bug-report': 'Bug Report',
-  'feature-request': 'Feature Request',
+  'bug-report': 'Bug report',
+  'feature-request': 'Enhancement request',
   'similar-issues': 'Similar issues',
   'drop-warn': require('./drop-warn.md'),
   'alert-url-too-long': require('./alert-url-too-long.txt'),
