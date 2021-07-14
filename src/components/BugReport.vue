@@ -241,9 +241,11 @@ export default {
       let out = this.versions.slice()
       try {
 
-        // Sort by publishing date
+        // Sort by commit date
 
-        return out.sort((a, b) => gt(a.published_at, b.published_at) ? -1 : 1)
+        return out.sort((a, b) => {
+          new Date(b.created_at) - new Date(a.created_at);
+        })
 
         // Sort by tag name
 
@@ -252,6 +254,9 @@ export default {
         //     So no x.x, always x.x.x - three parts to the version number, otherwise this breaks
 
       } catch (e) {
+
+        /// This fallback is unnecessary now, because it's our default, too
+
         console.log("Couldn't sort release versions by semantic version number. " +
             "This might be because not all releases tag names follow semantic versioning. " +
             "Sorting by commit date instead. Error: ", e)
@@ -294,6 +299,7 @@ export default {
             value: r.name,
             created_at: r.created_at,
             published_at: r.published_at,
+            prerelease: r.prerelease,
           })
       ))
 
@@ -305,8 +311,28 @@ export default {
         this.loadingVersion = false
       }
 
-      // set current version to the latest
+      // Set initial version to the latest stable release
+
+      this.attrs.version = null
+
       if (this.suggestions.length) {
+        const suggestions = Array.from(this.suggestions) 
+        // ^ This is apparently not a "real" Array so Safari can't use for ... of loop on it for some reason.
+        // So we need to convert to Array using Array.from()
+        // See https://stackoverflow.com/questions/41388374/javascript-for-of-doesnt-work-in-safari
+        
+        for (const suggestion of suggestions) { // For ... in loop iterates over the array indexes in js.......
+
+          if (!suggestion.prerelease) {
+            this.attrs.version = suggestion.value
+            break
+          }
+        }
+      }
+
+      // Fall back to latest prerelease if there is no stable version
+
+      if (this.attrs.version == null) {
         this.attrs.version = this.suggestions[0].value
       }
     },
