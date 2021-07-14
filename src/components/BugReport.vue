@@ -240,9 +240,17 @@ export default {
     suggestions() {
       let out = this.versions.slice()
       try {
-        return out.sort((a, b) => gt(a.tag_name, b.tag_name) ? -1 : 1)
+
+        // Sort by publishing date
+
+        return out.sort((a, b) => gt(a.published_at, b.published_at) ? -1 : 1)
+
+        // Sort by tag name
+
+        // return out.sort((a, b) => gt(a.tag, b.tag_name) ? -1 : 1)
         // ^ !All github release tag names have to follow semantic versioning for this stuff to work.
         //     So no x.x, always x.x.x - three parts to the version number, otherwise this breaks
+
       } catch (e) {
         console.log("Couldn't sort release versions by semantic version number. " +
             "This might be because not all releases tag names follow semantic versioning. " +
