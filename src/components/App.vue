@@ -275,9 +275,13 @@ export default {
 
       if (url.length > URL_LIMIT) {
         alert(this.i18n('alert-url-too-long')) // This is a horrible user experience, try to avoid at all cost
-        window.open(url) // If we used window.location.href here, the alert wouldn't be shown
+        window.open(url) // If we used window.location.href here, the alert wouldn't be shown.
       } else {
-        window.location.href = url
+        // window.location.href = url 
+        // ^ Navigates to url in current tab
+        window.open(url) 
+        // ^ Opens url in new tab or window. 
+        //    We want this so that users who need to create a github account don't loose the data they entered into the form.
       }
       //window.open(url)
     },
