@@ -7,7 +7,7 @@
         <a class="brand" href="#">
           <img
                   class="logo"
-                  src="../assets/images/logo.png"
+                  src="../assets/images/app_icon_round.png"
                   alt="The Mac Mouse Fix logo"
           >
           Mac Mouse Fix

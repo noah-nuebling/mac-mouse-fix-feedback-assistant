@@ -17,7 +17,7 @@
 
         <div class="title-sec">
           <div class="title-sec__brand">
-            <img class="title-sec__brand--img" src="../assets/images/logo.png" alt="Mac Mouse Fix's logo">
+            <img class="title-sec__brand--img" src="../assets/images/app_icon_round.png" alt="Mac Mouse Fix's logo">
             <h2 class="title-sec__brand--text">Mac Mouse Fix</h2>
           </div>
           <h1 class="title-sec__title"> Feedback Assistant</h1>
