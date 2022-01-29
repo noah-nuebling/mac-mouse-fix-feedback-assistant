@@ -1,3 +1,6 @@
+
+<!-- This whole template is unused I think. The actual header is in App.vue -->
+
 <template>
   <div class="root">
 
@@ -10,7 +13,7 @@
                   src="../assets/images/app_icon_round.png"
                   alt="The Mac Mouse Fix logo"
           >
-          Mac Mouse Fix
+          Mac Mouse Fixxxx
         </a>
         <p class="title">
           Feedback Assistant

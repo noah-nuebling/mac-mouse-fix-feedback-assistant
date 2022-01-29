@@ -482,11 +482,11 @@ html
 
 .title-sec__brand--img
   align-self center
-  width 36px
+  width /* 36px */ 36px
   height auto
 
 .title-sec__brand--text
-  margin 0 0 0 10px
+  margin 1px 0 0 7px
   font-size medium
   font-weight medium
 
