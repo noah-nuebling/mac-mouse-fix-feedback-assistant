@@ -6,8 +6,10 @@ Based on [Vue Issue Helper](https://github.com/vuejs/vue-issue-helper).
 
 --- 
 
-To test run 'yarn run serve' \
-To deploy run 'yarn run deploy'
+To install dependencies run `yarn install`
+
+To test run `yarn run serve` \
+To deploy run `yarn run deploy`
 
 ---
 
@@ -22,4 +24,4 @@ and just force quitting `yarn run build` when it gets stuck. (`yarn run build` i
 
 **Issues**
 
-In Chrome, Ssingle-line text fields are like 1.5 lines high when they don't have content.
+In Chrome, single-line text fields are like 1.5 lines high when they don't have content.
