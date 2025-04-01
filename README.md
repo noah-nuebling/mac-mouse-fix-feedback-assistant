@@ -3,8 +3,17 @@
 Tool for creating great feedback for the Mac Mouse Fix project.
 
 Based on [Vue Issue Helper](https://github.com/vuejs/vue-issue-helper).
-
+  
 --- 
+
+Update: [Mar 2025] to run any of this stuff activate old node version:
+- Install nvm (node version manager)
+- Run `nvm use 16`
+- Now `yarn install` should work.
+- (Reasoning: Some packages dependencies require node 17 or before. 
+    Claude told us to use node 16 since it has LTS (long-term-support))
+
+#
 
 To install dependencies run `yarn install`
 

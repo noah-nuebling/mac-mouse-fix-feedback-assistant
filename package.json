@@ -34,7 +34,7 @@
     "eslint": "^7.9.0",
     "eslint-loader": "^4.0.2",
     "eslint-plugin-vue": "^6.2.2",
-    "execa": "latest",
+    "execa": "^4.0.3",
     "install-peerdeps": "^2.0.3",
     "loader": "^2.1.1",
     "raw-loader": "^0.5.1",
