@@ -72,7 +72,7 @@
 
           <MFFormField
               :title="i18n('console-logs-title')"
-              class="span-1"
+              class="span-1 mfhidden"
           >
             <MFInput
                 :placeholder="i18n('console-logs-placeholder')"
@@ -87,7 +87,7 @@
 
           <MFFormField
               :title="i18n('crash-logs-title')"
-              class="span-1"
+              class="span-2"
           >
             <MFInput
                 :placeholder="i18n('crash-logs-placeholder')"
@@ -397,10 +397,6 @@ ${additional}
 
 ---
 
-### Console Logs
-
-${consoleLogs}
-
 ### Crash Reports
 
 ${crashReports}
@@ -414,6 +410,10 @@ ${crashReports}
 <style lang="stylus" scoped>
 
 @import "./../style/vars.styl"
+
+.mfhidden {
+  display: none;
+}
 
 .actionability-box
   margin 6px 0 16px 0

@@ -46,7 +46,7 @@ export default {
   'console-logs-placeholder': 'Attach console logs here',
   'console-logs-subtitle': require('./console-logs-subtitle.md'),
 
-  'crash-logs-title': '3. Crash Reports',
+  'crash-logs-title': '2. Crash Reports',
   'crash-logs-placeholder': 'Attach crash reports here',
   'crash-logs-subtitle': require('./crash-logs-subtitle.md'),
 
