@@ -1,5 +1,5 @@
 import marked from 'marked'
-import copy from 'copy-to-clipboard'
+// import copy from 'copy-to-clipboard'
 
 export function generate (markdown) {
   var marker = ''

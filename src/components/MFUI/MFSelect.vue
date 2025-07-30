@@ -104,6 +104,7 @@
                     return this.currentChild.$attrs.icon ||
                         this.currentChild.$attrs['icon-left']
                 }
+                return undefined
             },
 
             valueModel: {

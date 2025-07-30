@@ -118,6 +118,7 @@
                         return statusIcons[status]
                     }
                 }
+                return undefined;
             },
         },
     }

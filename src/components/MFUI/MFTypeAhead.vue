@@ -129,6 +129,7 @@
                 if (this.shownSuggestions.length) {
                     return this.shownSuggestions[0].value
                 }
+                return undefined
             },
 
             tempValueModel: {
@@ -224,11 +225,11 @@
                 }
             },
 
-            onPopoverContentMousedown(event) {
+            onPopoverContentMousedown() {
                 this.$_popoverMousedown = true
             },
 
-            onPopoverContentMouseup(event) {
+            onPopoverContentMouseup() {
                 this.$_popoverMousedown = false
                 setTimeout(() => {
                     this.onBlur()

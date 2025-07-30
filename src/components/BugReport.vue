@@ -182,7 +182,7 @@
 
 // Imports
 
-import {gt} from 'semver'
+// import {gt} from 'semver'
 // ^ I don't use semantic versioning, and the "0.9" version name is so far from semVer that this library breaks on it.
 // Make sure to use x.x.x format for tag names of github releases, or this will break
 import {generate} from '../helpers'
@@ -368,7 +368,7 @@ export default {
       const {
         description,
         steps,
-        consoleLogs,
+        // consoleLogs,
         crashReports,
         version,
         macOSVersion,
