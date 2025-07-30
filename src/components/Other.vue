@@ -37,6 +37,8 @@
     import MFInput from "./MFUI/MFInput";
     import {emptyReplaced} from "../helpers/emptyReplaced";
 
+    import { getQuery } from "../helpers"
+
     export default {
         name: 'Other',
         components: {
@@ -52,7 +54,11 @@
                 label: 'other'
             }
         },
-
+        async created() {
+            const { title, body } = getQuery();
+            if (title) this.attrs.title = title
+            if (body)  this.attrs.body = body
+        },
         methods: {
             generate () {
                 const a = emptyReplaced(this.attrs, '–')
