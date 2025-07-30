@@ -1,4 +1,16 @@
 <template>
+    <!--
+    [Jul 30 2025] The v-popover seems to render the popover in the wrong position in Edge and Firefox.
+        I think this caused several people (See https://github.com/noah-nuebling/mac-mouse-fix/issues/1462) recently failing to submit feedback and saying that the form is broken.
+        I tried to fix this for a while today but couldn't make any progress on that.
+
+    I could begin to customize the position through `applyStyle`. Something like this: `:popper-options="{ modifiers: { computeStyle: { enabled: false }, applyStyle: { ... } } }"`
+    But couldn't figure out how to get the window size and position of other elements etc. Claude gave me this code and I barely know what's going on.
+
+    It might also be helpful to update v-popover. I tried doing that by updating the @vue/ui library, which depends on the v-tooltip library, which contains the v-popover component. I tried updating to the latest version but that broke the project cause v-tooltip wasn't importable anymore. Not sure what I could've done to fix that.
+
+    [Jul 2025] Will abandon this for now. Sorry Edge and Firefox users!
+    -->
   <v-popover
           ref="popover"
           class="mf-ui-dropdown"
