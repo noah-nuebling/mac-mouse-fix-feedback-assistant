@@ -282,58 +282,81 @@ export default {
 
   methods: {
     async fetchVersions(page = 1) {
-      this.loadingVersion = true
-      const repoId = this.repo.id
-      const response = await fetch(`https://api.github.com/repos/${repoId}/releases?page=${page}&per_page=100`)
-      const releases = await response.json()
 
-      console.log("RELEASES:", releases)
-
-      if (this.repo.id !== repoId) return
-
-      if (!releases || !(releases instanceof Array)) return false
-
-      this.versions = this.versions.concat(releases.map(
-          r => ({
-            tag_name: r.tag_name,
-            value: r.name,
-            created_at: r.created_at,
-            published_at: r.published_at,
-            prerelease: r.prerelease,
-          })
-      ))
-
-      const link = response.headers.get('Link')
-
-      if (link && link.indexOf('rel="next"') > -1) {
-        await this.fetchVersions(page + 1)
-      } else {
-        this.loadingVersion = false
-      }
-
-      // Set initial version to the latest stable release
-
-      this.attrs.version = null
-
-      if (this.suggestions.length) {
-        const suggestions = Array.from(this.suggestions) 
-        // ^ This is apparently not a "real" Array so Safari can't use for ... of loop on it for some reason.
-        // So we need to convert to Array using Array.from()
-        // See https://stackoverflow.com/questions/41388374/javascript-for-of-doesnt-work-in-safari
+      try {
         
-        for (const suggestion of suggestions) { // For ... in loop iterates over the array indexes in js.......
+        this.loadingVersion = true
+        const repoId = this.repo.id
+        const response = await fetch(`https://api.github.com/repos/${repoId}/releases?page=${page}&per_page=100`)
+        if (!response.ok) { throw new Error(`GitHub API returned ${response.status}`); }
+        const releases = await response.json()
 
-          if (!suggestion.prerelease) {
-            this.attrs.version = suggestion.value
-            break
+        console.log("RELEASES:", releases)
+
+        if (this.repo.id !== repoId) return
+
+        if (!releases || !(releases instanceof Array)) return false
+
+        this.versions = this.versions.concat(releases.map(
+            r => ({
+              tag_name: r.tag_name,
+              value: r.name,
+              created_at: r.created_at,
+              published_at: r.published_at,
+              prerelease: r.prerelease,
+            })
+        ))
+
+        const link = response.headers.get('Link')
+
+        if (link && link.indexOf('rel="next"') > -1) {
+          await this.fetchVersions(page + 1)
+        } else {
+          this.loadingVersion = false
+        }
+
+        // Set initial version to the latest stable release
+
+        this.attrs.version = null
+
+        if (this.suggestions.length) {
+          const suggestions = Array.from(this.suggestions) 
+          // ^ This is apparently not a "real" Array so Safari can't use for ... of loop on it for some reason.
+          // So we need to convert to Array using Array.from()
+          // See https://stackoverflow.com/questions/41388374/javascript-for-of-doesnt-work-in-safari
+          
+          for (const suggestion of suggestions) { // For ... in loop iterates over the array indexes in js.......
+
+            if (!suggestion.prerelease) {
+              this.attrs.version = suggestion.value
+              break
+            }
           }
         }
+
+        // Fall back to latest prerelease if there is no stable version
+
+        if (this.attrs.version == null) {
+          this.attrs.version = this.suggestions[0].value
+        }
       }
+      catch (error) {
 
-      // Fall back to latest prerelease if there is no stable version
+        // [Jul 2025] Create a dummy version on server-error so the form can still be sent off
+        //    Might help solve issues where people recently said they couldn't send the form (See https://github.com/noah-nuebling/mac-mouse-fix/issues/1462)
+        //    When you click on the button, the popover won't show up, but I from my (minimal) testing it seems that's normal when there's only one item. [Jul 2025]
 
-      if (this.attrs.version == null) {
-        this.attrs.version = this.suggestions[0].value
+        console.warn('Failed to fetch versions:', error)
+        let uiString = '<Server Error: Failed to fetch versions>'
+        this.loadingVersion = false
+        this.versions = [{
+          tag_name: 'unknown',
+          value: uiString,
+          created_at: new Date().toISOString(),
+          published_at: new Date().toISOString(),
+          prerelease: false
+        }]
+        this.attrs.version = uiString
       }
     },
 
