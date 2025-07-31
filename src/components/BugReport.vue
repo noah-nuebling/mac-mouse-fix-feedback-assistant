@@ -287,7 +287,7 @@ export default {
       const response = await fetch(`https://api.github.com/repos/${repoId}/releases?page=${page}&per_page=100`)
       const releases = await response.json()
 
-      // console.log("RELEASES:", releases)
+      console.log("RELEASES:", releases)
 
       if (this.repo.id !== repoId) return
 

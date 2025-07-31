@@ -1,24 +1,4 @@
 <template>
-    <!--
-    [Jul 30 2025] The v-popover seems to render the popover in the wrong position in Edge and Firefox.
-        I think this caused several people (See https://github.com/noah-nuebling/mac-mouse-fix/issues/1462) recently failing to submit feedback and saying that the form is broken.
-        I tried to fix this for a while today but couldn't make any progress on that.
-
-    I could begin to customize the position through `applyStyle`. Something like this: `:popper-options="{ modifiers: { computeStyle: { enabled: false }, applyStyle: { ... } } }"`
-    But couldn't figure out how to get the window size and position of other elements etc. Claude gave me this code and I barely know what's going on.
-
-    It might also be helpful to update v-popover. I tried doing that by updating the @vue/ui library, which depends on the v-tooltip library, which contains the v-popover component. I tried updating to the latest version but that broke the project cause v-tooltip wasn't importable anymore. Not sure what I could've done to fix that.
-
-    [Jul 30 2025] Will abandon this for now. Sorry Edge and Firefox users!
-
-    Update: [Jul 31 2025] Tried to update @vue/ui to latest version (^0.12.5) and importing newer version of v-tooltip myself (^2.1.3)
-        However, this however, this only caused additional issues (transparent popover, in Safari, and popover-arrow missing) and doesn't improve the positioning in Edge.
-        Also checked https://new-issue.vuejs.org/?repo=vuejs/core&type=bug-report in Edge and it doesn't have the issue. In their package json, they're still using `"@vue/ui": "^0.5.2"` just like us. -> So perhaps the issues we're seeing stem from some of our customizations?
-        Maybe we can bisect where we broke things. 
-            We introduced the MFTypeAhead in d0a41bd206a7ec5d9e82c849db37dbac72ef069e. 
-            ... I tried rolling back those changes by switching MFTypeAhead to VueTypeAhead (in BugReport.vue) and switching .mf-ui-select-button -> .vue-ui-select-button
-+                but it seemed to me like the positioning issues in Edge persisted.
-    -->
   <v-popover
           ref="popover"
           class="mf-ui-dropdown"

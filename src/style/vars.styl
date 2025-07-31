@@ -12,8 +12,28 @@ $mf-ui-color-dark-neutral = #313131 // Made it so this is used for placeholders
 
 $page-width-max = 650px
 $page-width-min = 300px
-$global-zoom = 122%
-$global-zoom-mobile = 115%
+$global-zoom = 1.22
+$global-zoom-mobile = 1.15
+
+//  Vars for undoing zoom [Jul 2025]
+//  Undoing the zoom is necessary to position v-popover (Used by MFTypeAhead) correctly
+//  I think it's necessary on all browsers except Safari.
+//
+//  I think this caused several people recently failing to submit feedback and saying that the form is broken. (See https://github.com/noah-nuebling/mac-mouse-fix/issues/1462)
+//
+//  Alternative solutions I tried:
+//  - I could begin to customize the position through `applyStyle`. Something like this: `:popper-options="{ modifiers: { computeStyle: { enabled: false }, applyStyle: { ... } } }"`
+//    But couldn't figure out how to get the window size and position of other elements etc. Claude gave me this code and I barely know what's going on.
+//  - I tried updating v-popover by updating the @vue/ui library, which depends on the v-tooltip library, which contains the v-popover component. 
+//    Tried to update @vue/ui to latest version (^0.12.5) and importing newer version of v-tooltip myself (^2.1.3)
+//    However, this however, this only caused additional issues (transparent popover, in Safari, and popover-arrow missing) and doesn't improve the positioning in Edge.
+//    Also checked https://new-issue.vuejs.org/?repo=vuejs/core&type=bug-report in Edge and it doesn't have the issue. In their package json, they're still using `"@vue/ui": "^0.5.2"` just like us. -> This let us figure out that the issue stems from our css.
+//
+//  Sidenote:
+//    We introduced the MFTypeAhead in commit d0a41bd206a7ec5d9e82c849db37dbac72ef069e. 
+
+$global-zoom-inverse = calc(1.0/1.22)         
+$global-zoom-mobile-inverse = calc(1.0/1.15)
 
 $br = 7px
 //$br = 14px

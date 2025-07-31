@@ -358,6 +358,10 @@ html
   zoom $global-zoom
   min-width $page-width-min
 
+@supports not (background: -webkit-named-image(i)) // Not sure this is good way of identifying Safari. Claude came up with this. Works on macOS 15.5.
+  .popover
+    zoom $global-zoom-inverse // Undo zoom on the popover for all browsers except Safari (Otherwise the MFTypeAhead popover appears in the wrong place.) [Jul 2025]
+
 .small-gap
   grid-gap: 8px
 
@@ -400,6 +404,11 @@ html
 @media only screen and (max-width: 700px)
   html
     zoom $global-zoom-mobile
+
+  @supports not (background: -webkit-named-image(i))
+    .popover
+      zoom $global-zoom-mobile-inverse // Undo zoom on the popover for all browsers except Safari (Didn't test/think about if this makes sense on mobile) [Jul 2025]
+  
   .mf-ui-group-button
     font-size 12px
     //font-size clamp(8px,90%,12px) // Doesn't work on Safari
@@ -416,7 +425,6 @@ html
       & > .footer-links__line
         margin-left 0
         border none
-
 
   .footer-links__line, .footer-text
     text-align center
